@@ -1,0 +1,31 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extra_items": [
+    {
+      "count": 2,
+      "item": "malum:malignant_pewter_ingot"
+    },
+    {
+      "count": 1,
+      "item": "minecraft:iron_sword"
+    },
+    {
+      "count": 3,
+      "item": "minecraft:netherite_scrap"
+    }
+  ],
+  "input": {
+    "count": 8,
+    "tag": "forge:ingots/iron"
+  },
+  "output": {
+    "item": "malstone:white_arrow_blade"
+  },
+  "spirits": [
+    {
+      "type": "eldritch",
+      "count": 32
+    }
+  ]
+}

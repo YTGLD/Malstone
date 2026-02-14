@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "malstone.refmap.json",
   "mixins": [
+    "malum.MalumScytheItemMixin"
   ],
   "client": [
     "FoodDataMixin"

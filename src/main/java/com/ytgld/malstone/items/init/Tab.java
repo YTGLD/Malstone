@@ -16,6 +16,7 @@ public class Tab {
             .displayItems((a,b)->{
                 b.accept(ItemRegs.HugeSouls_.get());
                 b.accept(ItemRegs.BreakingTheLife_.get());
+                b.accept(ItemRegs.WhiteArrowBlade_.get());
             })
             .build()
     );

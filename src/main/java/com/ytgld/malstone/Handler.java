@@ -1,5 +1,6 @@
 package com.ytgld.malstone;
 
+import com.sammy.malum.common.item.curiosities.weapons.scythe.MagicScytheItem;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import top.theillusivec4.curios.api.CuriosApi;

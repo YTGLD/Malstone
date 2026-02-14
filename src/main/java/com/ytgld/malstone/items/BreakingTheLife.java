@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.registry.common.AttributeRegistry;
+import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.ItemRegs;
@@ -45,8 +46,9 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
     public BreakingTheLife(Properties properties) {
         super(properties);
     }
+
     public static boolean food(Player player){
-        float max = (player.getMaxHealth() * 0.5f);
+        float max = (player.getMaxHealth() * max(player));
         if (player.getHealth() >= max){
             return Handler.hascurio(player, ItemRegs.BreakingTheLife_.get());
         }
@@ -56,8 +58,8 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         super.appendHoverText(stack, level, components, flag);
         components.add(Component.translatable("item.malstone.breaking_the_life.text.1").setStyle(Style.EMPTY.withColor(color())));
-        components.add(Component.translatable("item.malstone.breaking_the_life.text.2").setStyle(Style.EMPTY.withColor(color())));
-        components.add(Component.translatable("item.malstone.breaking_the_life.text.3").setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.translatable("item.malstone.breaking_the_life.text.2",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.translatable("item.malstone.breaking_the_life.text.3",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
     }
 
     @Override
@@ -69,7 +71,7 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
         if (event.getEntity() instanceof Player player) {
             if (Handler.hascurio(player, ItemRegs.BreakingTheLife_.get())) {
                 float amout = event.getAmount();
-                float max = (player.getMaxHealth() * 0.5f);
+                float max = (player.getMaxHealth() * max(player));
                 if (amout + player.getHealth() > max){
                     float s = (amout + player.getHealth()) - max;
                     float a = amout - s;
@@ -85,8 +87,12 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> get = super.getAttributeModifiers(slotContext, uuid, stack);
-        get.put(AttributeRegistry.SOUL_WARD_CAP.get(),new AttributeModifier(uuid,this.getDescriptionId(),-1, AttributeModifier.Operation.MULTIPLY_TOTAL));
-        get.put(Attributes.MAX_HEALTH,new AttributeModifier(uuid,this.getDescriptionId(),0.4, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        get.put(AttributeRegistry.SOUL_WARD_CAP.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+                -1, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        get.put(AttributeRegistry.MALIGNANT_CONVERSION.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+                0.2, AttributeModifier.Operation.ADDITION));
+        get.put(Attributes.MAX_HEALTH,new AttributeModifier(uuid,this.getDescriptionId(),
+                0.2f, AttributeModifier.Operation.MULTIPLY_TOTAL));
         return get;
     }
     @Override
@@ -139,6 +145,10 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
                 swimming, AttributeModifier.Operation.MULTIPLY_BASE));
 
         return modifiers;
+    }
+
+    public static float max(@Nullable Player player){
+        return (float) (double)Config.getLife_max_BreakingTheLife().get();
     }
 
 }

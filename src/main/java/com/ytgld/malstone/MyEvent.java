@@ -6,6 +6,7 @@ import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.BreakingTheLife;
 import com.ytgld.malstone.items.HugeSouls;
+import com.ytgld.malstone.items.WhiteArrowBlade;
 import com.ytgld.malstone.items.init.WhiteArrow;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -46,6 +47,7 @@ public class MyEvent {
     @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent event){
         HugeSouls.lLivingDamageEvent(event);
+        WhiteArrowBlade.lLivingDamageEvent(event);
     }
 
     @OnlyIn(Dist.CLIENT)

@@ -8,10 +8,13 @@
   "item.malstone.huge_soul.text.1": "令佩戴者的治疗效果增加15%",
   "item.malstone.huge_soul.text.2": "对魔法伤害的抗性提高15%",
 
+  "item.malstone.white_arrow_blade": "白镴刀锋",
+  "item.malstone.white_arrow_blade.text.1": "魔法伤害减少至%d%%",
+  "item.malstone.white_arrow_blade.text.2": "物理伤害提高至%d%%",
 
 
   "item.malstone.breaking_the_life": "破命刀",
   "item.malstone.breaking_the_life.text.1": "损失生命值带来大量属性加成",
-  "item.malstone.breaking_the_life.text.2": "生命值最多恢复到50%",
-  "item.malstone.breaking_the_life.text.3": "饥饿值在生命恢复到50%时停止消耗"
+  "item.malstone.breaking_the_life.text.2": "生命值最多恢复到%d%%",
+  "item.malstone.breaking_the_life.text.3": "饥饿值在生命恢复到%d%%时停止消耗"
 }
