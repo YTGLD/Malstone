@@ -4,6 +4,7 @@ import com.sammy.malum.common.capability.MalumPlayerDataCapability;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.items.BreakingTheLife;
 import com.ytgld.malstone.items.HugeSouls;
 import com.ytgld.malstone.items.init.WhiteArrow;
 import net.minecraft.util.Mth;
@@ -23,7 +24,7 @@ public class MyEvent {
     @SubscribeEvent
     public void LivingHealEvent(LivingHealEvent event){
         HugeSouls.lLivingHealEvent(event);
-
+        BreakingTheLife.lLivingHealEvent(event);
         LivingEntity living = event.getEntity();
         if (living instanceof Player player) {
             AttributeInstance attribute = player.getAttribute(AttReg.ChaosErosion.get());

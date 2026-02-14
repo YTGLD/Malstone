@@ -7,7 +7,7 @@
   "mixins": [
   ],
   "client": [
-    "Mine"
+    "FoodDataMixin"
   ],
   "injectors": {
     "defaultRequire": 1

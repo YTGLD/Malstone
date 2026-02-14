@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteArrow extends Item implements ICurioItem {
-    public WhiteArrow(Properties p_41383_) {
-        super(p_41383_);
+    public WhiteArrow(Properties properties) {
+        super(properties);
     }
 
     @Override

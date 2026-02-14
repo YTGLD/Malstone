@@ -1,0 +1,38 @@
+{
+  "type": "malum:spirit_infusion",
+  "extra_items": [
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    },
+    {
+      "count": 2,
+      "item": "malum:malignant_lead"
+    },
+    {
+      "count": 4,
+      "item": "malum:malignant_pewter_ingot"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "minecraft:golden_sword"
+  },
+  "output": {
+    "item": "malstone:breaking_the_life"
+  },
+  "spirits": [
+    {
+      "type": "infernal",
+      "count": 32
+    },
+    {
+      "type": "earthen",
+      "count": 16
+    },
+    {
+      "type": "eldritch",
+      "count": 8
+    }
+  ]
+}
