@@ -1,0 +1,31 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extra_items": [
+    {
+      "count": 1,
+      "item": "malum:malignant_lead"
+    },
+    {
+      "count": 8,
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "input": {
+    "count": 4,
+    "item": "malum:malignant_pewter_ingot"
+  },
+  "output": {
+    "item": "malstone:huge_soul"
+  },
+  "spirits": [
+    {
+      "type": "earthen",
+      "count": 32
+    },
+    {
+      "type": "eldritch",
+      "count": 16
+    }
+  ]
+}

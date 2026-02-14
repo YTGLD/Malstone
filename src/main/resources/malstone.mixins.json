@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ytgld.malstone.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "malstone.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "Mine"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

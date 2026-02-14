@@ -1,0 +1,8 @@
+{
+  "itemGroup.malstone": "Malstone",
+  "item.malstone.huge_soul": "白镴方体",
+  "attribute.name.malstone.chaos_erosion": "混沌侵蚀",
+  "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",
+  "item.malstone.huge_soul.text.1": "令佩戴者的治疗效果增加15%",
+  "item.malstone.huge_soul.text.2": "对魔法伤害的抗性提高15%"
+}
