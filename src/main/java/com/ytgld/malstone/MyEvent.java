@@ -1,9 +1,12 @@
 package com.ytgld.malstone;
 
+import com.sammy.malum.client.screen.codex.screens.ArcanaProgressionScreen;
 import com.sammy.malum.common.capability.MalumPlayerDataCapability;
+import com.sammy.malum.common.events.SetupMalumCodexEntriesEvent;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.client.WhiteArrowEntries;
 import com.ytgld.malstone.items.BreakingTheLife;
 import com.ytgld.malstone.items.HugeSouls;
 import com.ytgld.malstone.items.WhiteArrowBlade;
@@ -59,4 +62,11 @@ public class MyEvent {
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 255, 100, 255));
         }
     }
+
+//    @SubscribeEvent
+//    public void SetupMalumCodexEntriesEvent(SetupMalumCodexEntriesEvent event){
+//        ArcanaProgressionScreen arcanaProgressionScreen = ArcanaProgressionScreen.getScreenInstance();
+//        WhiteArrowEntries.setupEntries(arcanaProgressionScreen);
+//
+//    }
 }

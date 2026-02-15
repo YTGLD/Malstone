@@ -1,23 +1,33 @@
+
 {
-  "itemGroup.malstone": "灵灾拓展：Malstone",
-  "attribute.name.malstone.chaos_erosion": "混沌侵蚀",
-  "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",
-  "attribute.name.malstone.super_malicious": "邪念之护",
-  "attribute.name.malstone.super_malicious.desc": "将部分护甲值转换成固定且不受影响的类型（只会计算直接增加的值）",
+  "itemGroup.malstone": "Spiritual Calamity Expansion: Exotic",
+  "attribute.name.malstone.chaos_erosion": "Chaos Erosion",
+  "attribute.name.malstone.chaos_erosion.desc": "It is possible to restore the soul shield while healing, but once it is restored, the healing is canceled",
+  "attribute.name.malstone.super_malicious": "Protection of evil thoughts",
+  "attribute.name.malstone.super_malicious.desc": "Convert part of the armor value to a fixed and unaffected type (only direct increments will be calculated)",
+  "malum.gui.book.entry.huge_soul": "cube cube",
+  "malum.gui.book.entry.huge_soul.description": "distorted variable",
+  "malum.gui.book.entry.page.headline.huge_soul": "pewter cube",
+  "malum.gui.book.entry.page.text.huge_soul.1": "The white cube stands on the opposite side of the spell. It symbolizes the power of never compromising. When wearing... It will exist invisibly, bringing the armored curse in the darkness back to reality...",
+  "item.malstone.huge_soul": "Pewter cube",
+  "item.malstone.huge_soul.text.1": "Increases the wearer's healing effect by 15%",
+  "item.malstone.huge_soul.text.2": "Increases resistance to magic damage by 15%",
+  "item.malstone.huge_soul.text.3": "Wearing the Fortress of Evil Thoughts equipment will grant additional Protection of Evil Thoughts",
+  "item.malstone.huge_soul.text.4": "Convert some armor values to a fixed and unaffected type",
+  "malum.gui.book.entry.white_arrow_blade": "Pewter blade necklace",
+  "malum.gui.book.entry.white_arrow_blade.description": "the destruction of common sense",
+  "malum.gui.book.entry.page.headline.white_arrow_blade": "Pewter blade necklace",
+  "malum.gui.book.entry.page.text.white_arrow_blade.1": "The white cypress blade necklace is a kind of master that is above the scythe. Its power is enough to distort any matter that exists. When wearing... Everywhere it can tear space and spells into tiny pieces...",
+  "item.malstone.white_arrow_blade": "White Blade Necklace",
+  "item.malstone.white_arrow_blade.text.2": "Physical damage increased to %d%%",
+  "item.malstone.white_arrow_blade.text.3": "The wielder's scythe always inflicts a sweep attack",
+  "malum.gui.book.entry.breaking_the_life": "life-breaking knife",
+  "malum.gui.book.entry.breaking_the_life.description": "Unbelievable pain",
+  "malum.gui.book.entry.page.headline.breaking_the_life": "Life-breaking knife",
+  "malum.gui.book.entry.page.text.breaking_the_life.1": "The Life-Breaking Knife is unlike any substance. It unleashes a power that makes space and creatures tremble. The holder's vitality will be limited... to achieve the so-called unbeatable",
+  "item.malstone.breaking_the_life": "life-breaking knife",
+  "item.malstone.breaking_the_life.text.1": "Loss of health brings a lot of attribute bonuses",
+  "item.malstone.breaking_the_life.text.2": "Health is restored to %d%% at most",
+  "item.malstone.breaking_the_life.text.3": "Hunger stops being consumed when health is restored to %d%%"
 
-  "item.malstone.huge_soul": "白镴方体",
-  "item.malstone.huge_soul.text.1": "令佩戴者的治疗效果增加15%",
-  "item.malstone.huge_soul.text.2": "对魔法伤害的抗性提高15%",
-  "item.malstone.huge_soul.text.3": "穿着恶念要塞装备将获得额外的邪念之护值",
-  "item.malstone.huge_soul.text.4": "将部分护甲值转换成固定且不受影响的类型",
-
-  "item.malstone.white_arrow_blade": "白镴刀锋项链",
-  "item.malstone.white_arrow_blade.text.2": "物理伤害提高至%d%%",
-  "item.malstone.white_arrow_blade.text.3": "持有者的镰刀始终可以造成横扫攻击",
-
-
-  "item.malstone.breaking_the_life": "破命刀",
-  "item.malstone.breaking_the_life.text.1": "损失生命值带来大量属性加成",
-  "item.malstone.breaking_the_life.text.2": "生命值最多恢复到%d%%",
-  "item.malstone.breaking_the_life.text.3": "饥饿值在生命恢复到%d%%时停止消耗"
 }

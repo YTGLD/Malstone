@@ -6,6 +6,7 @@
   "refmap": "malstone.refmap.json",
   "mixins": [
     "LivingEntityMixin",
+    "malum.VoidProgressionScreenMixin",
     "malum.MalumScytheItemMixin"
   ],
   "client": [
