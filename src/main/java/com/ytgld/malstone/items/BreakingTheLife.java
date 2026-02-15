@@ -39,7 +39,7 @@ import java.util.UUID;
  * <p>
  * +40%最大生命值
  */
-public class BreakingTheLife extends WhiteArrow implements IVoidItem {
+public class BreakingTheLife extends WhiteArrow {
 
     public BreakingTheLife(Properties properties) {
         super(properties);
@@ -58,11 +58,6 @@ public class BreakingTheLife extends WhiteArrow implements IVoidItem {
         components.add(Component.translatable("item.malstone.breaking_the_life.text.1").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.breaking_the_life.text.2",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.breaking_the_life.text.3",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
-    }
-
-    @Override
-    public float getVoidParticleIntensity() {
-        return 1.1f;
     }
 
     public static void lLivingHealEvent(LivingHealEvent event){

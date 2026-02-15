@@ -13,8 +13,8 @@ public class Config {
             .comment("The physical damage of the white blade")
             .defineInRange("WhiteArrowBladeAttack",1.3,0,Integer.MAX_VALUE);
     private static final ForgeConfigSpec.DoubleValue WhiteArrowBladeMagic = BUILDER
-            .comment("白镴刀锋的魔法伤害")
-            .comment("The magic damage of the white blade")
+            .comment("白镴刀锋的恶念转化")
+            .comment("The transformation of the evil thoughts of the blade of the white arrow")
             .defineInRange("WhiteArrowBladeMagic",0.5f,0,Integer.MAX_VALUE);
 
 

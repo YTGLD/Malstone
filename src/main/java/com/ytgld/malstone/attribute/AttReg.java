@@ -19,9 +19,14 @@ public class AttReg {
         return new RangedAttribute("attribute.name.malstone.chaos_erosion",
                 0.0, 0.0, 1024.0).setSyncable(true);
     });
+    public static final RegistryObject<Attribute> SuperMalicious  =REGISTRY.register("super_malicious", ()->{
+        return new RangedAttribute("attribute.name.malstone.super_malicious",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
 
     @SubscribeEvent
     public static void EntityAttributeCreationEvent(EntityAttributeModificationEvent event){
         event.add(EntityType.PLAYER , AttReg.ChaosErosion.get(),0);
+        event.add(EntityType.PLAYER , AttReg.SuperMalicious.get(),0);
     }
 }

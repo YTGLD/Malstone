@@ -25,7 +25,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.UUID;
 
-public class WhiteArrowBlade extends WhiteArrow implements IVoidItem {
+public class WhiteArrowBlade extends WhiteArrow {
     public WhiteArrowBlade(Properties properties) {
         super(properties);
     }
@@ -50,16 +50,23 @@ public class WhiteArrowBlade extends WhiteArrow implements IVoidItem {
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> get = super.getAttributeModifiers(slotContext, uuid, stack);
-        get.put(AttributeRegistry.SCYTHE_PROFICIENCY.get(),new AttributeModifier(uuid,this.getDescriptionId(),0.25, AttributeModifier.Operation.MULTIPLY_BASE));
-        get.put(AttributeRegistry.ARCANE_RESONANCE.get(),new AttributeModifier(uuid,this.getDescriptionId(),-0.2, AttributeModifier.Operation.MULTIPLY_TOTAL));
-        get.put(LodestoneAttributeRegistry.MAGIC_DAMAGE.get(),new AttributeModifier(uuid,this.getDescriptionId(),
-                -damageMagic(slotContext.entity()), AttributeModifier.Operation.MULTIPLY_TOTAL));
+        get.put(AttributeRegistry.SCYTHE_PROFICIENCY.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+                0.25, AttributeModifier.Operation.MULTIPLY_BASE));
+
+        get.put(AttributeRegistry.ARCANE_RESONANCE.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+                -0.25, AttributeModifier.Operation.MULTIPLY_TOTAL));
+
+        get.put(AttributeRegistry.MALIGNANT_CONVERSION.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+                damageMagic(slotContext.entity()), AttributeModifier.Operation.ADDITION));
+//
+//        get.put(LodestoneAttributeRegistry.MAGIC_DAMAGE.get(),new AttributeModifier(uuid,this.getDescriptionId(),
+//                -damageMagic(slotContext.entity()), AttributeModifier.Operation.MULTIPLY_TOTAL));
         return get;
     }
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         super.appendHoverText(stack, level, components, flag);
-        components.add(Component.translatable("item.malstone.white_arrow_blade.text.1",damageMagic(null)*100f).setStyle(Style.EMPTY.withColor(color())));
+//        components.add(Component.translatable("item.malstone.white_arrow_blade.text.1",damageMagic(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.2",damageAttack(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.3").setStyle(Style.EMPTY.withColor(color())));
     }

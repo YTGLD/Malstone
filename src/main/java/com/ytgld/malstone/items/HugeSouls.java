@@ -2,6 +2,7 @@ package com.ytgld.malstone.items;
 
 import com.google.common.collect.Multimap;
 import com.sammy.malum.registry.common.AttributeRegistry;
+import com.sammy.malum.registry.common.item.ItemRegistry;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.ItemRegs;
@@ -9,9 +10,13 @@ import com.ytgld.malstone.items.init.WhiteArrow;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -27,6 +32,7 @@ public class HugeSouls extends WhiteArrow {
     public HugeSouls(Properties properties) {
         super(properties);
     }
+
     public static void lLivingHealEvent(LivingHealEvent event){
         if (event.getEntity() instanceof Player player) {
             if (Handler.hascurio(player, ItemRegs.HugeSouls_.get())) {
@@ -34,6 +40,7 @@ public class HugeSouls extends WhiteArrow {
             }
         }
     }
+
     public static void lLivingDamageEvent(LivingDamageEvent event){
         if (event.getEntity() instanceof Player player) {
             if (Handler.hascurio(player, ItemRegs.HugeSouls_.get())) {
@@ -48,14 +55,30 @@ public class HugeSouls extends WhiteArrow {
         super.appendHoverText(stack, level, components, flag);
         components.add(Component.translatable("item.malstone.huge_soul.text.1").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.huge_soul.text.2").setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.literal(""));
+        components.add(Component.translatable("item.malstone.huge_soul.text.3").setStyle(Style.EMPTY.withColor(color())));
+//        components.add(Component.translatable("item.malstone.huge_soul.text.4").setStyle(Style.EMPTY.withColor(color())));
 
     }
 
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> get = super.getAttributeModifiers(slotContext, uuid, stack);
-        get.put(AttReg.ChaosErosion.get(),new AttributeModifier(uuid,this.getDescriptionId(),0.25f, AttributeModifier.Operation.ADDITION));
-        get.put(AttributeRegistry.SOUL_WARD_CAP.get(),new AttributeModifier(uuid,this.getDescriptionId(),4, AttributeModifier.Operation.ADDITION));
+        float m = 0.25f;
+        if (Handler.isEq(slotContext.entity(), EquipmentSlot.HEAD, ItemRegistry.MALIGNANT_STRONGHOLD_HELMET.get())) {
+            m +=0.03F;
+        }
+        if (Handler.isEq(slotContext.entity(), EquipmentSlot.CHEST, ItemRegistry.MALIGNANT_STRONGHOLD_CHESTPLATE.get())) {
+            m +=0.07F;
+        }
+        if (Handler.isEq(slotContext.entity(), EquipmentSlot.LEGS, ItemRegistry.MALIGNANT_STRONGHOLD_LEGGINGS.get())) {
+            m +=0.06F;
+        }
+        if (Handler.isEq(slotContext.entity(), EquipmentSlot.FEET, ItemRegistry.MALIGNANT_STRONGHOLD_BOOTS.get())) {
+            m +=0.04F;
+        }
+        get.put(AttReg.SuperMalicious.get(),new AttributeModifier(uuid,this.getDescriptionId(),m, AttributeModifier.Operation.ADDITION));
         return get;
     }
+
 }
