@@ -1,7 +1,6 @@
-package com.ytgld.malstone.items;
+package com.ytgld.malstone.items.white;
 
 import com.google.common.collect.Multimap;
-import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
@@ -19,7 +18,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import org.jetbrains.annotations.Nullable;
-import team.lodestar.lodestone.registry.common.LodestoneAttributeRegistry;
 import top.theillusivec4.curios.api.SlotContext;
 
 import java.util.List;

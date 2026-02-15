@@ -1,7 +1,7 @@
 package com.ytgld.malstone.mixin.malum;
 
 import com.sammy.malum.common.item.curiosities.weapons.scythe.MalumScytheItem;
-import com.ytgld.malstone.items.WhiteArrowBlade;
+import com.ytgld.malstone.items.white.WhiteArrowBlade;
 import net.minecraft.world.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

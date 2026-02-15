@@ -17,6 +17,8 @@ public class Tab {
                 b.accept(ItemRegs.HugeSouls_.get());
                 b.accept(ItemRegs.BreakingTheLife_.get());
                 b.accept(ItemRegs.WhiteArrowBlade_.get());
+                b.accept(ItemRegs.RingOfAuthority_.get());
+                b.accept(ItemRegs.SoulSteelComponents_.get());
             })
             .build()
     );

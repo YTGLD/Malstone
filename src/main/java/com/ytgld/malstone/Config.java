@@ -16,10 +16,25 @@ public class Config {
             .comment("白镴刀锋的恶念转化")
             .comment("The transformation of the evil thoughts of the blade of the white arrow")
             .defineInRange("WhiteArrowBladeMagic",0.5f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue armorHugeSouls = BUILDER
+            .comment("白镴方体的每个恶念要塞装备或者饰品给予的邪念之护")
+            .comment("The protection of evil thoughts given by each evil thought fortress equipment in the white cypress cube")
+            .defineInRange("armorHugeSouls",0.025f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue armorDefHugeSouls = BUILDER
+            .comment("白镴方体的给予的邪念之护")
+            .comment("The protection of evil thoughts given by the white cypress cube")
+            .defineInRange("armorDefHugeSouls",0.1f,0,Integer.MAX_VALUE);
 
 
 
-    static final ForgeConfigSpec SPEC = BUILDER.build();
+    static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.DoubleValue getArmorDefHugeSouls() {
+        return armorDefHugeSouls;
+    }
+    public static ForgeConfigSpec.DoubleValue getArmorHugeSouls() {
+        return armorHugeSouls;
+    }
 
     public static ForgeConfigSpec.DoubleValue getWhiteArrowBladeAttack() {
         return WhiteArrowBladeAttack;

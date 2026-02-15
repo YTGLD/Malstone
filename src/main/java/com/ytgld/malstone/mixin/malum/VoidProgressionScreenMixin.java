@@ -1,6 +1,5 @@
 package com.ytgld.malstone.mixin.malum;
 
-import com.sammy.malum.client.screen.codex.screens.ArcanaProgressionScreen;
 import com.sammy.malum.client.screen.codex.screens.VoidProgressionScreen;
 import com.ytgld.malstone.client.WhiteArrowEntries;
 import org.spongepowered.asm.mixin.Mixin;

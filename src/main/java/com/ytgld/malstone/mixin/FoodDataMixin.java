@@ -1,6 +1,6 @@
 package com.ytgld.malstone.mixin;
 
-import com.ytgld.malstone.items.BreakingTheLife;
+import com.ytgld.malstone.items.white.BreakingTheLife;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import org.spongepowered.asm.mixin.Mixin;

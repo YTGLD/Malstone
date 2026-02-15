@@ -1,13 +1,13 @@
-package com.ytgld.malstone.items;
+package com.ytgld.malstone.items.white;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,9 +21,14 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
+import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
+import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**

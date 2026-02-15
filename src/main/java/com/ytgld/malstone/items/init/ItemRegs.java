@@ -1,9 +1,11 @@
 package com.ytgld.malstone.items.init;
 
 import com.ytgld.malstone.Malstone;
-import com.ytgld.malstone.items.BreakingTheLife;
-import com.ytgld.malstone.items.HugeSouls;
-import com.ytgld.malstone.items.WhiteArrowBlade;
+import com.ytgld.malstone.items.soul.SoulSteelComponents;
+import com.ytgld.malstone.items.white.BreakingTheLife;
+import com.ytgld.malstone.items.white.HugeSouls;
+import com.ytgld.malstone.items.white.RingOfAuthority;
+import com.ytgld.malstone.items.white.WhiteArrowBlade;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.DeferredRegister;
@@ -18,6 +20,9 @@ public class ItemRegs {
             ()->new BreakingTheLife(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> WhiteArrowBlade_ = REGISTER.register("white_arrow_blade",
             ()->new WhiteArrowBlade(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
-
+    public static final RegistryObject<Item> SoulSteelComponents_ = REGISTER.register("soul_steel_components",
+            ()->new SoulSteelComponents(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> RingOfAuthority_ = REGISTER.register("ring_of_authority",
+            ()->new RingOfAuthority(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

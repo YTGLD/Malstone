@@ -1,15 +1,14 @@
 package com.ytgld.malstone;
 
-import com.sammy.malum.client.screen.codex.screens.ArcanaProgressionScreen;
 import com.sammy.malum.common.capability.MalumPlayerDataCapability;
-import com.sammy.malum.common.events.SetupMalumCodexEntriesEvent;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
-import com.ytgld.malstone.client.WhiteArrowEntries;
-import com.ytgld.malstone.items.BreakingTheLife;
-import com.ytgld.malstone.items.HugeSouls;
-import com.ytgld.malstone.items.WhiteArrowBlade;
+import com.ytgld.malstone.items.init.SoulSteel;
+import com.ytgld.malstone.items.white.BreakingTheLife;
+import com.ytgld.malstone.items.white.HugeSouls;
+import com.ytgld.malstone.items.white.RingOfAuthority;
+import com.ytgld.malstone.items.white.WhiteArrowBlade;
 import com.ytgld.malstone.items.init.WhiteArrow;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -51,6 +50,7 @@ public class MyEvent {
     public void LivingDamageEvent(LivingDamageEvent event){
         HugeSouls.lLivingDamageEvent(event);
         WhiteArrowBlade.lLivingDamageEvent(event);
+        RingOfAuthority.attack(event);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -60,6 +60,10 @@ public class MyEvent {
         if (stack.getItem() instanceof WhiteArrow whiteArrow) {
             tooltipEvent.setBorderStart(whiteArrow.color());
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 255, 100, 255));
+        }
+        if (stack.getItem() instanceof SoulSteel soulSteel) {
+            tooltipEvent.setBorderStart(Light.ARGB.color(255, 255, 243, 178));
+            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
     }
 

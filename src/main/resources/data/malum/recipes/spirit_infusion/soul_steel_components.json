@@ -1,0 +1,31 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extra_items": [
+    {
+      "count": 4,
+      "item": "malum:living_flesh"
+    },
+    {
+      "count": 8,
+      "item": "malum:processed_soulstone"
+    }
+  ],
+  "input": {
+    "count": 6,
+    "item": "malum:soul_stained_steel_ingot"
+  },
+  "output": {
+    "item": "malstone:soul_steel_components"
+  },
+  "spirits": [
+    {
+      "type": "wicked",
+      "count": 24
+    },
+    {
+      "type": "arcane",
+      "count": 12
+    }
+  ]
+}

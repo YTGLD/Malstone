@@ -3,6 +3,7 @@ package com.ytgld.malstone.client;
 import com.sammy.malum.client.screen.codex.BookWidgetStyle;
 import com.sammy.malum.client.screen.codex.pages.recipe.SpiritInfusionPage;
 import com.sammy.malum.client.screen.codex.pages.text.HeadlineTextPage;
+import com.sammy.malum.client.screen.codex.pages.text.TextPage;
 import com.sammy.malum.client.screen.codex.screens.ArcanaProgressionScreen;
 import com.sammy.malum.client.screen.codex.screens.VoidProgressionScreen;
 import com.ytgld.malstone.items.init.ItemRegs;
@@ -26,7 +27,14 @@ public class WhiteArrowEntries {
                 .addPage(new HeadlineTextPage("breaking_the_life", "breaking_the_life.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.BreakingTheLife_.get()))
         );
-        screen.addEntry("white_arrow_blade",  1, -3, b -> b
+        screen.addEntry("ring_of_authority",  1, -3, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.RingOfAuthority_)
+                        .setStyle(BookWidgetStyle.WITHERED))
+                .addPage(new HeadlineTextPage("ring_of_authority", "ring_of_authority.1"))
+                .addPage(new TextPage("ring_of_authority.2"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.RingOfAuthority_.get()))
+        );
+        screen.addEntry("white_arrow_blade",  0, -3, b -> b
                 .configureWidget(w -> w.setIcon(ItemRegs.WhiteArrowBlade_)
                         .setStyle(BookWidgetStyle.WITHERED))
                 .addPage(new HeadlineTextPage("white_arrow_blade", "white_arrow_blade.1"))

@@ -6,11 +6,12 @@
   "refmap": "malstone.refmap.json",
   "mixins": [
     "LivingEntityMixin",
-    "malum.VoidProgressionScreenMixin",
-    "malum.MalumScytheItemMixin"
+    "malum.MalumScytheItemMixin",
+    "malum.VoidProgressionScreenMixin"
   ],
   "client": [
-    "FoodDataMixin"
+    "FoodDataMixin",
+    "malum.ArcanaProgressionScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
