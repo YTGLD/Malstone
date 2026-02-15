@@ -1,10 +1,10 @@
 package com.ytgld.malstone.items;
 
 import com.google.common.collect.Multimap;
+import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
 import net.minecraft.network.chat.Component;
@@ -25,7 +25,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import java.util.List;
 import java.util.UUID;
 
-public class WhiteArrowBlade extends WhiteArrow {
+public class WhiteArrowBlade extends WhiteArrow implements IVoidItem {
     public WhiteArrowBlade(Properties properties) {
         super(properties);
     }
@@ -61,6 +61,7 @@ public class WhiteArrowBlade extends WhiteArrow {
         super.appendHoverText(stack, level, components, flag);
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.1",damageMagic(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.2",damageAttack(null)*100f).setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.translatable("item.malstone.white_arrow_blade.text.3").setStyle(Style.EMPTY.withColor(color())));
     }
 
     public static float damageMagic(@Nullable LivingEntity entity){

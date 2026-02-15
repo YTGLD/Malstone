@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(MalumScytheItem.class)
+@Mixin(value = MalumScytheItem.class,remap = false)
 public class MalumScytheItemMixin {
     @Inject(method = "canSweep", at = @At(value = "RETURN"), cancellable = true)
     private static void canSweep(LivingEntity attacker, CallbackInfoReturnable<Boolean> cir) {

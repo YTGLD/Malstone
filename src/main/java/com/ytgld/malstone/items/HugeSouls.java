@@ -1,45 +1,25 @@
 package com.ytgld.malstone.items;
 
 import com.google.common.collect.Multimap;
-import com.sammy.malum.common.item.curiosities.SpiritPouchItem;
-import com.sammy.malum.common.item.spirit.SpiritShardItem;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.Light;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
-import net.minecraft.network.chat.TextColor;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.Nullable;
-import team.lodestar.lodestone.systems.container.ItemInventory;
 import top.theillusivec4.curios.api.SlotContext;
 
-import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
