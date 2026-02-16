@@ -1,6 +1,7 @@
 package com.ytgld.malstone.items.init;
 
 import com.sammy.malum.registry.common.SoundRegistry;
+import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.Light;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -30,7 +31,10 @@ public class SoulSteel extends Item implements ICurioItem {
     public @NotNull ICurio.SoundInfo getEquipSound(SlotContext slotContext, ItemStack stack) {
         return new  ICurio.SoundInfo(SoundRegistry.SOULSTONE_PLACE.get(),1,1);
     }
-
+    @Override
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return !Handler.hascurio(slotContext.entity(), this);
+    }
     @Override
     public List<Component> getAttributesTooltip(List<Component> tooltips, ItemStack stack) {
         List<Component> components = new ArrayList<>();

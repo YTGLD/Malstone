@@ -1,6 +1,7 @@
 package com.ytgld.malstone.items.init;
 
 import com.sammy.malum.registry.common.SoundRegistry;
+import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.Light;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -24,6 +25,11 @@ public class WhiteArrow extends Item implements ICurioItem {
     public Component getName(ItemStack p_41458_) {
         Component component =super.getName(p_41458_);
         return component.copy().setStyle(Style.EMPTY.withColor(color()));
+    }
+
+    @Override
+    public boolean canEquip(SlotContext slotContext, ItemStack stack) {
+        return !Handler.hascurio(slotContext.entity(), this);
     }
 
     @Override
