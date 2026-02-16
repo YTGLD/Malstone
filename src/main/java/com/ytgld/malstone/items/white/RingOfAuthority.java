@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.sammy.malum.common.entity.bolt.DrainingBoltEntity;
 import com.sammy.malum.registry.common.item.ItemRegistry;
-import com.sun.jna.platform.win32.COM.util.ComThread;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
@@ -15,7 +14,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -24,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import org.jetbrains.annotations.Nullable;
 import top.theillusivec4.curios.api.SlotContext;
@@ -47,20 +44,6 @@ import java.util.*;
  */
 public class RingOfAuthority extends WhiteArrow {
 
-    public static final Set<Item> white = Set.of(
-            ItemRegistry.EDGE_OF_DELIVERANCE.get(),
-            ItemRegistry.WEIGHT_OF_WORLDS.get(),
-            ItemRegistry.EROSION_SCEPTER.get()
-    );
-
-    public static final Set<MobEffect> effects = Set.of(
-            MobEffects.DIG_SLOWDOWN,
-            MobEffects.POISON,
-            MobEffects.WEAKNESS,
-            MobEffects.MOVEMENT_SLOWDOWN,
-            MobEffects.DARKNESS,
-            MobEffects.BLINDNESS
-    );
     private static final String attackSpeedTag= "attackSpeedTagOfRingOfAuthority";
 
     public RingOfAuthority(Properties properties) {
@@ -70,6 +53,11 @@ public class RingOfAuthority extends WhiteArrow {
         if (event.getSource().getEntity() instanceof Player player) {
             if (Handler.hascurio(player, ItemRegs.RingOfAuthority_.get())) {
                 if (!player.level().isClientSide()) {
+                    Set<Item> white = Set.of(
+                            ItemRegistry.EDGE_OF_DELIVERANCE.get(),
+                            ItemRegistry.WEIGHT_OF_WORLDS.get(),
+                            ItemRegistry.EROSION_SCEPTER.get()
+                    );
                     if (white.contains(player.getMainHandItem().getItem())) {
                         CompoundTag compoundTag = player.getPersistentData();
                         if (compoundTag.getFloat(attackSpeedTag) < maxSped(player)) {
@@ -83,6 +71,14 @@ public class RingOfAuthority extends WhiteArrow {
             if (drainingBoltEntity.getOwner() instanceof Player player) {
                 if (Handler.hascurio(player, ItemRegs.RingOfAuthority_.get())) {
                     if (!player.level().isClientSide()) {
+                        Set<MobEffect> effects = Set.of(
+                                MobEffects.DIG_SLOWDOWN,
+                                MobEffects.POISON,
+                                MobEffects.WEAKNESS,
+                                MobEffects.MOVEMENT_SLOWDOWN,
+                                MobEffects.DARKNESS,
+                                MobEffects.BLINDNESS
+                        );
                         LivingEntity living = event.getEntity();
                         List<Integer> damage = new ArrayList<>();
                         for (MobEffect effect : effects) {

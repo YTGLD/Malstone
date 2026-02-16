@@ -29,22 +29,19 @@
   "item.malstone.breaking_the_life.text.2": "Health can only regenerate up to %d%%",
   "item.malstone.breaking_the_life.text.3": "Hunger stops draining once health reaches %d%%",
 
-
-  "malum.gui.book.entry.ring_of_authority": "扭曲权威之戒",
-  "malum.gui.book.entry.ring_of_authority.description": "权力的象征",
-  "malum.gui.book.entry.page.headline.ring_of_authority": "扭曲权威之戒",
-  "malum.gui.book.entry.page.text.ring_of_authority.1": "将来自哭泣之井中的 扭曲奥术能量融入恶念白镴之中后， 这枚能够让使用者更好驾驭恶念白镴 物品的戒指孕育而生。",
-  "malum.gui.book.entry.page.text.ring_of_authority.2": "佩戴这枚戒指后， 原本沉重并难以挥动的 白镴之镰与白镴之斧 将随着你的杀戮变得 越发轻盈。侵蚀权杖中的虚空物质 也变得越发活跃， 开始催动出更加复杂的 能量束侵蚀他人的肉体， 若是这种侵蚀遭到阻挡 则其将转变为， 更加强大的魔法 攻击袭向对方！",
-  "item.malstone.ring_of_authority": "扭曲权威之戒",
-  "item.malstone.ring_of_authority.text.1": "对于挽魂锋镰和宙界重斧：",
-  "item.malstone.ring_of_authority.text.2": "造成伤害时会逐渐增加攻击速度",
-  "item.malstone.ring_of_authority.text.3": "使用侵蚀权杖发射侵蚀能量束时对目标造成大量的负面状态",
-  "item.malstone.ring_of_authority.text.4": "若目标免疫负面效果",
-  "item.malstone.ring_of_authority.text.5": "则每免疫一种状态都将增加20%侵蚀能量束的伤害",
-
-  "malum.gui.book.entry.soul_steel_components": "魂钢构件",
-  "malum.gui.book.entry.soul_steel_components.description": "看似寻常的失误",
-  "malum.gui.book.entry.page.headline.soul_steel_components": "魂钢构件",
-  "malum.gui.book.entry.page.text.soul_steel_components.1": "魂钢构件是一个失败的物品。 但它仿佛存在生命。 持有者的治疗将被限制... 但每次治疗 都有可能治愈你的灵魂 代价则是让原先恢复的生机 消失的无影无踪",
-  "item.malstone.soul_steel_components": "魂钢构件"
+"malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
+  "malum.gui.book.entry.ring_of_authority.description": "symbol of power",
+  "malum.gui.book.entry.page.headline.ring_of_authority": "Distorted Ring of Authority",
+  "[malum.gui.book.entry.page.text.ring_of_authority.1": "After incorporating the Twisted Arcane energy from the Well of Weeping into the Evil Thought Pewter, this ring was born that allows the user to better control the Evil Thought Pewter item." ,  "malum.gui.book.entry.page.text.ring_of_authority.2": "佩戴这枚戒指后， 原本沉重并难以挥动的 白镴之镰与白镴之斧 将随着你的杀戮变得 越发轻盈。侵蚀权杖中的虚空物质 也变得越发活跃， 开始催动出更加复杂的 能量束侵蚀他人的肉体， 若是这种侵蚀遭到阻挡 则其将转变为， 更加强大的魔法 攻击袭向对方！",
+"item.malstone.ring_of_authority": "Ring of Distorted Authority",
+  "item.malstone.ring_of_authority.text.1": "For the Soul Saving Scythe and the Cosmic Axe:",
+  "item.malstone.ring_of_authority.text.2": "Attack speed increases gradually when dealing damage",
+  "item.malstone.ring_of_authority.text.3": "Inflicting a large number of negative states on the target when using the Erosion Scepter to fire an erosion energy beam",
+  "item.malstone.ring_of_authority.text.4": "if the target is immune to negative effects",
+  "item.malstone.ring_of_authority.text.5": "Each state immune increases the damage of the erosion beam by 20%",
+ "malum.gui.book.entry.soul_steel_components": "soul steel component",
+  "malum.gui.book.entry.soul_steel_components.description": "Seemingly ordinary mistake",
+  "malum.gui.book.entry.page.headline.soul_steel_components": "soul steel component",
+  "malum.gui.book.entry.page.text.soul_steel_components.1": "The Soulsteel component is a failed item. But it seems to have life. The holder's healing will be limited... But every treatment has the potential to heal your soul, but at the cost of making the original vitality disappear without a trace.",
+  "item.malstone.soul_steel_components": "Soul Steel Component"
 }
