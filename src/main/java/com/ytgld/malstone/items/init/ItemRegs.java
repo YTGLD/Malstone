@@ -1,6 +1,7 @@
 package com.ytgld.malstone.items.init;
 
 import com.ytgld.malstone.Malstone;
+import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.EternalFallenSoul;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
 import com.ytgld.malstone.items.white.BreakingTheLife;
@@ -27,5 +28,7 @@ public class ItemRegs {
             ()->new RingOfAuthority(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> EternalFallenSoul_ = REGISTER.register("eternal_fallen_soul",
             ()->new EternalFallenSoul(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> BladeOath_ = REGISTER.register("blade_dath",
+            ()->new BladeOath(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

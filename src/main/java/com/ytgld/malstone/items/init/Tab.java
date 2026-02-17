@@ -20,6 +20,7 @@ public class Tab {
                 b.accept(ItemRegs.RingOfAuthority_.get());
                 b.accept(ItemRegs.SoulSteelComponents_.get());
                 b.accept(ItemRegs.EternalFallenSoul_.get());
+                b.accept(ItemRegs.BladeOath_.get());
             })
             .build()
     );

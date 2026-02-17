@@ -6,6 +6,7 @@ import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.Runes;
 import com.ytgld.malstone.items.init.SoulSteel;
+import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.white.BreakingTheLife;
 import com.ytgld.malstone.items.white.HugeSouls;
 import com.ytgld.malstone.items.white.RingOfAuthority;
@@ -49,6 +50,7 @@ public class MyEvent {
 
     @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent event){
+        BladeOath.doMaxScy(event);
         HugeSouls.lLivingDamageEvent(event);
         WhiteArrowBlade.lLivingDamageEvent(event);
         RingOfAuthority.attack(event);

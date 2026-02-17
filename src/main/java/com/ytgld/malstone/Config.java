@@ -32,10 +32,18 @@ public class Config {
             .comment("永堕灵魂符文的最大叠加值")
             .comment("The maximum stack value of the Eternal Fallen Soul Rune")
             .defineInRange("maxEternalFallenSoul",0.25f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue doubleBladeOath = BUILDER
+            .comment("锋刀誓言符文的第二次伤害的值")
+            .comment("The value of the second damage of the Blade Oath rune")
+            .defineInRange("doubleBladeOath",0.5f,0,Integer.MAX_VALUE);
 
 
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.DoubleValue getDoubleBladeOath() {
+        return doubleBladeOath;
+    }
 
     public static ForgeConfigSpec.DoubleValue getMaxEternalFallenSoul() {
         return maxEternalFallenSoul;

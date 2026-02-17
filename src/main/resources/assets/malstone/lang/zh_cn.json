@@ -51,6 +51,16 @@
   "item.malstone.eternal_fallen_soul.text.1": "最多获得额外%d%%的属性",
 
 
+  "malum.gui.book.entry.blade_dath": "锋刀誓言符文",
+  "malum.gui.book.entry.blade_dath.description": "灵魂的异常波动",
+  "malum.gui.book.entry.page.headline.blade_dath": "锋刀誓言符文",
+  "malum.gui.book.entry.page.text.blade_dath.1": "锋刀誓言符文使持有者的 镰刀熟练度达到了无形之境， 在挥舞镰刀造成伤害 的同时也获得了 极大的灵魂汲取能力， 使得持有者的生命力 源源不断，生生不息， 但是这种效果 仅在使用镰刀时存在... 即使你使用了镰刀 你依然能感觉到无比疲惫",
+  "item.malstone.blade_dath": "锋刀誓言符文",
+  "item.malstone.blade_dath.text": "使用镰刀类武器将造成二段的瞬时伤害",
+  "item.malstone.blade_dath.text.1": "极大增加镰刀类武器的横扫攻击范围",
+  "item.malstone.blade_dath.text.2": "非镰刀武器造成的伤害降低至5%",
+  "item.malstone.blade_dath.text.3": "镰刀造成的物理伤害时可以快速进行下一次攻击而不被无敌帧保护",
+
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
   "malum.gui.book.entry.page.headline.breaking_the_life": "破命刀",

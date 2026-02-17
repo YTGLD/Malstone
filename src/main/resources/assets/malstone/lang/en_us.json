@@ -38,6 +38,17 @@
   "item.malstone.eternal_fallen_soul.text.1": "stacks up to additional %d%%",
 
 
+
+  "malum.gui.book.entry.blade_dath": "Blade Oath Rune",
+  "malum.gui.book.entry.blade_dath.description": "Abnormal fluctuations in the soul",
+  "malum.gui.book.entry.page.headline.blade_dath": "Blade Oath Rune",
+  "malum.gui.book.entry.page.text.blade_dath.1": "The Blade Oath Rune makes the wielder's scythe proficiency invisible, and while wielding the scythe to deal damage, it also gains a great ability to absorb souls, so that the bearer's life force is continuous and endless, but this effect only exists when the scythe is used... Even if you use the scythe, you can still feel extremely tired",
+  "item.malstone.blade_dath": "Blade Oath Rune",
+"item.malstone.blade_dath.text": "Using a scythe-type weapon will deal 2nd stage instantaneous damage",
+  "item.malstone.blade_dath.text.1": "Greatly increases the sweeping attack range of scythe-type weapons",
+  "item.malstone.blade_dath.text.2": "Damage dealt by non-scythe weapons reduced to 5%",
+  "item.malstone.blade_dath.text.3": "Physical damage dealt by the scythe allows you to quickly perform the next attack without being protected by the invincibility frame",
+
 "malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
   "malum.gui.book.entry.ring_of_authority.description": "symbol of power",
   "malum.gui.book.entry.page.headline.ring_of_authority": "Distorted Ring of Authority",

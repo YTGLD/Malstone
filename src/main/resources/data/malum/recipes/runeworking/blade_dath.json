@@ -1,0 +1,14 @@
+{
+  "type": "malum:runeworking",
+  "output": {
+    "item": "malstone:blade_dath"
+  },
+  "primaryInput": {
+    "count": 1,
+    "item": "malum:rune_of_sacrificial_empowerment"
+  },
+  "secondaryInput": {
+    "count": 6,
+    "item": "malum:malignant_pewter_ingot"
+  }
+}

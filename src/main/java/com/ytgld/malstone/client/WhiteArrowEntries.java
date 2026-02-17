@@ -48,6 +48,13 @@ public class WhiteArrowEntries {
                 .addPage(new HeadlineTextPage("eternal_fallen_soul", "eternal_fallen_soul.1"))
                 .addPage(RuneworkingPage.fromOutput(ItemRegs.EternalFallenSoul_.get()))
         );
+
+        screen.addEntry("blade_dath",  0, -5, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.BladeOath_)
+                        .setStyle(BookWidgetStyle.TOTEMIC_SOULWOOD))
+                .addPage(new HeadlineTextPage("blade_dath", "blade_dath.1"))
+                .addPage(RuneworkingPage.fromOutput(ItemRegs.BladeOath_.get()))
+        );
     }
 
 }
