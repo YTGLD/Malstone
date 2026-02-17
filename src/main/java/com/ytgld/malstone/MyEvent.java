@@ -4,6 +4,7 @@ import com.sammy.malum.common.capability.MalumPlayerDataCapability;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.items.init.Runes;
 import com.ytgld.malstone.items.init.SoulSteel;
 import com.ytgld.malstone.items.white.BreakingTheLife;
 import com.ytgld.malstone.items.white.HugeSouls;
@@ -63,6 +64,10 @@ public class MyEvent {
         }
         if (stack.getItem() instanceof SoulSteel soulSteel) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255, 255, 243, 178));
+            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
+        }
+        if (stack.getItem() instanceof Runes runes) {
+            tooltipEvent.setBorderStart(Light.ARGB.color(255,210, 0, 203));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
     }

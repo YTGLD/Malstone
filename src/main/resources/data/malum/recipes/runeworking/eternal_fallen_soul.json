@@ -1,0 +1,14 @@
+{
+  "type": "malum:runeworking",
+  "output": {
+    "item": "malstone:eternal_fallen_soul"
+  },
+  "primaryInput": {
+    "count": 1,
+    "item": "malum:rune_of_bolstering"
+  },
+  "secondaryInput": {
+    "count": 1,
+    "item": "malstone:soul_steel_components"
+  }
+}

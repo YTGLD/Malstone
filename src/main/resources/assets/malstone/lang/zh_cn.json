@@ -42,6 +42,15 @@
   "malum.gui.book.entry.page.text.soul_steel_components.1": "魂钢构件是一个失败的物品。 但它仿佛存在生命。 持有者的治疗将被限制... 但每次治疗 都有可能治愈你的灵魂 代价则是让原先恢复的生机 消失的无影无踪",
   "item.malstone.soul_steel_components": "魂钢构件",
 
+  "malum.gui.book.entry.eternal_fallen_soul": "永堕灵魂符文",
+  "malum.gui.book.entry.eternal_fallen_soul.description": "灵魂的异常波动",
+  "malum.gui.book.entry.page.headline.eternal_fallen_soul": "永堕灵魂符文",
+  "malum.gui.book.entry.page.text.eternal_fallen_soul.1": "永堕灵魂符文融合了异面的虚无之力。 让持有者在治愈灵魂时额外 得到另一个位面的法则加持 这极大加强了使用者的 伤害，速度，攻速 护甲 虽然不是永久的 但也足够了....",
+  "item.malstone.eternal_fallen_soul": "永堕灵魂符文",
+  "item.malstone.eternal_fallen_soul.text": "恢复灵魂护盾时会短暂叠加你的部分属性",
+  "item.malstone.eternal_fallen_soul.text.1": "最多获得额外%d%%的属性",
+
+
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
   "malum.gui.book.entry.page.headline.breaking_the_life": "破命刀",

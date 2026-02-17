@@ -24,10 +24,26 @@ public class Config {
             .comment("白镴方体的给予的邪念之护")
             .comment("The protection of evil thoughts given by the white cypress cube")
             .defineInRange("armorDefHugeSouls",0.1f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue speedEternalFallenSoul = BUILDER
+            .comment("永堕灵魂符文的叠加速度")
+            .comment("The stacking speed of the Eternal Fallen Soul rune")
+            .defineInRange("speedEternalFallenSoul",0.025f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue maxEternalFallenSoul = BUILDER
+            .comment("永堕灵魂符文的最大叠加值")
+            .comment("The maximum stack value of the Eternal Fallen Soul Rune")
+            .defineInRange("maxEternalFallenSoul",0.25f,0,Integer.MAX_VALUE);
 
 
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.DoubleValue getMaxEternalFallenSoul() {
+        return maxEternalFallenSoul;
+    }
+
+    public static ForgeConfigSpec.DoubleValue getSpeedEternalFallenSoul() {
+        return speedEternalFallenSoul;
+    }
 
     public static ForgeConfigSpec.DoubleValue getArmorDefHugeSouls() {
         return armorDefHugeSouls;

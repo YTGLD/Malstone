@@ -29,6 +29,15 @@
   "item.malstone.breaking_the_life.text.2": "Health can only regenerate up to %d%%",
   "item.malstone.breaking_the_life.text.3": "Hunger stops draining once health reaches %d%%",
 
+"malum.gui.book.entry.eternal_fallen_soul": "Rune of the Eternal Fallen Soul",
+  "malum.gui.book.entry.eternal_fallen_soul.description": "Abnormal fluctuations of the soul",
+  "malum.gui.book.entry.page.headline.eternal_fallen_soul": "Rune of Eternal Fallen Souls",
+  "malum.gui.book.entry.page.text.eternal_fallen_soul.1": "The Rune of the Eternal Fallen Soul merges the power of nothingness from the other side. Let the holder receive an additional blessing from the law of another plane when healing the soul, although it is not permanent, but it is enough....",
+  "item.malstone.eternal_fallen_soul": "Rune of Eternal Fallen Souls",
+  "item.malstone.eternal_fallen_soul.text": "Restoring a Soul Shield will temporarily stack some of your attributes",
+  "item.malstone.eternal_fallen_soul.text.1": "stacks up to additional %d%%",
+
+
 "malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
   "malum.gui.book.entry.ring_of_authority.description": "symbol of power",
   "malum.gui.book.entry.page.headline.ring_of_authority": "Distorted Ring of Authority",

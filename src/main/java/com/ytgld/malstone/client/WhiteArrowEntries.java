@@ -1,6 +1,7 @@
 package com.ytgld.malstone.client;
 
 import com.sammy.malum.client.screen.codex.BookWidgetStyle;
+import com.sammy.malum.client.screen.codex.pages.recipe.RuneworkingPage;
 import com.sammy.malum.client.screen.codex.pages.recipe.SpiritInfusionPage;
 import com.sammy.malum.client.screen.codex.pages.text.HeadlineTextPage;
 import com.sammy.malum.client.screen.codex.pages.text.TextPage;
@@ -39,6 +40,13 @@ public class WhiteArrowEntries {
                         .setStyle(BookWidgetStyle.WITHERED))
                 .addPage(new HeadlineTextPage("white_arrow_blade", "white_arrow_blade.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.WhiteArrowBlade_.get()))
+        );
+
+        screen.addEntry("eternal_fallen_soul",  0, -4, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.EternalFallenSoul_)
+                        .setStyle(BookWidgetStyle.TOTEMIC_SOULWOOD))
+                .addPage(new HeadlineTextPage("eternal_fallen_soul", "eternal_fallen_soul.1"))
+                .addPage(RuneworkingPage.fromOutput(ItemRegs.EternalFallenSoul_.get()))
         );
     }
 
