@@ -1,0 +1,27 @@
+{
+  "type": "malum:spirit_infusion",
+  "extraInputs": [
+    {
+      "count": 1,
+      "tag": "malum:scythe"
+    },
+    {
+      "count": 8,
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "input": {
+    "count": 6,
+    "item": "malum:tainted_rock"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:martyrdom"
+  },
+  "spirits": [
+    {
+      "type": "malum:infernal",
+      "count": 24
+    }
+  ]
+}

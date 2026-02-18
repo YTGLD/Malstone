@@ -1,0 +1,27 @@
+{
+  "type": "malum:spirit_infusion",
+  "extraInputs": [
+    {
+      "count": 2,
+      "item": "malum:soul_stained_steel_ingot"
+    },
+    {
+      "count": 4,
+      "item": "malum:refined_soulstone"
+    }
+  ],
+  "input": {
+    "count": 8,
+    "tag": "c:ingots/iron"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:soul_device"
+  },
+  "spirits": [
+    {
+      "type": "malum:arcane",
+      "count": 16
+    }
+  ]
+}

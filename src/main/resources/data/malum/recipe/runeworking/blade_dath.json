@@ -1,0 +1,16 @@
+{
+  "type": "malum:runeworking",
+  "result": {
+    "count": 1,
+    "id": "malstone:blade_dath"
+  },
+  "input": {
+    "count": 1,
+    "item": "malum:rune_of_sacrificial_empowerment"
+  },
+  "secondaryInput": {
+    "count": 6,
+    "item": "malum:malignant_pewter_ingot"
+  },
+  "soundType": "malum:runic_workbench_shapes_void_rune"
+}

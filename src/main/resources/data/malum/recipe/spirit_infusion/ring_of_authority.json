@@ -1,0 +1,32 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 2,
+      "item": "malum:malignant_pewter_plating"
+    },
+    {
+      "count": 4,
+      "item": "malum:null_slate"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:ornate_ring"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:ring_of_authority"
+  },
+  "spirits": [
+    {
+      "type": "malum:arcane",
+      "count": 16
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 8
+    }
+  ]
+}

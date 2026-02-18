@@ -1,0 +1,32 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 1,
+      "item": "malum:malignant_lead"
+    },
+    {
+      "count": 8,
+      "tag": "c:ingots/iron"
+    }
+  ],
+  "input": {
+    "count": 4,
+    "item": "malum:tainted_rock"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:huge_soul"
+  },
+  "spirits": [
+    {
+      "type": "malum:earthen",
+      "count": 32
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 16
+    }
+  ]
+}

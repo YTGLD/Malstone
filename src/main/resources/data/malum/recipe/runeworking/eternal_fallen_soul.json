@@ -1,0 +1,16 @@
+{
+  "type": "malum:runeworking",
+  "result": {
+    "count": 1,
+    "id": "malstone:eternal_fallen_soul"
+  },
+  "input": {
+    "count": 1,
+    "item": "malum:rune_of_bolstering"
+  },
+  "secondaryInput": {
+    "count": 1,
+    "item": "malstone:soul_steel_components"
+  },
+  "soundType": "malum:runic_workbench_shapes_void_rune"
+}
