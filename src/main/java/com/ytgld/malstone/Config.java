@@ -3,6 +3,7 @@ package com.ytgld.malstone;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 public class Config {
+
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     private static final ForgeConfigSpec.DoubleValue life_max_BreakingTheLife = BUILDER
             .comment("破命刀的血量最多恢复到的值")
@@ -36,10 +37,24 @@ public class Config {
             .comment("锋刀誓言符文的第二次伤害的值")
             .comment("The value of the second damage of the Blade Oath rune")
             .defineInRange("doubleBladeOath",0.5f,0,Integer.MAX_VALUE);
-
-
+    private static final ForgeConfigSpec.DoubleValue mMartyrdomDamage = BUILDER
+            .comment("殉锋符文记录的上一次伤害比率")
+            .comment("The last damage ratio recorded by the Rune of the Martyrdom")
+            .defineInRange("mMartyrdomDamage",0.9f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.IntValue attackDoubleMartyrdom = BUILDER
+            .comment("殉锋符文在触发连击奖励时给予的次数")
+            .comment("The number of times the Rune of Martyrdom is given when triggering a combo bonus")
+            .defineInRange("attackDoubleMartyrdom",1,1,Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.DoubleValue getmMartyrdomDamage() {
+        return mMartyrdomDamage;
+    }
+
+    public static ForgeConfigSpec.IntValue getAttackDoubleMartyrdom() {
+        return attackDoubleMartyrdom;
+    }
 
     public static ForgeConfigSpec.DoubleValue getDoubleBladeOath() {
         return doubleBladeOath;

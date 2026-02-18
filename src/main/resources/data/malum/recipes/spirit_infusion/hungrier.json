@@ -1,0 +1,22 @@
+{
+  "type": "malum:spirit_infusion",
+  "extra_items": [
+    {
+      "count": 8,
+      "tag": "malum:rotting_essence"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:tainted_rock_tablet"
+  },
+  "output": {
+    "item": "malstone:hungrier"
+  },
+  "spirits": [
+    {
+      "type": "eldritch",
+      "count": 24
+    }
+  ]
+}

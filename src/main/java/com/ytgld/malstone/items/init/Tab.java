@@ -21,6 +21,8 @@ public class Tab {
                 b.accept(ItemRegs.SoulSteelComponents_.get());
                 b.accept(ItemRegs.EternalFallenSoul_.get());
                 b.accept(ItemRegs.BladeOath_.get());
+                b.accept(ItemRegs.Martyrdom_.get());
+                b.accept(ItemRegs.Hungrier_.get());
             })
             .build()
     );

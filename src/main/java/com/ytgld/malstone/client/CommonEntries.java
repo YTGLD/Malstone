@@ -18,5 +18,12 @@ public class CommonEntries {
                 .addPage(new HeadlineTextPage("soul_steel_components", "soul_steel_components.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.SoulSteelComponents_.get()))
         );
+
+        screen.addEntry("martyrdom", 1, -3, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.Martyrdom_)
+                        .setStyle(BookWidgetStyle.RUNEWOOD))
+                .addPage(new HeadlineTextPage("martyrdom", "martyrdom.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.Martyrdom_.get()))
+        );
     }
 }

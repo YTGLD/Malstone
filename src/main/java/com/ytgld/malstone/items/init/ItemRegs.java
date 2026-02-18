@@ -3,6 +3,8 @@ package com.ytgld.malstone.items.init;
 import com.ytgld.malstone.Malstone;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.EternalFallenSoul;
+import com.ytgld.malstone.items.rune.Hungrier;
+import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
 import com.ytgld.malstone.items.white.BreakingTheLife;
 import com.ytgld.malstone.items.white.HugeSouls;
@@ -30,5 +32,9 @@ public class ItemRegs {
             ()->new EternalFallenSoul(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> BladeOath_ = REGISTER.register("blade_dath",
             ()->new BladeOath(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> Martyrdom_ = REGISTER.register("martyrdom",
+            ()->new Martyrdom(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> Hungrier_ = REGISTER.register("hungrier",
+            ()->new Hungrier(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

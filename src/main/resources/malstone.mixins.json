@@ -8,6 +8,7 @@
     "LivingEntityMixin",
     "malum.MalumScytheItemMixin",
     "malum.SoulWardHandlerMixin",
+    "malum.SpiritHarvestHandlerMixin",
     "malum.VoidProgressionScreenMixin"
   ],
   "client": [

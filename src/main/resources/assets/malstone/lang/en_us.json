@@ -49,7 +49,24 @@
   "item.malstone.blade_dath.text.2": "Damage dealt by non-scythe weapons reduced to 5%",
   "item.malstone.blade_dath.text.3": "Physical damage dealt by the scythe allows you to quickly perform the next attack without being protected by the invincibility frame",
 
-"malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
+"malum.gui.book.entry.martyrdom": "Martyr Rune",
+  "malum.gui.book.entry.martyrdom.description": "Secondary breakthrough",
+  "malum.gui.book.entry.page.headline.martyrdom": "martyrdom rune",
+  "malum.gui.book.entry.page.text.martyrdom.1": "The Rune of the Martyr needs to be used with the Blade Oath Rune to achieve the best condition",
+  "item.malstone.martyrdom": "martyr rune",
+  "item.malstone.martyrdom.text": "The damage dealt by a light hit is %d%% of the damage dealt by the last full force",
+  "item.malstone.martyrdom.text.1": "The number of times this rune is given may be doubled",
+
+"malum.gui.book.entry.hungrier": "hunger rune",
+  "malum.gui.book.entry.hungrier.description": "Endless hunger",
+  "malum.gui.book.entry.page.headline.hungrier": "hunger rune",
+  "malum.gui.book.entry.page.text.hungrier.1": "The hunger rune is a symbol of greed and a partner in killing, allowing the wielder to feed the war while harvesting the souls of others",
+  "item.malstone.hungrier": "hunger rune",
+  "item.malstone.hungrier.text": "Restore hunger and saturation when picking up spirits",
+
+
+
+  "malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
   "malum.gui.book.entry.ring_of_authority.description": "symbol of power",
   "malum.gui.book.entry.page.headline.ring_of_authority": "Distorted Ring of Authority",
   "malum.gui.book.entry.page.text.ring_of_authority.1": "After incorporating the Twisted Arcane energy from the Well of Weeping into the Evil Thought Pewter, this ring was born that allows the user to better control the Evil Thought Pewter item." ,

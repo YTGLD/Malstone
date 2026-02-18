@@ -61,6 +61,25 @@
   "item.malstone.blade_dath.text.2": "非镰刀武器造成的伤害降低至5%",
   "item.malstone.blade_dath.text.3": "镰刀造成的物理伤害时可以快速进行下一次攻击而不被无敌帧保护",
 
+
+
+  "malum.gui.book.entry.martyrdom": "殉锋符文",
+  "malum.gui.book.entry.martyrdom.description": "二次的突破",
+  "malum.gui.book.entry.page.headline.martyrdom": "殉锋符文",
+  "malum.gui.book.entry.page.text.martyrdom.1": "殉锋符文需要 搭配锋刀誓言符文使用 以达到最佳状态",
+  "item.malstone.martyrdom": "殉锋符文",
+  "item.malstone.martyrdom.text": "轻击造成的伤害为上一次全力造成伤害的%d%%",
+  "item.malstone.martyrdom.text.1": "此符文给予的次数可能会翻倍",
+
+  "malum.gui.book.entry.hungrier": "饥饿符文",
+  "malum.gui.book.entry.hungrier.description": "无止的饥饿",
+  "malum.gui.book.entry.page.headline.hungrier": "饥饿符文",
+  "malum.gui.book.entry.page.text.hungrier.1": "饥饿符文是贪婪的象征， 也是杀戮的伙伴 令持有者在收获他人 灵魂的同时以战养战",
+  "item.malstone.hungrier": "饥饿符文",
+  "item.malstone.hungrier.text": "拾取精魂时恢复饥饿值和饱和度",
+
+
+
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
   "malum.gui.book.entry.page.headline.breaking_the_life": "破命刀",
