@@ -71,7 +71,7 @@ public class BladeOath extends Runes {
                         ParticleHelper.SlashParticleEffectBuilder particle = ParticleHelper.createSlashingEffect(ParticleEffectTypeRegistry.SCYTHE_SLASH);
                         SoundHelper.playSound(attacker, SoundRegistry.SOULSTONE_PLACE.get(), 1.0F, 1.0F);
                         particle.mirrorRandomly(RandomSource.create()).spawnForwardSlashingParticle(attacker);
-                        float damage = event.getAmount() * doubleDAMAGE();
+                        float damage = event.getAmount() * doubleDAMAGE(attacker);
                         float radius = 3;
                         level.getEntities(attacker, target.getBoundingBox().inflate(radius)).forEach((e) -> {
                             if (e instanceof LivingEntity livingEntity) {
@@ -88,8 +88,8 @@ public class BladeOath extends Runes {
             }
         }
     }
-    public static float  doubleDAMAGE(){
-        return Config.getDoubleBladeOath().get().floatValue();
+    public static float doubleDAMAGE(LivingEntity living){
+        return Config.getDoubleBladeOath().get().floatValue() * Handler.getArcaneHarmonics(living);
 
     }    @Override
     public void addAttributeModifiers(Multimap<Attribute, AttributeModifier> map, SlotContext slotContext, ItemStack stack) {

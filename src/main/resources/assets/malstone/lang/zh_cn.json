@@ -79,6 +79,14 @@
   "item.malstone.hungrier.text": "拾取精魂时恢复饥饿值和饱和度",
 
 
+  "malum.gui.book.entry.soul_device": "魂魄装置",
+  "malum.gui.book.entry.soul_device.description": "再次利用",
+  "malum.gui.book.entry.page.headline.soul_device": "魂魄装置",
+  "malum.gui.book.entry.page.text.soul_device.1": "魂魄装置可以使收获的精魂数量翻倍 当然这是概率性的 大概在50%左右",
+  "item.malstone.soul_device": "魂魄装置",
+  "item.malstone.soul_device.text.1": "拾取精魂时有概率使数量翻倍",
+
+
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",

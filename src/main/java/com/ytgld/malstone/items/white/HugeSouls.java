@@ -104,6 +104,6 @@ public class HugeSouls extends WhiteArrow {
 
 
     public float doI(LivingEntity entity){
-        return (float) (double)Config.getArmorHugeSouls().get();
+        return (float) (double)Config.getArmorHugeSouls().get() * Handler.whiteArcaneHarmonics(entity);
     }
 }

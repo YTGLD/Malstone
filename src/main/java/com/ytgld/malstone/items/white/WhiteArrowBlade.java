@@ -53,12 +53,6 @@ public class WhiteArrowBlade extends WhiteArrow {
 
         get.put(AttributeRegistry.ARCANE_RESONANCE.get(),new AttributeModifier(uuid,this.getDescriptionId(),
                 -0.25, AttributeModifier.Operation.MULTIPLY_TOTAL));
-
-        get.put(AttributeRegistry.MALIGNANT_CONVERSION.get(),new AttributeModifier(uuid,this.getDescriptionId(),
-                damageMagic(slotContext.entity()), AttributeModifier.Operation.ADDITION));
-//
-//        get.put(LodestoneAttributeRegistry.MAGIC_DAMAGE.get(),new AttributeModifier(uuid,this.getDescriptionId(),
-//                -damageMagic(slotContext.entity()), AttributeModifier.Operation.MULTIPLY_TOTAL));
         return get;
     }
     @Override
@@ -70,10 +64,10 @@ public class WhiteArrowBlade extends WhiteArrow {
     }
 
     public static float damageMagic(@Nullable LivingEntity entity){
-        return (float)(double) Config.getWhiteArrowBladeMagic().get();
+        return (float)(double) Config.getWhiteArrowBladeMagic().get() * Handler.whiteArcaneHarmonics(entity);
     }
     public static float damageAttack(@Nullable LivingEntity entity){
-        return  (float)(double) Config.getWhiteArrowBladeAttack().get();
+        return  (float)(double) Config.getWhiteArrowBladeAttack().get() * Handler.whiteArcaneHarmonics(entity);
 
     }
 }

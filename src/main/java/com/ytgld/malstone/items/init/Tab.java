@@ -23,6 +23,7 @@ public class Tab {
                 b.accept(ItemRegs.BladeOath_.get());
                 b.accept(ItemRegs.Martyrdom_.get());
                 b.accept(ItemRegs.Hungrier_.get());
+                b.accept(ItemRegs.SoulDevice_.get());
             })
             .build()
     );

@@ -5,6 +5,7 @@ import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.EternalFallenSoul;
 import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
+import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
 import com.ytgld.malstone.items.white.BreakingTheLife;
 import com.ytgld.malstone.items.white.HugeSouls;
@@ -36,5 +37,7 @@ public class ItemRegs {
             ()->new Martyrdom(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> Hungrier_ = REGISTER.register("hungrier",
             ()->new Hungrier(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> SoulDevice_ = REGISTER.register("soul_device",
+            ()->new SoulDevice(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

@@ -87,8 +87,6 @@ public class BreakingTheLife extends WhiteArrow {
         Multimap<Attribute, AttributeModifier> get = super.getAttributeModifiers(slotContext, uuid, stack);
         get.put(AttributeRegistry.SOUL_WARD_CAP.get(),new AttributeModifier(uuid,this.getDescriptionId(),
                 -1, AttributeModifier.Operation.MULTIPLY_TOTAL));
-        get.put(AttributeRegistry.MALIGNANT_CONVERSION.get(),new AttributeModifier(uuid,this.getDescriptionId(),
-                0.2, AttributeModifier.Operation.ADDITION));
         get.put(Attributes.MAX_HEALTH,new AttributeModifier(uuid,this.getDescriptionId(),
                 0.2f, AttributeModifier.Operation.MULTIPLY_TOTAL));
         return get;
@@ -146,7 +144,7 @@ public class BreakingTheLife extends WhiteArrow {
     }
 
     public static float max(@Nullable Player player){
-        return (float) (double)Config.getLife_max_BreakingTheLife().get();
+        return (float) (double)Config.getLife_max_BreakingTheLife().get() * Handler.whiteArcaneHarmonics(player);
     }
 
 }

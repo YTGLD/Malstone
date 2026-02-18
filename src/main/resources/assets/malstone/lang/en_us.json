@@ -63,9 +63,12 @@
   "malum.gui.book.entry.page.text.hungrier.1": "The hunger rune is a symbol of greed and a partner in killing, allowing the wielder to feed the war while harvesting the souls of others",
   "item.malstone.hungrier": "hunger rune",
   "item.malstone.hungrier.text": "Restore hunger and saturation when picking up spirits",
-
-
-
+ "malum.gui.book.entry.soul_device": "soul device",
+  "malum.gui.book.entry.soul_device.description": "reuse",
+  "malum.gui.book.entry.page.headline.soul_device": "Soul Device",
+  "malum.gui.book.entry.page.text.soul_device.1": "The soul device can double the number of souls harvested, of course, this is probability, about 50%",
+"item.malstone.soul_device": "soul device",
+  "item.malstone.soul_device.text.1": "Picking up spirits has a chance to double the number",
   "malum.gui.book.entry.ring_of_authority": "Distorted Ring of Authority",
   "malum.gui.book.entry.ring_of_authority.description": "symbol of power",
   "malum.gui.book.entry.page.headline.ring_of_authority": "Distorted Ring of Authority",

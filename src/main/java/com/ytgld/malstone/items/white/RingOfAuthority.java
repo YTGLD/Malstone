@@ -148,6 +148,6 @@ public class RingOfAuthority extends WhiteArrow {
 
 
     public static float maxSped(Player player){
-        return 1.2f;
+        return 1.2f * Handler.whiteArcaneHarmonics(player);
     }
 }

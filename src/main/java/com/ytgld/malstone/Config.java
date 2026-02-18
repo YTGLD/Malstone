@@ -46,7 +46,16 @@ public class Config {
             .comment("The number of times the Rune of Martyrdom is given when triggering a combo bonus")
             .defineInRange("attackDoubleMartyrdom",1,1,Integer.MAX_VALUE);
 
+    private static final ForgeConfigSpec.IntValue ArcaneHarmonics = BUILDER
+            .comment("奥术谐振对物品的属性影响")
+            .comment("Arcane resonance affects the attributes of items")
+            .defineInRange("ArcaneHarmonics",1,0,Integer.MAX_VALUE);
+
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.IntValue getArcaneHarmonics() {
+        return ArcaneHarmonics;
+    }
 
     public static ForgeConfigSpec.DoubleValue getmMartyrdomDamage() {
         return mMartyrdomDamage;

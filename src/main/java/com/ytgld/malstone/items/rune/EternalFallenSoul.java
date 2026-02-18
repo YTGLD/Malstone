@@ -5,6 +5,7 @@ import com.google.common.collect.Multimap;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.sammy.malum.registry.common.SpiritTypeRegistry;
 import com.ytgld.malstone.Config;
+import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.init.Runes;
 import net.minecraft.nbt.CompoundTag;
@@ -51,8 +52,8 @@ public class EternalFallenSoul extends Runes {
     public static void healSOUL_WARD_CAP(Player player){
         CompoundTag compoundTag = player.getPersistentData();
         if (!player.level().isClientSide()) {
-            if (compoundTag.getFloat(namePath) < maxDamageAndArmor()) {
-                compoundTag.putFloat(namePath, compoundTag.getFloat(namePath) + speed());
+            if (compoundTag.getFloat(namePath) < maxDamageAndArmor(player)) {
+                compoundTag.putFloat(namePath, compoundTag.getFloat(namePath) + speed(player));
             }
         }
     }
@@ -90,8 +91,8 @@ public class EternalFallenSoul extends Runes {
             CompoundTag compoundTag = player.getPersistentData();
             add = compoundTag.getFloat(namePath);
         }
-        if (add > maxDamageAndArmor()) {
-            add = maxDamageAndArmor();
+        if (add > maxDamageAndArmor(player)) {
+            add = maxDamageAndArmor(player);
         }
 
 
@@ -109,23 +110,19 @@ public class EternalFallenSoul extends Runes {
 
         return modifiers;
     }
-//    public void addExtraTooltipLines(Consumer<Component> consumer) {
-//        consumer.accept(positiveEffect("eternal_fallen_soul"));
-//       consumer.accept(positiveEffect("eternal_fallen_soul.1",maxDamageAndArmor()));
-//    }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
         super.appendHoverText(stack, level, components, flag);
         components.add(Component.translatable("item.malstone.eternal_fallen_soul.text").setStyle(Style.EMPTY.withColor(color())));
-        components.add(Component.translatable("item.malstone.eternal_fallen_soul.text.1",maxDamageAndArmor()*100f).setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.translatable("item.malstone.eternal_fallen_soul.text.1",maxDamageAndArmor(null)*100f).setStyle(Style.EMPTY.withColor(color())));
     }
 
-    public  static float maxDamageAndArmor(){
-        return Config.getMaxEternalFallenSoul().get().floatValue();
+    public  static float maxDamageAndArmor(LivingEntity living){
+        return Config.getMaxEternalFallenSoul().get().floatValue() * Handler.getArcaneHarmonics(living);
     }
-    public  static float speed(){
-        return Config.getSpeedEternalFallenSoul().get().floatValue();
+    public  static float speed(LivingEntity living){
+        return Config.getSpeedEternalFallenSoul().get().floatValue() * Handler.getArcaneHarmonics(living);
     }
 
 }

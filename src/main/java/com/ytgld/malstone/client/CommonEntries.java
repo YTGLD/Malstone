@@ -25,5 +25,20 @@ public class CommonEntries {
                 .addPage(new HeadlineTextPage("martyrdom", "martyrdom.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.Martyrdom_.get()))
         );
+
+        screen.addEntry("hungrier", -1, -3, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.Hungrier_)
+                        .setStyle(BookWidgetStyle.RUNEWOOD))
+                .addPage(new HeadlineTextPage("hungrier", "hungrier.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.Hungrier_.get()))
+        );
+
+
+        screen.addEntry("soul_device", 0, -4, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.SoulDevice_)
+                        .setStyle(BookWidgetStyle.RUNEWOOD))
+                .addPage(new HeadlineTextPage("soul_device", "soul_device.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.SoulDevice_.get()))
+        );
     }
 }
