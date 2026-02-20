@@ -63,30 +63,26 @@ public class BladeOath extends Runes {
         if (Handler.hascurio(attacker, ItemRegs.BladeOath_.get())) {
             Level level = attacker.level();
             if (level instanceof ServerLevel serverLevel) {
-                if (!level.isClientSide()) {
-                    if (event.getSource().is(MalumDamageTypes.SCYTHE_MELEE)) {
-                        boolean canSweep = MalumScytheItem.canSweep(attacker);
-                        if (canSweep) {
-                            MalumNetworkedWeaponParticleEffectType.MalumWeaponParticleEffectBuilder<WeaponParticleEffectType.WeaponParticleEffectData> particle =
-                                    MalumParticleEffectTypes.SCYTHE_SLASH.createEffect()
-                                    .originatesFrom(attacker).targets(target).color(stack.getItem())
+                if (event.getSource().is(MalumDamageTypes.SCYTHE_MELEE)) {
+                    MalumNetworkedWeaponParticleEffectType.MalumWeaponParticleEffectBuilder<WeaponParticleEffectType.WeaponParticleEffectData> particle =
+                            MalumParticleEffectTypes.SCYTHE_SLASH.createEffect().originatesFrom(attacker)
+                                    .targets(target).color(stack.getItem())
                                     .upwardOffset(-0.4F).forwardOffset(0.8F);
-                            SoundHelper.playSound(attacker, MalumSoundEvents.SOULSTONE_PLACE.get(), 1.0F, 1.0F);
-                            particle.verticalSlashRotation().horizontalOffset(0.6F).spawn(serverLevel);
-                            float damage = event.getNewDamage() * doubleDAMAGE(attacker);
-                            float radius = 3;
-                            level.getEntities(attacker, target.getBoundingBox().inflate(radius)).forEach((e) -> {
-                                if (e instanceof LivingEntity livingEntity) {
-                                    if (livingEntity.isAlive()) {
-                                        livingEntity.invulnerableTime = 0;
-                                        attacker.heal(event.getNewDamage() / 10f);
-                                        livingEntity.hurt(DamageTypeHelper.create(level, MalumDamageTypes.SCYTHE_SWEEP, attacker), damage);
-                                        livingEntity.knockback(0.4, (double) Mth.sin(attacker.getYRot() * ((float) Math.PI / 180F)), (double) (-Mth.cos(attacker.getYRot() * ((float) Math.PI / 180F))));
-                                    }
-                                }
-                            });
+                    SoundHelper.playSound(attacker, MalumSoundEvents.SOULSTONE_PLACE.get(), 1.0F, 1.0F);
+                    particle.mirrored(true).spawn(serverLevel);
+                    float damage = event.getNewDamage() * doubleDAMAGE(attacker);
+                    float radius = 3;
+                    level.getEntities(attacker, target.getBoundingBox().inflate(radius)).forEach((e) -> {
+                        if (e instanceof LivingEntity livingEntity) {
+                            if (livingEntity.isAlive()) {
+                                livingEntity.invulnerableTime = 0;
+                                attacker.heal(event.getNewDamage() / 10f);
+                                livingEntity.hurt(DamageTypeHelper.create(level, MalumDamageTypes.SCYTHE_SWEEP, attacker), damage);
+                                livingEntity.knockback(0.4, (double) Mth.sin(attacker.getYRot() * ((float) Math.PI / 180F)), (double) (-Mth.cos(attacker.getYRot() * ((float) Math.PI / 180F))));
+                            }
                         }
-                    }
+
+                    });
                 }
             }
         }

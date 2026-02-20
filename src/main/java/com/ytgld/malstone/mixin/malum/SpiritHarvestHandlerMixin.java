@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = SoulHarvestHandler.class,remap = false)
+@Mixin(value = SoulHarvestHandler.class)
 public class SpiritHarvestHandlerMixin {
     @Inject(method = "pickupSpirit", at = @At(value = "RETURN"))
     private static void pickupSpirit$Malstone(LivingEntity collector, ItemStack stack, CallbackInfo ci) {

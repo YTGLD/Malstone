@@ -7,10 +7,7 @@ import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
-import com.ytgld.malstone.items.white.BreakingTheLife;
-import com.ytgld.malstone.items.white.HugeSouls;
-import com.ytgld.malstone.items.white.RingOfAuthority;
-import com.ytgld.malstone.items.white.WhiteArrowBlade;
+import com.ytgld.malstone.items.white.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -39,5 +36,7 @@ public class ItemRegs {
             ()->new Hungrier(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> SoulDevice_ = REGISTER.register("soul_device",
             ()->new SoulDevice(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> BreakingTheWeapon_ = REGISTER.register("breaking_the_weapon",
+            ()->new BreakingTheWeapon(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

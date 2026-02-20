@@ -88,6 +88,19 @@
 
 
 
+  "malum.gui.book.entry.breaking_the_weapon": "破极兵刃",
+  "malum.gui.book.entry.breaking_the_weapon.description": "威压锁定",
+  "malum.gui.book.entry.page.headline.breaking_the_weapon": "破极兵刃",
+  "malum.gui.book.entry.page.text.breaking_the_weapon.1": "破极兵刃的威压可以锁定生物 在有效范围内可以锁定附近的目标 但是这种威压无法造成 暴击伤害",
+  "item.malstone.breaking_the_weapon": "破极兵刃",
+  "item.malstone.breaking_the_weapon.text.1": "即使你的攻击准星偏移了目标",
+  "item.malstone.breaking_the_weapon.text.2":"但在合理偏移范围内仍然可以攻击到目标",
+  "item.malstone.breaking_the_weapon.text.3": "进行补正的攻击几乎无法暴击",
+  "item.malstone.breaking_the_weapon.text.4": "对有护甲或灵魂护盾的目标造成额外的穿透伤害",
+  "item.malstone.breaking_the_weapon.text.5": "摧毁目标的灵魂护盾",
+  "item.malstone.breaking_the_weapon.text.6": "对满生命值的生物造成的伤害有所提高",
+
+
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
   "malum.gui.book.entry.page.headline.breaking_the_life": "破命刀",

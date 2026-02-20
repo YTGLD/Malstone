@@ -46,15 +46,39 @@ public class Config {
             .comment("殉锋符文在触发连击奖励时给予的次数")
             .comment("The number of times the Rune of Martyrdom is given when triggering a combo bonus")
             .defineInRange("attackDoubleMartyrdom",1,1,Integer.MAX_VALUE);
+    private static final ModConfigSpec.IntValue theBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大宽容度数")
+            .comment("The maximum tolerance of the Broken Blade")
+            .defineInRange("theBreakingTheWeapon",45,0,360);
+    private static final ModConfigSpec.IntValue maxArmorDamageBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大额外伤害（护甲，灵魂护盾）")
+            .comment("The maximum bonus damage of the Extreme Blade（Armor，Soul shield）")
+            .defineInRange("maxArmorDamageBreakingTheWeapon",30,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.DoubleValue healthDamageBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大额外伤害倍率（满生命值）")
+            .comment("The maximum bonus damage multiplier of the Extreme Blade（Full health）")
+            .defineInRange("healthDamageBreakingTheWeapon",1.5f,0,Integer.MAX_VALUE);
 
-    private static final ModConfigSpec.IntValue ArcaneHarmonics = BUILDER
+    private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
             .comment("Arcane resonance affects the attributes of items")
-            .defineInRange("ArcaneHarmonics",1,0,Integer.MAX_VALUE);
+            .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
 
-    public static ModConfigSpec.IntValue getArcaneHarmonics() {
+    public static ModConfigSpec.DoubleValue getHealthDamageBreakingTheWeapon() {
+        return healthDamageBreakingTheWeapon;
+    }
+
+    public static ModConfigSpec.IntValue getMaxArmorDamageBreakingTheWeapon() {
+        return maxArmorDamageBreakingTheWeapon;
+    }
+
+    public static ModConfigSpec.IntValue getTheBreakingTheWeapon() {
+        return theBreakingTheWeapon;
+    }
+
+    public static ModConfigSpec.DoubleValue getArcaneHarmonics() {
         return ArcaneHarmonics;
     }
 

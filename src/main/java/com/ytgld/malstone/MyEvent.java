@@ -9,10 +9,7 @@ import com.ytgld.malstone.items.init.SoulSteel;
 import com.ytgld.malstone.items.init.WhiteArrow;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
-import com.ytgld.malstone.items.white.BreakingTheLife;
-import com.ytgld.malstone.items.white.HugeSouls;
-import com.ytgld.malstone.items.white.RingOfAuthority;
-import com.ytgld.malstone.items.white.WhiteArrowBlade;
+import com.ytgld.malstone.items.white.*;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -25,6 +22,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 public class MyEvent {
     @SubscribeEvent
@@ -48,7 +46,14 @@ public class MyEvent {
             }
         }
     }
-
+    @SubscribeEvent
+    public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+        BreakingTheWeapon.pack(event);
+    }
+    @SubscribeEvent
+    public void LeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+        BreakingTheWeapon.pack(event);
+    }
     @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent.Pre event){
         BladeOath.doMaxScy(event);
@@ -57,6 +62,7 @@ public class MyEvent {
         RingOfAuthority.attack(event);
         Martyrdom.attackPost(event);
         Martyrdom.attackPre(event);
+        BreakingTheWeapon.attackADamage(event);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -67,11 +73,11 @@ public class MyEvent {
             tooltipEvent.setBorderStart(whiteArrow.color());
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 255, 100, 255));
         }
-        if (stack.getItem() instanceof SoulSteel soulSteel) {
+        if (stack.getItem() instanceof SoulSteel) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255, 255, 243, 178));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
-        if (stack.getItem() instanceof Runes runes) {
+        if (stack.getItem() instanceof Runes) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255,210, 0, 203));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }

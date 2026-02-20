@@ -54,6 +54,12 @@ public class WhiteArrowEntries {
                 .addPage(new HeadlineTextPage("blade_dath", "blade_dath.1"))
                 .addPage(RuneworkingPage.fromOutput(ItemRegs.BladeOath_.get()))
         );
+        screen.addEntry("breaking_the_weapon",  0, -6, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.BreakingTheWeapon_)
+                        .setDesign(WidgetDesignType.DEFAULT, WidgetDesignType.FrameType.WITHERED, WidgetDesignType.FillingType.PAPER))
+                .addPage(new HeadlineTextPage("breaking_the_weapon", "breaking_the_weapon.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.BreakingTheWeapon_.get()))
+        );
     }
 
 }

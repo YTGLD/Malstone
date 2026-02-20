@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = ArcanaProgressionScreen.class,remap = false)
+@Mixin(value = ArcanaProgressionScreen.class)
 public class ArcanaProgressionScreenMixin {
     @Inject(method = "setupEntries", at = @At(value = "RETURN" ))
     private void canSweep(CallbackInfo ci) {

@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = SoulWardData.class,remap = false)
+@Mixin(value = SoulWardData.class)
 public class SoulWardHandlerMixin {
     @Inject(method = "recoverSoulWard", at = @At(value = "RETURN"))
     private void recoverSoulWard(LivingEntity entity, double amount, CallbackInfo ci) {
