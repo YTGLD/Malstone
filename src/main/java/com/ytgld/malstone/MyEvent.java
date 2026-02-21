@@ -4,6 +4,7 @@ import com.sammy.malum.common.data.attachment.SoulWardData;
 import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import com.sammy.malum.registry.common.MalumAttributes;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.init.Runes;
 import com.ytgld.malstone.items.init.SoulSteel;
 import com.ytgld.malstone.items.init.WhiteArrow;
@@ -63,6 +64,7 @@ public class MyEvent {
         Martyrdom.attackPost(event);
         Martyrdom.attackPre(event);
         BreakingTheWeapon.attackADamage(event);
+        KillTheGods.attackPost(event);
     }
 
     @OnlyIn(Dist.CLIENT)

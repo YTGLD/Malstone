@@ -1,5 +1,8 @@
 {
   "itemGroup.malstone": "灵灾拓展：异域",
+  "item.malstone.blood_spirit": "血色精魂",
+
+
   "attribute.name.malstone.chaos_erosion": "灵魂异动",
   "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",
   "attribute.name.malstone.super_malicious": "邪念之护",

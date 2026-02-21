@@ -1,5 +1,10 @@
 {
   "itemGroup.malstone": "Malum Expansion: Malstone",
+  "item.malstone.blood_spirit": "Bloody spirit",
+
+
+
+
   "attribute.name.malstone.chaos_erosion": "Chaos Erosion",
   "attribute.name.malstone.chaos_erosion.desc": "Healing has a chance to restore Soul Ward, but doing so cancels the healing instance.",
   "attribute.name.malstone.super_malicious": "Aegis of Malice",

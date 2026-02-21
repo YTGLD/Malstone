@@ -1,6 +1,9 @@
 package com.ytgld.malstone.items.init;
 
+import com.sammy.malum.common.item.spirit.SpiritShardItem;
+import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.ytgld.malstone.Malstone;
+import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.EternalFallenSoul;
 import com.ytgld.malstone.items.rune.Hungrier;
@@ -8,6 +11,7 @@ import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
 import com.ytgld.malstone.items.white.*;
+import com.ytgld.malstone.magic.MalstoneSpirits;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -38,5 +42,12 @@ public class ItemRegs {
             ()->new SoulDevice(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> BreakingTheWeapon_ = REGISTER.register("breaking_the_weapon",
             ()->new BreakingTheWeapon(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> KillTheGods_ = REGISTER.register("kill_the_gods",
+            ()->new KillTheGods(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
+
+
+    public static final DeferredHolder<Item, SpiritShardItem> BloodSpirit_ = REGISTER.register("blood_spirit",
+            ()->new SpiritShardItem(new Item.Properties(), MalstoneSpirits.BLOOD));
 
 }
