@@ -1,0 +1,35 @@
+{
+  "type": "malum:spirit_infusion",
+  "extraInputs": [
+    {
+      "count": 16,
+      "item": "malum:null_slate"
+    },
+    {
+      "count": 8,
+      "item": "malum:imitation_flesh"
+    },
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:runic_brooch"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:kill_the_gods"
+  },
+  "spirits": [
+    {
+      "type": "malum:earthen",
+      "count": 32
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 24
+    }
+  ]
+}

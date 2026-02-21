@@ -1,12 +1,16 @@
 {
   "itemGroup.malstone": "灵灾拓展：异域",
   "item.malstone.blood_spirit": "血色精魂",
-
+  "key.malstone.r": "使用技能",
+  "key.malstone.keys": "灵灾拓展：异域",
+  "item.malstone.skill_use": "按下‘%d’使用技能",
 
   "attribute.name.malstone.chaos_erosion": "灵魂异动",
   "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",
   "attribute.name.malstone.super_malicious": "邪念之护",
   "attribute.name.malstone.super_malicious.desc": "根据当前护甲值增加邪念之护数值比例且不受其他效果影响的额外护甲值（只会计算直接增加的值）",
+  "attribute.name.malstone.max_blood_shield": "血盾容量",
+  "attribute.name.malstone.blood_shield_stronger": "血盾强度",
 
   "malum.gui.book.entry.huge_soul": "白镴方体",
   "malum.gui.book.entry.huge_soul.description": "扭曲的变数",
@@ -102,6 +106,13 @@
   "item.malstone.breaking_the_weapon.text.4": "对有护甲或灵魂护盾的目标造成额外的穿透伤害",
   "item.malstone.breaking_the_weapon.text.5": "摧毁目标的灵魂护盾",
   "item.malstone.breaking_the_weapon.text.6": "对满生命值的生物造成的伤害有所提高",
+
+
+  "item.malstone.kill_the_gods": "弑神令胸针",
+  "item.malstone.kill_the_gods.text.1": "击中生物将产生精血",
+  "item.malstone.kill_the_gods.text.2": "拾取精血获得血盾",
+  "item.malstone.kill_the_gods.text.3": "按下'绑定键'摧毁血盾恢复生命值和提升属性",
+  "item.malstone.kill_the_gods.text.4": "但是会有一定的冷却时间，在冷却时间内无法收获精血",
 
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",

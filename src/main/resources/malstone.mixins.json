@@ -13,6 +13,7 @@
   ],
   "client": [
     "FoodDataMixin",
+    "cilent.GuiMixin",
     "malum.ArcanaProgressionScreenMixin"
   ],
   "injectors": {

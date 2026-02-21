@@ -14,8 +14,6 @@ public class Tab {
             .icon(()->new ItemStack(ItemRegs.BreakingTheLife_.get()))
             .title(Component.translatable("itemGroup.malstone"))
             .displayItems((a,b)->{
-                b.accept(ItemRegs.BloodSpirit_.get());
-
                 b.accept(ItemRegs.HugeSouls_.get());
                 b.accept(ItemRegs.BreakingTheLife_.get());
                 b.accept(ItemRegs.WhiteArrowBlade_.get());
@@ -27,6 +25,7 @@ public class Tab {
                 b.accept(ItemRegs.Hungrier_.get());
                 b.accept(ItemRegs.SoulDevice_.get());
                 b.accept(ItemRegs.BreakingTheWeapon_.get());
+                b.accept(ItemRegs.KillTheGods_.get());
             })
             .build()
     );

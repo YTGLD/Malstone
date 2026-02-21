@@ -40,7 +40,7 @@ public class SpiritRenderer extends EntityRenderer<BloodSpirit> {
         LodestoneRenderTypeBuilder longTrail = LodestoneRenderTypes.ADDITIVE_TEXTURE.apply(MalumRenderTypeTokens.CONCENTRATED_TRAIL);
         SpiritBasedWorldVFXBuilder builder = SpiritBasedWorldVFXBuilder.create(spiritType);
         float effectScalar = entity.getVisualEffectScalar();
-        RenderUtils.renderEntityTrail(poseStack, builder.setRenderType(longTrail), entity.longTrail, entity, spiritType.getSecondaryColor(), spiritType.getPrimaryColor(), effectScalar * 0.33f, effectScalar * 0.2F, partialTicks);
+        RenderUtils.renderEntityTrail(poseStack, builder.setRenderType(longTrail), entity.longTrail, entity, spiritType.getSecondaryColor(), spiritType.getPrimaryColor(), effectScalar * 0.8f, effectScalar * 0.2F, partialTicks);
 
         super.render(entity, entityYaw, partialTicks, poseStack, bufferIn, packedLightIn);
     }

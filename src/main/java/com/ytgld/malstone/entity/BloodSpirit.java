@@ -3,13 +3,17 @@ package com.ytgld.malstone.entity;
 import com.sammy.malum.client.SpiritBasedParticleBuilder;
 import com.sammy.malum.common.entity.FloatingItemDestinationData;
 import com.sammy.malum.common.entity.FloatingItemEntity;
+import com.sammy.malum.registry.common.MalumSoundEvents;
+import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.entity.BloodSpirit;
 import com.sammy.malum.common.item.spirit.SpiritShardItem;
 import com.sammy.malum.core.systems.spirit.type.SpiritArcanaType;
 import com.sammy.malum.core.systems.spirit.type.SpiritLike;
 import com.sammy.malum.registry.common.MalumParticles;
+import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.magic.MalstoneSpirits;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -20,6 +24,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import team.lodestar.lodestone.helpers.RandomHelper;
+import team.lodestar.lodestone.helpers.SoundHelper;
 import team.lodestar.lodestone.helpers.VecHelper;
 import team.lodestar.lodestone.registry.common.particle.LodestoneParticleTypes;
 import team.lodestar.lodestone.systems.easing.Easing;
@@ -117,6 +122,12 @@ public class BloodSpirit extends FloatingItemEntity {
                     List<LivingEntity> entities = this.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
                     for (LivingEntity entity : entities) {
                         if (entity.is(this.owner)) {
+                            float shield = player.getData(AttReg.BloodShield_.get());
+                            if (shield < KillTheGods.maxShield(player)) {
+                                SoundEvent sound = MalumSoundEvents.SPIRIT_PICKUP.get();
+                                SoundHelper.playSound(player, sound, 0.4F, RandomHelper.randomBetween(player.getRandom(), 1, 1));
+                                player.setData(AttReg.BloodShield_.get(),player.getData(AttReg.BloodShield_.get()) + (float) 1);
+                            }
                             canSee = false;
                         }
                     }
@@ -143,58 +154,13 @@ public class BloodSpirit extends FloatingItemEntity {
             }
         } else {
             if (canSee) {
-//                spiritParticles(this);
                 Vec3 position = position();
                 this.trail.addTrailPoint(position);
                 this.longTrail.addTrailPoint(position);
-
                 this.trail.tickTrailPoints();
                 this.longTrail.tickTrailPoints();
             }
-
         }
-
-    }
-    public static void spiritParticles(BloodSpirit spirit) {
-        Vec3 direction = spirit.getDeltaMovement().add((double)0.0F, (double)spirit.getYOffset(0.5F), (double)0.0F).normalize();
-        Vec3 motion = direction.scale((double)0.2F);
-        Consumer<LodestoneWorldParticle> behavior = (p) -> {
-            Vec3 spiritPosition = spirit.position().add((double)0.0F, (double)spirit.getYOffset(0.5F), (double)0.0F);
-            Vec3 toSpirit = spiritPosition.subtract(p.getParticlePosition()).normalize();
-            double length = p.getParticleSpeed().length();
-            float delta = 0.3F + (float)p.getAge() / (float)p.getLifetime() * 0.7F;
-            p.setParticleSpeed(p.getParticleSpeed().lerp(toSpirit.scale(length), (double)delta));
-        };
-        ParticleEffectSpawner lightSpecs = spiritLightSpecs(spirit.level(), spirit.getOffsetPosition(), (SpiritLike)spirit.getSpiritType());
-        lightSpecs.getBuilder().setMotion(motion).addTickActor(behavior);
-        lightSpecs.getBloomBuilder().setMotion(motion).addTickActor(behavior);
-        lightSpecs.spawnParticles();
-    }
-    public static ParticleEffectSpawner spiritLightSpecs(Level level, Vec3 pos, SpiritLike spirit) {
-        return spiritLightSpecs(level, pos, spirit, new WorldParticleOptions(MalumParticles.LIGHT_SPEC));
-    }
-    public static ParticleEffectSpawner spiritLightSpecs(Level level, Vec3 pos, SpiritLike spirit, WorldParticleOptions options) {
-        return spiritLightSpecs(level, pos, (WorldParticleOptions)options, (Function<WorldParticleOptions, WorldParticleBuilder>)((o) -> SpiritBasedParticleBuilder.createSpirit(o).setSpirit(spirit)));
-    }
-
-    public static ParticleEffectSpawner spiritLightSpecs(Level level, Vec3 pos, WorldParticleOptions options, Function<WorldParticleOptions, WorldParticleBuilder> builderSupplier) {
-        WorldParticleBuilder builder = (WorldParticleBuilder)builderSupplier.apply(options);
-        WorldParticleBuilder bloomBuilder = (WorldParticleBuilder)builderSupplier.apply(new WorldParticleOptions(LodestoneParticleTypes.WISP_PARTICLE));
-        return spiritLightSpecs(level, pos, builder, bloomBuilder);
-    }
-
-    public static ParticleEffectSpawner spiritLightSpecs(Level level, Vec3 pos, WorldParticleBuilder builder, WorldParticleBuilder bloomBuilder) {
-        RandomSource rand = level.getRandom();
-        SpinParticleData spinData = SpinParticleData.createRandomDirection(rand, Mth.nextFloat(rand, 0.05F, 0.1F)).randomSpinOffset(rand).build();
-        float friction = 0.95F;
-        int lifetime = RandomHelper.randomBetween(rand, 10, 20);
-        WorldParticleBuilder worldParticleBuilder = builder.setScaleData(GenericParticleData.create(0.025F, RandomHelper.randomBetween(rand, 0.2F, 0.3F), 0.0F).build()).setTransparencyData(GenericParticleData.create(0.8F, 0.0F).build()).multiplyFriction(friction).setSpinData(spinData).setLifetime(lifetime).enableNoClip();
-        WorldParticleBuilder bloomParticleBuilder = spiritBloom(level, bloomBuilder, lifetime).setSpinData(spinData).setFriction(friction);
-        return new ParticleEffectSpawner(level, pos, worldParticleBuilder, bloomParticleBuilder);
-    }
-    public static WorldParticleBuilder spiritBloom(Level level, WorldParticleBuilder builder, int lifetime) {
-        RandomSource rand = level.random;
-        return builder.setScaleData(GenericParticleData.create(0.04F, RandomHelper.randomBetween(rand, 0.08F, 0.14F), 0.0F).setEasing(Easing.SINE_IN, Easing.SINE_IN_OUT).build()).setTransparencyData(GenericParticleData.create(0.35F, 0.0F).build()).setLifetime(lifetime).enableNoClip();
     }
 }
 

@@ -13,7 +13,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SoulSteel extends Item implements ICurioItem {
+public class SoulSteel extends BaseItem implements ICurioItem {
     public SoulSteel(Properties properties) {
         super(properties);
     }

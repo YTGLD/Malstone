@@ -2,9 +2,15 @@
   "itemGroup.malstone": "Malum Expansion: Malstone",
   "item.malstone.blood_spirit": "Bloody spirit",
 
+  "key.malstone.r": "Use skills",
+  "key.malstone.keys": "Malum Expansion: Malstone",
+  "item.malstone.skill_use": "Press '%d' to use the skill",
 
 
 
+
+  "attribute.name.malstone.max_blood_shield": "Blood Shield Capacity",
+  "attribute.name.malstone.blood_shield_stronger": "Blood shield strength",
   "attribute.name.malstone.chaos_erosion": "Chaos Erosion",
   "attribute.name.malstone.chaos_erosion.desc": "Healing has a chance to restore Soul Ward, but doing so cancels the healing instance.",
   "attribute.name.malstone.super_malicious": "Aegis of Malice",
@@ -93,8 +99,12 @@
   "item.malstone.breaking_the_weapon.text.4": "Deals additional piercing damage to targets with armor or soul shields",
   "item.malstone.breaking_the_weapon.text.5": "Destroy the target's soul shield",
   "item.malstone.breaking_the_weapon.text.6": "Increased damage dealt to creatures with full health",
-
-"item.malstone.ring_of_authority": "Ring of Distorted Authority",
+  "item.malstone.kill_the_gods": "Order to kill gods",
+  "item.malstone.kill_the_gods.text.1": "Hit a creature will produce essence blood",
+  "item.malstone.kill_the_gods.text.2": "Pick up blood to get a blood shield",
+  "item.malstone.kill_the_gods.text.3": "Press the 'bind key' to destroy the blood shield to restore health and increase stats",
+  "item.malstone.kill_the_gods.text.4": "However, there will be a certain cooldown, during which you will not be able to harvest essence",
+  "item.malstone.ring_of_authority": "Ring of Distorted Authority",
   "item.malstone.ring_of_authority.text.1": "For the Soul Saving Scythe and the Cosmic Axe:",
   "item.malstone.ring_of_authority.text.2": "Attack speed increases gradually when dealing damage",
   "item.malstone.ring_of_authority.text.3": "Inflicting a large number of negative states on the target when using the Erosion Scepter to fire an erosion energy beam",
