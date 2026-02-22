@@ -1,8 +1,5 @@
 package com.ytgld.malstone.mixin.cilent;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.sammy.malum.registry.client.MalumShaders;
-import com.ytgld.malstone.Light;
 import com.ytgld.malstone.Malstone;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.client.MGuiGraphics;
@@ -10,11 +7,8 @@ import com.ytgld.malstone.client.MRender;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.GameRenderer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,8 +17,6 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import team.lodestar.lodestone.registry.client.LodestoneShaders;
-import team.lodestar.lodestone.systems.easing.Easing;
 
 import javax.annotation.Nullable;
 
@@ -47,11 +39,11 @@ public abstract class GuiMixin {
         Player player = this.getCameraPlayer();
         if (player != null) {
             float i = player.getData(AttReg.BloodShield_.get());
-            int l = p_283143_.guiWidth() / 2 - 91;
-            this.minecraft.getProfiler().push("blood_shield");
-            $renderArmor$Malstone(p_283143_, player, p_283143_.guiHeight() - this.leftHeight + 10, 1, 0, l);
-            this.minecraft.getProfiler().pop();
             if (i > 0&&$showAlpha$Malstone > 0) {
+                int l = p_283143_.guiWidth() / 2 - 91;
+                this.minecraft.getProfiler().push("blood_shield");
+                $renderArmor$Malstone(p_283143_, player, p_283143_.guiHeight() - this.leftHeight + 10, 1, 0, l);
+                this.minecraft.getProfiler().pop();
                 this.leftHeight += 20;
             }
         }
@@ -95,7 +87,6 @@ public abstract class GuiMixin {
     private float $showAlpha$Malstone = 255;
     @Unique
     private float $lightAmout$Malstone = 0;
-
     @Unique
     private  void $renderArmor$Malstone(GuiGraphics guiGraphics, Player player, int y, int heartRows, int height, int x) {
         float is = player.getData(AttReg.BloodShield_);
