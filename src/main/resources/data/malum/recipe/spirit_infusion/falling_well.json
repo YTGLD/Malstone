@@ -1,0 +1,36 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 16,
+      "item": "malum:twisted_rock"
+    },
+    {
+      "count": 4,
+      "item": "malum:imitation_flesh"
+    },
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:imitation_heart"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:falling_well"
+  },
+  "spirits": [
+    {
+      "type": "malum:earthen",
+      "count": 64
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 48
+    }
+  ]
+}

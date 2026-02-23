@@ -58,6 +58,10 @@ public class Config {
             .comment("破极兵刃的最大额外伤害倍率（满生命值）")
             .comment("The maximum bonus damage multiplier of the Extreme Blade（Full health）")
             .defineInRange("healthDamageBreakingTheWeapon",1.5f,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.DoubleValue addPowerFallingWell = BUILDER
+            .comment("堕井充能后的属性加成")
+            .comment("Attribute bonus after falling well charge")
+            .defineInRange("addPowerFallingWell",0.2f,0,Integer.MAX_VALUE);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -65,6 +69,10 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
+
+    public static ModConfigSpec.DoubleValue getAddPowerFallingWell() {
+        return addPowerFallingWell;
+    }
 
     public static ModConfigSpec.DoubleValue getHealthDamageBreakingTheWeapon() {
         return healthDamageBreakingTheWeapon;

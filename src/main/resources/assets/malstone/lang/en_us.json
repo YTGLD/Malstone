@@ -6,10 +6,11 @@
   "key.malstone.keys": "Malum Expansion: Malstone",
   "item.malstone.skill_use": "Press '%d' to use the skill",
 
+  "effect.malstone.fall_curse": "Fall curse",
 
 "attribute.name.malstone.max_decay_shield": "Decay Shield Limit",
   "attribute.name.malstone.decay_shield_stronger": "Decay Shield Strength",
-  "attribute.name.malstone.decay_shield_speed": "Decay Shield Replenishment Speed",
+  "attribute.name.malstone.decay_shield_speed": "Decay Shield Replenishment time",
 
   "attribute.name.malstone.max_blood_shield": "Blood Shield Capacity",
   "attribute.name.malstone.blood_shield_stronger": "Blood shield strength",
@@ -88,6 +89,13 @@
   "malum.gui.book.entry.page.text.ring_of_authority.1": "After incorporating the Twisted Arcane energy from the Well of Weeping into the Evil Thought Pewter, this ring was born that allows the user to better control the Evil Thought Pewter item." ,
   "malum.gui.book.entry.page.text.ring_of_authority.2": "佩戴这枚戒指后， 原本沉重并难以挥动的 白镴之镰与白镴之斧 将随着你的杀戮变得 越发轻盈。侵蚀权杖中的虚空物质 也变得越发活跃， 开始催动出更加复杂的 能量束侵蚀他人的肉体， 若是这种侵蚀遭到阻挡 则其将转变为， 更加强大的魔法 攻击袭向对方！",
 
+  "item.malstone.falling_well": "Falling well",
+  "item.malstone.falling_well.text.1": "The Rotten Heart Shield can absorb some of the damage like a soul shield",
+  "item.malstone.falling_well.text.2": "The reduction of the Decay Heart Shield will bring a stat bonus",
+  "item.malstone.falling_well.text.3": "This item can be charged using the Well of Crying",
+  "item.malstone.falling_well.text.4": "Reduces the maximum health and damage reduction of nearby creatures while active",
+  "item.malstone.falling_well.text.5": "Falling from a well while active will more effectively restore the Rotten Heart Shield and increase its strength",
+  "item.malstone.falling_well.text.6": "There is also %d%% recharge time for falling into the well",
 
 
  "malum.gui.book.entry.breaking_the_weapon": "Breaking the Blade",

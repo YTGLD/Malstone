@@ -5,11 +5,13 @@ import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import com.sammy.malum.registry.common.MalumAttributes;
 import com.sammy.malum.registry.common.MalumSoundEvents;
 import com.ytgld.malstone.Light;
+import com.ytgld.malstone.Malstone;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
+import com.ytgld.malstone.items.twisted.FallingWell;
 import com.ytgld.malstone.items.white.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -107,8 +109,19 @@ public class MyEvent {
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
         if (stack.getItem() instanceof Twisted twisted) {
-            tooltipEvent.setBorderStart(twisted.color());
-            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 50,50,70));
+            tooltipEvent.setBorderStart(Light.ARGB.color(255, 125, 100, 130));
+            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 125, 100, 130));
+            if (twisted instanceof FallingWell well) {
+                if (well.isApply(tooltipEvent.getItemStack())) {
+                    float sin = (float) Math.sin(Malstone.clientTime / 20f);
+                    if (sin < 0) {
+                        sin = -sin;
+                    }
+                    tooltipEvent.setBorderStart(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
+                    tooltipEvent.setBorderEnd(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
+
+                }
+            }
         }
     }
 

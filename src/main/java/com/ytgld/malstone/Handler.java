@@ -48,7 +48,6 @@ public class Handler {
         }
         return 1;
     }
-
     public static float whiteArcaneHarmonics(LivingEntity entity){
         if (entity != null) {
             AttributeInstance attributeInstance =  entity.getAttribute(MalumAttributes.ARCANE_RESONANCE);

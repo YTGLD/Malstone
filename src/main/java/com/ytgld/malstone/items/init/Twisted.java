@@ -33,7 +33,7 @@ public class Twisted extends BaseItem implements ICurioItem {
         List<Component> components = new ArrayList<>();
         for (Component component : tooltips) {
             MutableComponent mutableComponent = component.copy();
-            mutableComponent.setStyle(Style.EMPTY.withColor(Light.ARGB.color(255, 50,50,70)));
+            mutableComponent.setStyle(Style.EMPTY.withColor(Light.ARGB.color(255, 125,100,130)));
             components.add((mutableComponent));
         }
         return components;

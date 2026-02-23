@@ -10,6 +10,7 @@ import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
+import com.ytgld.malstone.items.twisted.FallingWell;
 import com.ytgld.malstone.items.white.*;
 import com.ytgld.malstone.magic.MalstoneSpirits;
 import net.minecraft.core.registries.Registries;
@@ -44,6 +45,8 @@ public class ItemRegs {
             ()->new BreakingTheWeapon(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> KillTheGods_ = REGISTER.register("kill_the_gods",
             ()->new KillTheGods(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> FallingWell_ = REGISTER.register("falling_well",
+            ()->new FallingWell(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 
 
