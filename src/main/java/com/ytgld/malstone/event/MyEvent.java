@@ -3,13 +3,11 @@ package com.ytgld.malstone.event;
 import com.sammy.malum.common.data.attachment.SoulWardData;
 import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import com.sammy.malum.registry.common.MalumAttributes;
+import com.sammy.malum.registry.common.MalumSoundEvents;
 import com.ytgld.malstone.Light;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.items.KillTheGods;
-import com.ytgld.malstone.items.init.BaseItem;
-import com.ytgld.malstone.items.init.Runes;
-import com.ytgld.malstone.items.init.SoulSteel;
-import com.ytgld.malstone.items.init.WhiteArrow;
+import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.white.*;
@@ -30,6 +28,9 @@ import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
+import team.lodestar.lodestone.helpers.RandomHelper;
+import team.lodestar.lodestone.helpers.SoundHelper;
 
 public class MyEvent {
     @SubscribeEvent
@@ -54,6 +55,12 @@ public class MyEvent {
         }
     }
     @SubscribeEvent
+    public void TickEvt(EntityTickEvent.Pre event) {
+        if (event.getEntity() instanceof Player player) {
+            tickShield(player);
+        }
+    }
+    @SubscribeEvent
     public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
         BreakingTheWeapon.pack(event);
     }
@@ -63,7 +70,7 @@ public class MyEvent {
     }
     @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent.Pre event){
-        hyperplasiaShield(event);
+        theDecayShield(event);
         BladeOath.doMaxScy(event);
         HugeSouls.lLivingDamageEvent(event);
         WhiteArrowBlade.lLivingDamageEvent(event);
@@ -99,26 +106,59 @@ public class MyEvent {
             tooltipEvent.setBorderStart(Light.ARGB.color(255,210, 0, 203));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
+        if (stack.getItem() instanceof Twisted twisted) {
+            tooltipEvent.setBorderStart(twisted.color());
+            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 50,50,70));
+        }
     }
-    public void hyperplasiaShield (LivingDamageEvent.Pre event) {
+
+
+    public void theDecayShield (LivingDamageEvent.Pre event) {
         if (event.getEntity() instanceof Player living) {
-            AttributeInstance stronger = living.getAttribute(AttReg.BloodShieldStronger);
+            AttributeInstance stronger = living.getAttribute(AttReg.MaxDecayShield);
+            float base = 0.5f;
+            float minDamage = 0.3f;
             if (stronger != null) {
                 float value = (float) stronger.getValue();
-                float data = living.getData(AttReg.BloodShield_);
+                float data = living.getData(AttReg.DecayShield);
                 if (data > 0) {
                     float damage = event.getNewDamage();
                     int newData = (int) (data - 1 - ((int) (damage * 0.5f)));
-                    living.setData(AttReg.BloodShield_,(float)newData);
+                    living.setData(AttReg.DecayShield,(float)newData);
                     float modify = (float) Math.sqrt(value);
-                    if (modify < 0.3f) {
-                        modify = 0.3f;
+                    if (modify < minDamage) {
+                        modify = minDamage;
                     }
-                    float newDamage = damage * (0.3f / modify);
+                    float newDamage = damage * (base / modify);
                     event.setNewDamage(newDamage);
+                    SoundHelper.playSound(living, MalumSoundEvents.SOUL_WARD_HIT.get(), 0.8F, RandomHelper.randomBetween(living.getRandom(), 1, 1));
                 } else {
-                    living.setData(AttReg.BloodShield_, 0f);
+                    living.setData(AttReg.DecayShield, 0f);
                 }
+            }
+        }
+    }
+    public void tickShield(LivingEntity living){
+        AttributeInstance maxShield = living.getAttribute(AttReg.MaxDecayShield);
+        AttributeInstance speed = living.getAttribute(AttReg.SpeedDecayShield);
+
+        if (maxShield != null && speed != null) {
+            float time = (float) (10 * speed.getValue());
+            if (time < 1) {
+                time = 1;
+            }
+
+            float value = (float) maxShield.getValue();
+            float data = living.getData(AttReg.DecayShield);
+
+            if (living.tickCount % (time * 10) == 1) {
+                if (data < value) {
+                    living.setData(AttReg.DecayShield, data + 1);
+                    SoundHelper.playSound(living, MalumSoundEvents.VOID_HEARTBEAT.get(), 0.8F, RandomHelper.randomBetween(living.getRandom(), 1, 1));
+                }
+            }
+            if (data < 0) {
+                living.setData(AttReg.DecayShield, 0f);
             }
         }
     }

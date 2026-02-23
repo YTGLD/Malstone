@@ -7,7 +7,9 @@
   "item.malstone.skill_use": "Press '%d' to use the skill",
 
 
-
+"attribute.name.malstone.max_decay_shield": "Decay Shield Limit",
+  "attribute.name.malstone.decay_shield_stronger": "Decay Shield Strength",
+  "attribute.name.malstone.decay_shield_speed": "Decay Shield Replenishment Speed",
 
   "attribute.name.malstone.max_blood_shield": "Blood Shield Capacity",
   "attribute.name.malstone.blood_shield_stronger": "Blood shield strength",

@@ -24,7 +24,6 @@ public class AttReg {
                     .serialize(Codec.FLOAT.fieldOf("blood_shield").codec()).build()
     );
 
-
     public static final DeferredRegister<Attribute> REGISTRY = DeferredRegister.create(Registries.ATTRIBUTE, Malstone.MODID);
 
     public static final DeferredHolder<Attribute, Attribute> ChaosErosion  =REGISTRY.register("chaos_erosion", ()->{
@@ -43,11 +42,40 @@ public class AttReg {
         return new RangedAttribute("attribute.name.malstone.blood_shield_stronger",
                 1.0, 0.0, 1024.0).setSyncable(true);
     });
+
+    /**
+     * DecayShield
+     */
+    public static final Supplier<AttachmentType<Float>> DecayShield = ATTACHMENT_TYPES.register(
+            "decay_shield", () -> AttachmentType.builder(() -> 0f).sync(new SyncHandler())
+                    .serialize(Codec.FLOAT.fieldOf("decay_shield").codec()).build()
+    );
+
+
+    public static final int maxDecayShield = 10;
+    public static final DeferredHolder<Attribute, Attribute> MaxDecayShield =REGISTRY.register("max_decay_shield", ()->{
+        return new RangedAttribute("attribute.name.malstone.max_decay_shield",
+                0, 0, maxDecayShield).setSyncable(true);
+    });
+    public static final DeferredHolder<Attribute, Attribute> StrongerDecayShield =REGISTRY.register("decay_shield_stronger", ()->{
+        return new RangedAttribute("attribute.name.malstone.decay_shield_stronger",
+                1.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final DeferredHolder<Attribute, Attribute> SpeedDecayShield =REGISTRY.register("decay_shield_speed", ()->{
+        return new RangedAttribute("attribute.name.malstone.decay_shield_speed",
+                1.0, 0.0, 1024.0).setSyncable(true);
+    });
+
     @SubscribeEvent
     public static void EntityAttributeCreationEvent(EntityAttributeModificationEvent event){
         event.add(EntityType.PLAYER , AttReg.ChaosErosion,0);
         event.add(EntityType.PLAYER , AttReg.SuperMalicious,0);
         event.add(EntityType.PLAYER , AttReg.MaxBloodShield,0);
         event.add(EntityType.PLAYER , AttReg.BloodShieldStronger,1);
+        //DecayShield
+        event.add(EntityType.PLAYER , AttReg.MaxDecayShield,0);
+        event.add(EntityType.PLAYER , AttReg.StrongerDecayShield,1);
+        event.add(EntityType.PLAYER , AttReg.SpeedDecayShield,1);
+
     }
 }

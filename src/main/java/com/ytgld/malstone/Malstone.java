@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.logging.LogUtils;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.client.MRender;
+import com.ytgld.malstone.client.ShieldRenderHandler;
 import com.ytgld.malstone.client.entity.SpiritRenderer;
 import com.ytgld.malstone.entity.Entitys;
 import com.ytgld.malstone.event.Keys;
@@ -23,9 +24,8 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent;
-import net.neoforged.neoforge.client.event.RegisterShadersEvent;
+import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import org.slf4j.Logger;
@@ -72,12 +72,17 @@ public class Malstone
                         ResourceLocation.fromNamespaceAndPath(MODID,"live"),
                         DefaultVertexFormat.POSITION_TEX_COLOR), MRender::set_liveShaderInstance);
             }catch (IOException exception){
-
-
             }
         }
-
-
+        @SubscribeEvent
+        public static void registerOverlays(RegisterGuiLayersEvent event) {
+            event.registerAbove(VanillaGuiLayers.AIR_LEVEL, ResourceLocation.fromNamespaceAndPath(MODID,"decay_shield"),
+                    ShieldRenderHandler::renderShield);
+        }
+        @SubscribeEvent
+        public static void clientTickEvent(ClientTickEvent.Pre event) {
+            ShieldRenderHandler.tick(event);
+        }
     }
 
 

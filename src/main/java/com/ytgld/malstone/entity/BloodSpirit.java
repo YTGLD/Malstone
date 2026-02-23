@@ -66,6 +66,7 @@ public class BloodSpirit extends ThrowableItemProjectile {
 
     public void tick() {
         super.tick();
+
         if (canSee) {
             if (this.getOwner() instanceof Player player) {
                 float speed = 0.5f;

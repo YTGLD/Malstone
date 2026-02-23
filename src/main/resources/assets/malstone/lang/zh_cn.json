@@ -11,6 +11,10 @@
   "attribute.name.malstone.super_malicious.desc": "根据当前护甲值增加邪念之护数值比例且不受其他效果影响的额外护甲值（只会计算直接增加的值）",
   "attribute.name.malstone.max_blood_shield": "血盾容量",
   "attribute.name.malstone.blood_shield_stronger": "血盾强度",
+  "attribute.name.malstone.max_decay_shield": "腐朽护盾限度",
+  "attribute.name.malstone.decay_shield_stronger":"腐朽护盾强度",
+  "attribute.name.malstone.decay_shield_speed": "腐朽护盾补充速度",
+
 
   "malum.gui.book.entry.huge_soul": "白镴方体",
   "malum.gui.book.entry.huge_soul.description": "扭曲的变数",
