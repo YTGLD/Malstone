@@ -60,6 +60,31 @@ public class WhiteArrowEntries {
                 .addPage(new HeadlineTextPage("breaking_the_weapon", "breaking_the_weapon.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.BreakingTheWeapon_.get()))
         );
+
+
+        screen.addEntry("falling_well", 1, -7, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.FallingWell_)
+                        .setDesign(WidgetDesignType.DEFAULT, WidgetDesignType.FrameType.SOULWOOD, WidgetDesignType.FillingType.PAPER))
+                .addPage(new HeadlineTextPage("falling_well", "falling_well.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.FallingWell_.get()))
+        );
+
+
+        screen.addEntry("condenser", -1, -7, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.Condenser_)
+                        .setDesign(WidgetDesignType.DEFAULT, WidgetDesignType.FrameType.SOULWOOD, WidgetDesignType.FillingType.PAPER))
+                .addPage(new HeadlineTextPage("condenser", "condenser.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.Condenser_.get()))
+        );
+
+
+
+        screen.addEntry("evil_engine", 0, -8, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.EvilEngine_)
+                        .setDesign(WidgetDesignType.DEFAULT, WidgetDesignType.FrameType.SOULWOOD, WidgetDesignType.FillingType.PAPER))
+                .addPage(new HeadlineTextPage("evil_engine", "evil_engine.1"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.EvilEngine_.get()))
+        );
     }
 
 }

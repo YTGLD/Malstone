@@ -58,16 +58,15 @@ public class WhiteArrowBlade extends WhiteArrow {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-//        tooltipComponents.add(Component.translatable("item.malstone.white_arrow_blade.text.1",damageMagic(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.white_arrow_blade.text.2",damageAttack(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.white_arrow_blade.text.3").setStyle(Style.EMPTY.withColor(color())));
     }
 
     public static float damageMagic(@Nullable LivingEntity entity){
-        return (float)(double) Config.getWhiteArrowBladeMagic().get() * Handler.whiteArcaneHarmonics(entity);
+        return Handler.doWhiteArcaneHarmonics(entity, Config.getWhiteArrowBladeMagic().get().floatValue());
     }
     public static float damageAttack(@Nullable LivingEntity entity){
-        return  (float)(double) Config.getWhiteArrowBladeAttack().get() * Handler.whiteArcaneHarmonics(entity);
+        return Handler.doWhiteArcaneHarmonics(entity, Config.getWhiteArrowBladeAttack().get().floatValue());
 
     }
 }

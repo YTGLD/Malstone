@@ -112,6 +112,28 @@
   "item.malstone.breaking_the_weapon.text.5": "摧毁目标的灵魂护盾",
   "item.malstone.breaking_the_weapon.text.6": "对满生命值的生物造成的伤害有所提高",
 
+
+  "item.malstone.kill_the_gods": "弑神令胸针",
+  "item.malstone.kill_the_gods.text.1": "击中生物将产生精血",
+  "item.malstone.kill_the_gods.text.2": "拾取精血获得血盾",
+  "item.malstone.kill_the_gods.text.3": "按下'绑定键'摧毁血盾恢复生命值和提升属性",
+  "item.malstone.kill_the_gods.text.4": "但是会有一定的冷却时间，在冷却时间内无法收获精血",
+
+
+  "malum.gui.book.entry.evil_engine": "邪祟引擎",
+  "malum.gui.book.entry.evil_engine.description": "堕落的誓言",
+  "malum.gui.book.entry.page.headline.evil_engine": "邪祟引擎",
+  "malum.gui.book.entry.page.text.evil_engine.1": "邪祟引擎是三合一模式体， 可以极大的减少栏位的消耗， 且获得的经验值速度获得极大的提高， 在某些情况下恢复的生命值效果增加， 相较于贪婪符文， 它恢复的饱和度获得了加强",
+  "item.malstone.evil_engine": "邪祟引擎",
+  "item.malstone.evil_engine.text.1": "收获的精魂会被销毁",
+  "item.malstone.evil_engine.text.2":"每次销毁精魂都会恢复生命",
+  "item.malstone.evil_engine.text.3": "若无需治疗，则恢复饥饿值和饱和度",
+  "item.malstone.evil_engine.text.4":"若无需进食，则获得经验值",
+
+  "malum.gui.book.entry.falling_well": "堕井",
+  "malum.gui.book.entry.falling_well.description": "第二次死亡",
+  "malum.gui.book.entry.page.headline.falling_well": "堕井",
+  "malum.gui.book.entry.page.text.falling_well.1": "堕井正在凝视你， 你感到了自己的身体 产生了质的突变， 以及....你的第二颗心脏， 一颗邪恶的心脏",
   "item.malstone.falling_well": "堕井",
   "item.malstone.falling_well.text.1": "腐朽心盾可像灵魂护盾吸收部分伤害",
   "item.malstone.falling_well.text.2": "腐朽心盾的降低会带来属性加成",
@@ -120,13 +142,12 @@
   "item.malstone.falling_well.text.5": "激活状态下的堕井会更有效的恢复腐朽心盾和提高强度",
   "item.malstone.falling_well.text.6": "堕井还有%d秒的充能时间",
 
-
-  "item.malstone.kill_the_gods": "弑神令胸针",
-  "item.malstone.kill_the_gods.text.1": "击中生物将产生精血",
-  "item.malstone.kill_the_gods.text.2": "拾取精血获得血盾",
-  "item.malstone.kill_the_gods.text.3": "按下'绑定键'摧毁血盾恢复生命值和提升属性",
-  "item.malstone.kill_the_gods.text.4": "但是会有一定的冷却时间，在冷却时间内无法收获精血",
-
+  "malum.gui.book.entry.condenser": "瞬时凝聚器",
+  "malum.gui.book.entry.condenser.description": "空间波动的初现",
+  "malum.gui.book.entry.page.headline.condenser": "瞬时凝聚器",
+  "malum.gui.book.entry.page.text.condenser.1": "瞬时凝聚器可以在短时间内造成一次空间波动， 这种波动次数是无上限的， 每次造成空间波动都会将附近的 精魂瞬间传送到目标位置",
+  "item.malstone.condenser": "瞬时凝聚器",
+  "item.malstone.condenser.text.1": "生物产生的精魂可瞬间到达你的位置",
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",

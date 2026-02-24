@@ -144,7 +144,7 @@ public class FallingWell extends Twisted implements IVoidItem {
         modifiers.put(Attributes.ATTACK_DAMAGE,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
                 now / 6F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         modifiers.put(Attributes.ARMOR,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                now * 10f, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+                now * 10f, AttributeModifier.Operation.ADD_VALUE));
 
         modifiers.put(AttReg.SpeedDecayShield,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
                 -add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -189,7 +189,7 @@ public class FallingWell extends Twisted implements IVoidItem {
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.5").setStyle(Style.EMPTY.withColor(color())));
     }
     public static float addPower(LivingEntity player){
-        return Config.getAddPowerFallingWell().get().floatValue() * Handler.getArcaneHarmonics(player);
+        return Handler.doArcaneHarmonics(player, Config.getAddPowerFallingWell().get().floatValue());
     }
     public boolean isApply(ItemStack stack) {
         CompoundTag compoundTag = stack.get(DataReg.tag);

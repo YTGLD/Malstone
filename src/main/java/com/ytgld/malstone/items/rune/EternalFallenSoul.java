@@ -118,10 +118,10 @@ public class EternalFallenSoul extends Runes {
     }
 
     public  static float maxDamageAndArmor(LivingEntity living){
-        return Config.getMaxEternalFallenSoul().get().floatValue() * Handler.getArcaneHarmonics(living);
+        return Handler.doArcaneHarmonics(living, Config.getMaxEternalFallenSoul().get().floatValue());
     }
     public  static float speed(LivingEntity living){
-        return Config.getSpeedEternalFallenSoul().get().floatValue() * Handler.getArcaneHarmonics(living);
+        return Handler.doArcaneHarmonics(living, Config.getSpeedEternalFallenSoul().get().floatValue());
     }
 
 }

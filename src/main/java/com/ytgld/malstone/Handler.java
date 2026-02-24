@@ -37,7 +37,14 @@ public class Handler {
         }
         return false;
     }
-    public static float getArcaneHarmonics(LivingEntity entity){
+    public static float doArcaneHarmonics(LivingEntity entity,float dif){
+        if (entity != null) {
+            return getArcaneHarmonics(entity) * dif;
+        }
+        return dif;
+    }
+
+    private static float getArcaneHarmonics(LivingEntity entity){
         if (entity != null) {
             AttributeInstance attributeInstance =  entity.getAttribute(MalumAttributes.ARCANE_RESONANCE);
             if (attributeInstance != null) {
@@ -48,7 +55,14 @@ public class Handler {
         }
         return 1;
     }
-    public static float whiteArcaneHarmonics(LivingEntity entity){
+    public static float doWhiteArcaneHarmonics(LivingEntity entity,float dif){
+        if (entity != null) {
+            return whiteArcaneHarmonics(entity) * dif;
+        }
+        return dif;
+    }
+
+    private static float whiteArcaneHarmonics(LivingEntity entity){
         if (entity != null) {
             AttributeInstance attributeInstance =  entity.getAttribute(MalumAttributes.ARCANE_RESONANCE);
             if (attributeInstance != null) {

@@ -10,6 +10,8 @@ import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
+import com.ytgld.malstone.items.twisted.Condenser;
+import com.ytgld.malstone.items.twisted.EvilEngine;
 import com.ytgld.malstone.items.twisted.FallingWell;
 import com.ytgld.malstone.items.white.*;
 import com.ytgld.malstone.magic.MalstoneSpirits;
@@ -47,6 +49,11 @@ public class ItemRegs {
             ()->new KillTheGods(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> FallingWell_ = REGISTER.register("falling_well",
             ()->new FallingWell(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> Condenser_ = REGISTER.register("condenser",
+            ()->new Condenser(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> EvilEngine_ = REGISTER.register("evil_engine",
+            ()->new EvilEngine(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
 
 
 

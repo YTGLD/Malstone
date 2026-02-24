@@ -136,16 +136,17 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
     }
     public static float du(Player player){
         int d = Config.getTheBreakingTheWeapon().getAsInt();
-        return d * Handler.whiteArcaneHarmonics(player);
+        return Handler.doWhiteArcaneHarmonics(player, d);
+
     }
     public static float maxArmorDamage(Player player){
         float d = Config.getMaxArmorDamageBreakingTheWeapon().get().floatValue();
-        return d * Handler.whiteArcaneHarmonics(player);
+        return Handler.doWhiteArcaneHarmonics(player, d);
     }
 
     public static float healthDamage(Player player){
         float d = Config.getHealthDamageBreakingTheWeapon().get().floatValue();
-        return d * Handler.whiteArcaneHarmonics(player);
+        return Handler.doWhiteArcaneHarmonics(player, d);
     }
     public record UseCurio(ItemStack carried) implements CustomPacketPayload {
 

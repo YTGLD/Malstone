@@ -26,6 +26,8 @@ public class Tab {
                 b.accept(ItemRegs.SoulDevice_.get());
                 b.accept(ItemRegs.BreakingTheWeapon_.get());
                 b.accept(ItemRegs.FallingWell_.get());
+                b.accept(ItemRegs.Condenser_.get());
+                b.accept(ItemRegs.EvilEngine_.get());
 //                b.accept(ItemRegs.KillTheGods_.get());
             })
             .build()
