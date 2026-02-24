@@ -11,6 +11,7 @@ import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
+import com.ytgld.malstone.items.twisted.ExtremelyDead;
 import com.ytgld.malstone.items.twisted.FallingWell;
 import com.ytgld.malstone.items.white.*;
 import net.minecraft.ChatFormatting;
@@ -27,6 +28,7 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -63,6 +65,10 @@ public class MyEvent {
         }
     }
     @SubscribeEvent
+    public void LeftClickEmpty(LivingDeathEvent event) {
+        ExtremelyDead.killBlack(event);
+    }
+    @SubscribeEvent
     public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
         BreakingTheWeapon.pack(event);
     }
@@ -90,6 +96,22 @@ public class MyEvent {
                 event.getToolTip().add(1, Component.translatable("item.malstone.skill_use", Keys.KEY_MAPPING_LAZY_R.getKey().getDisplayName())
                         .withStyle(Style.EMPTY.withColor(baseItem.color())));
             }
+            if (baseItem.canUseWeepingPower()) {
+                if (!baseItem.hasWeepingWllPower(event.getItemStack())) {
+                    event.getToolTip().add(1, Component.literal(""));
+                    event.getToolTip().add(1, Component.translatable("item.malstone.weeping_power", Keys.KEY_MAPPING_LAZY_R.getKey().getDisplayName())
+                            .withStyle(Style.EMPTY.withColor(baseItem.color())));
+                }else {
+                    float sin = (float) Math.sin(Malstone.clientTime / 20f);
+                    if (sin < 0) {
+                        sin = -sin;
+                    }
+                    event.getToolTip().add(1, Component.literal(""));
+                    event.getToolTip().add(1, Component.translatable("item.malstone.skill_use.text",
+                                    baseItem.getWeepingPower(event.getItemStack())).
+                            setStyle(Style.EMPTY.withColor(Light.ARGB.color(255, (int) (125 + 100* sin), 100, (int) (130 + 60* sin)))));
+                }
+            }
         }
     }
     @OnlyIn(Dist.CLIENT)
@@ -111,16 +133,16 @@ public class MyEvent {
         if (stack.getItem() instanceof Twisted twisted) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255, 125, 100, 130));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 125, 100, 130));
-            if (twisted instanceof FallingWell well) {
-                if (well.isApply(tooltipEvent.getItemStack())) {
-                    float sin = (float) Math.sin(Malstone.clientTime / 20f);
-                    if (sin < 0) {
-                        sin = -sin;
-                    }
-                    tooltipEvent.setBorderStart(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
-                    tooltipEvent.setBorderEnd(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
-
+        }
+        if (stack.getItem() instanceof BaseItem item) {
+            if (item.hasWeepingWllPower(tooltipEvent.getItemStack())) {
+                float sin = (float) Math.sin(Malstone.clientTime / 20f);
+                if (sin < 0) {
+                    sin = -sin;
                 }
+                tooltipEvent.setBorderStart(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
+                tooltipEvent.setBorderEnd(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
+
             }
         }
     }

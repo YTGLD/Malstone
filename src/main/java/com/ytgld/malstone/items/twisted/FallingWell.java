@@ -3,15 +3,10 @@ package com.ytgld.malstone.items.twisted;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.sammy.malum.common.item.IVoidItem;
-import com.sammy.malum.visual_effects.ScreenParticleEffects;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.Light;
-import com.ytgld.malstone.Malstone;
 import com.ytgld.malstone.attribute.AttReg;
 import com.ytgld.malstone.effects.Effects;
-import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
 import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.core.Holder;
@@ -27,14 +22,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import team.lodestar.lodestone.systems.particle.screen.ScreenParticleHolder;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,35 +44,9 @@ import java.util.List;
  **/
 
 
-public class FallingWell extends Twisted implements IVoidItem {
-
-    public static final String weepingWellPower = "WeepingWellPower";
-    public static final int maxPower = 1800;
+public class FallingWell extends Twisted  {
     public FallingWell(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public void spawnEarlyParticles(ScreenParticleHolder target, Level level, float partialTick, ItemStack stack, float x, float y) {
-        CompoundTag compoundTag = stack.get(DataReg.tag);
-        if (compoundTag !=null){
-            if (compoundTag.getInt(weepingWellPower) > 0) {
-                ScreenParticleEffects.spawnVoidItemScreenParticles(target, level, this.getVoidParticleIntensity() * 2, partialTick);
-            }
-        }
-    }
-
-    public static void eatAtWeepingWell(ItemStack stack){
-        if (stack.is(ItemRegs.FallingWell_)) {
-            CompoundTag compoundTag = stack.get(DataReg.tag);
-            if (compoundTag !=null){
-                compoundTag.putInt(weepingWellPower,maxPower);
-            }else {
-                CompoundTag compoundTag1 = new CompoundTag();
-                compoundTag1.putInt(weepingWellPower,maxPower);
-                stack.set(DataReg.tag,compoundTag1);
-            }
-        }
     }
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
@@ -88,11 +54,10 @@ public class FallingWell extends Twisted implements IVoidItem {
         if (slotContext.entity() instanceof Player player) {
             if (!player.level().isClientSide()) {
                 player.getAttributes().addTransientAttributeModifiers(doAttribute(stack,player));
-
                 if (player.tickCount % 20 == 1) {
                     CompoundTag compoundTag = stack.get(DataReg.tag);
                     if (compoundTag !=null) {
-                        if (compoundTag.getInt(weepingWellPower) > 0) {
+                        if (this.hasWeepingWllPower(stack)) {
                             Vec3 playerPos = player.position();
                             int range = 12;
                             List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
@@ -103,8 +68,6 @@ public class FallingWell extends Twisted implements IVoidItem {
                                     }
                                 }
                             }
-
-                            compoundTag.putInt(weepingWellPower, compoundTag.getInt(weepingWellPower) - 1);
                         }
                     }else {
                         stack.set(DataReg.tag,new CompoundTag());
@@ -124,11 +87,8 @@ public class FallingWell extends Twisted implements IVoidItem {
         Multimap<Holder<Attribute>, AttributeModifier> modifiers = HashMultimap.create();
 
         float add = 0;
-        CompoundTag compoundTag = stack.get(DataReg.tag);
-        if (compoundTag !=null) {
-            if (compoundTag.getInt(weepingWellPower) > 0) {
-                add = addPower(entity);
-            }
+        if (this.hasWeepingWllPower(stack)) {
+            add = addPower(entity);
         }
         float lv = (float) (entity.getData(AttReg.DecayShield) / entity.getAttributeValue(AttReg.MaxDecayShield));
         lv *= 100;
@@ -161,26 +121,15 @@ public class FallingWell extends Twisted implements IVoidItem {
                 -0.1F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         modifierMultimap.put(AttReg.StrongerDecayShield,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
                 0.1F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+
+        CuriosApi.addSlotModifier(modifierMultimap,"well",id,2, AttributeModifier.Operation.ADD_VALUE);
+
         return modifierMultimap;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        if (isApply(stack)) {
-            CompoundTag compoundTag = stack.get(DataReg.tag);
-            if (compoundTag != null) {
-                float sin = (float) Math.sin(Malstone.clientTime / 20f);
-                if (sin < 0) {
-                    sin = -sin;
-                }
-                tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.6",
-                        compoundTag.getInt(weepingWellPower)).
-                        setStyle(Style.EMPTY.withColor(Light.ARGB.color(255, (int) (125 + 100* sin), 100, (int) (130 + 60* sin)))));
-                tooltipComponents.add(Component.literal(""));
-            }
-        }
-
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
@@ -191,15 +140,15 @@ public class FallingWell extends Twisted implements IVoidItem {
     public static float addPower(LivingEntity player){
         return Handler.doArcaneHarmonics(player, Config.getAddPowerFallingWell().get().floatValue());
     }
-    public boolean isApply(ItemStack stack) {
-        CompoundTag compoundTag = stack.get(DataReg.tag);
-        if (compoundTag != null) {
-            if (compoundTag.getInt(weepingWellPower) > 0){
-                return true;
-            }
-        }
-        return false;
+
+    @Override
+    public boolean canUseWeepingPower() {
+        return true;
     }
 
+    @Override
+    public int maxWeepingPower(ItemStack stack) {
+        return 1800;
+    }
 
 }

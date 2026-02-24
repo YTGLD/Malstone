@@ -85,6 +85,15 @@ public class WhiteArrowEntries {
                 .addPage(new HeadlineTextPage("evil_engine", "evil_engine.1"))
                 .addPage(SpiritInfusionPage.fromOutput(ItemRegs.EvilEngine_.get()))
         );
+
+        screen.addEntry("weeping_immortal", 0, -9, b -> b
+                .configureWidget(w -> w.setIcon(ItemRegs.WeepingImmortal_)
+                        .setDesign(WidgetDesignType.DEFAULT, WidgetDesignType.FrameType.SOULWOOD, WidgetDesignType.FillingType.PAPER))
+                .addPage(new HeadlineTextPage("weeping_immortal", "weeping_immortal.1"))
+                .addPage(new TextPage("weeping_immortal.2"))
+                .addPage(new TextPage("weeping_immortal.3"))
+                .addPage(SpiritInfusionPage.fromOutput(ItemRegs.WeepingImmortal_.get()))
+        );
     }
 
 }

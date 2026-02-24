@@ -1,0 +1,36 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 4,
+      "item": "malum:imitation_heart"
+    },
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    },
+    {
+      "count": 32,
+      "item": "malum:twisted_rock"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:ornate_ring"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:weeping_immortal"
+  },
+  "spirits": [
+    {
+      "type": "malum:arcane",
+      "count": 16
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 8
+    }
+  ]
+}

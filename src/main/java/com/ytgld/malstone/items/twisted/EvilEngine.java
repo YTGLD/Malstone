@@ -38,8 +38,8 @@ public class EvilEngine extends Twisted {
             }else {
                 xp(player);
             }
+            spiritItemEntity.getItem().shrink(1);
         }
-        spiritItemEntity.getItem().shrink(1);
     }
     private static boolean needFood(LivingEntity player){
         if (player instanceof Player p) {

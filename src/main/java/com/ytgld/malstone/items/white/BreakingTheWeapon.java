@@ -49,8 +49,8 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
     }
 
     @Override
-    public float getVoidParticleIntensity() {
-        return IVoidItem.super.getVoidParticleIntensity() * 1.25f;
+    public boolean canSpawn() {
+        return true;
     }
 
     public static void pack(PlayerInteractEvent.LeftClickEmpty event){

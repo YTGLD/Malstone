@@ -10,9 +10,7 @@ import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
-import com.ytgld.malstone.items.twisted.Condenser;
-import com.ytgld.malstone.items.twisted.EvilEngine;
-import com.ytgld.malstone.items.twisted.FallingWell;
+import com.ytgld.malstone.items.twisted.*;
 import com.ytgld.malstone.items.white.*;
 import com.ytgld.malstone.magic.MalstoneSpirits;
 import net.minecraft.core.registries.Registries;
@@ -53,6 +51,10 @@ public class ItemRegs {
             ()->new Condenser(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> EvilEngine_ = REGISTER.register("evil_engine",
             ()->new EvilEngine(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> WeepingImmortal_ = REGISTER.register("weeping_immortal",
+            ()->new WeepingImmortal(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item, Item> ExtremelyDead_ = REGISTER.register("extremely_dead",
+            ()->new ExtremelyDead(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 
 

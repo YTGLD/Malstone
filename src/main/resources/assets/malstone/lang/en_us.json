@@ -1,10 +1,14 @@
 {
   "itemGroup.malstone": "Malum Expansion: Malstone",
   "item.malstone.blood_spirit": "Bloody spirit",
-
+  "item.malstone.weeping_power": "It can be charged using the Well of Crying",
   "key.malstone.r": "Use skills",
   "key.malstone.keys": "Malum Expansion: Malstone",
   "item.malstone.skill_use": "Press '%d' to use the skill",
+  "item.malstone.skill_use.text": "There is also %d%% recharge time for this item",
+
+  "curios.identifier.well": "Crying slot",
+  "curios.modifiers.well": "佩戴时：",
 
   "effect.malstone.fall_curse": "Fall curse",
 
@@ -117,8 +121,22 @@
   "item.malstone.evil_engine.text.3": "Restore hunger and saturation if no treatment is required",
   "item.malstone.evil_engine.text.4":"Gain experience points if you don't need to eat",
 
+ "item.malstone.extremely_dead": "extreme death",
+  "item.malstone.extremely_dead.text.1": "Natural Spirits deal damage to passing creatures while flying, while weakening the target",
+  "item.malstone.extremely_dead.text.2": "Natural Spirits can no longer be picked up and briefly increases their magic damage upon contact",
+  "item.malstone.extremely_dead.text.3": "If strengthened by the Well of Crying, it may spawn a Shadow Spirit when killing the target",
+  "item.malstone.extremely_dead.text.4": "Gain a large number of Spirit Plunder levels in the enhanced state",
 
-
+"malum.gui.book.entry.weeping_immortal": "Weeping Immortal",
+  "malum.gui.book.entry.weeping_immortal.description": "desperate detection",
+  "malum.gui.book.entry.page.headline.weeping_immortal": "Weeping Fairy",
+  "malum.gui.book.entry.page.text.weeping_immortal.1": "泣仙又被称为堕落之仙， 似乎是来自哭泣之井的未知存在 所凝聚而成的产物， 这是我发现的事实......",
+  "malum.gui.book.entry.page.text.weeping_immortal.2": "我发现 在跳入哭泣之井后部分的属性，也就是物理伤害，攻速，移速， 魔法伤害，魔法抗性会获得大幅提高。",
+  "malum.gui.book.entry.page.text.weeping_immortal.3": "但是我也可以使用 幽影精魂来为此物充能， 就像使用收纳袋一样使用它",
+  "item.malstone.weeping_immortal": "Weeping Immortal",
+  "item.malstone.weeping_immortal.text.1": "Jumping into the Well of Weeping will briefly gain a large stat bonus",
+  "item.malstone.weeping_immortal.text.2": "The effect of jumping into the Well of Weeping can be achieved by giving the Weeping Shadow Spirit",
+  "item.malstone.weeping_immortal.text.3": "Or pick up the Shadow Spirit to achieve a similar effect, but the enhancement time will be reduced",
  "malum.gui.book.entry.breaking_the_weapon": "Breaking the Blade",
   "malum.gui.book.entry.breaking_the_weapon.description": "coercive lock",
   "malum.gui.book.entry.page.headline.breaking_the_weapon": "Breaking the Blade",

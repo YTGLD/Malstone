@@ -28,6 +28,8 @@ public class Tab {
                 b.accept(ItemRegs.FallingWell_.get());
                 b.accept(ItemRegs.Condenser_.get());
                 b.accept(ItemRegs.EvilEngine_.get());
+                b.accept(ItemRegs.WeepingImmortal_.get());
+                b.accept(ItemRegs.ExtremelyDead_.get());
 //                b.accept(ItemRegs.KillTheGods_.get());
             })
             .build()

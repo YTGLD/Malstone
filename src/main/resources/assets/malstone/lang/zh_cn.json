@@ -5,6 +5,10 @@
   "key.malstone.keys": "灵灾拓展：异域",
   "item.malstone.skill_use": "按下‘%d’使用技能",
   "effect.malstone.fall_curse": "堕落诅咒",
+  "item.malstone.weeping_power": "可以使用哭泣之井进行充能",
+  "item.malstone.skill_use.text": "还有%d秒的充能时间",
+  "curios.identifier.well": "哭泣槽位",
+  "curios.modifiers.well": "佩戴时：",
 
   "attribute.name.malstone.chaos_erosion": "灵魂异动",
   "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",
@@ -148,6 +152,24 @@
   "malum.gui.book.entry.page.text.condenser.1": "瞬时凝聚器可以在短时间内造成一次空间波动， 这种波动次数是无上限的， 每次造成空间波动都会将附近的 精魂瞬间传送到目标位置",
   "item.malstone.condenser": "瞬时凝聚器",
   "item.malstone.condenser.text.1": "生物产生的精魂可瞬间到达你的位置",
+
+
+  "malum.gui.book.entry.weeping_immortal": "泣仙",
+  "malum.gui.book.entry.weeping_immortal.description": "绝望的探知",
+  "malum.gui.book.entry.page.headline.weeping_immortal": "泣仙",
+  "malum.gui.book.entry.page.text.weeping_immortal.1": "泣仙又被称为堕落之仙， 似乎是来自哭泣之井的未知存在 所凝聚而成的产物， 这是我发现的事实......",
+  "malum.gui.book.entry.page.text.weeping_immortal.2": "我发现 在跳入哭泣之井后部分的属性，也就是 物理伤害， 攻速， 移速， 魔法伤害， 魔法抗性会获得大幅提高。",
+  "malum.gui.book.entry.page.text.weeping_immortal.3": "但是我也可以使用 幽影精魂来为此物充能， 就像使用收纳袋一样使用它",
+  "item.malstone.weeping_immortal": "泣仙",
+  "item.malstone.weeping_immortal.text.1": "跳入哭泣之井会短暂获得大量的属性加成",
+  "item.malstone.weeping_immortal.text.2": "可以通过给予泣仙幽影精魂来达到跳入哭泣之井的效果",
+  "item.malstone.weeping_immortal.text.3": "亦或者拾取幽影精魂来达到类似效果，但是强化时长会有所降低",
+
+  "item.malstone.extremely_dead": "极殇",
+  "item.malstone.extremely_dead.text.1": "天然精魂在飞行过程中会对经过生物造成伤害，同时削弱目标",
+  "item.malstone.extremely_dead.text.2": "天然精魂不再可以被拾取，并在接触后短暂提高自身的魔法伤害",
+  "item.malstone.extremely_dead.text.3": "若被哭泣之井强化，则可能在杀死目标时产生幽影精魂",
+  "item.malstone.extremely_dead.text.4": "强化状态下获得大量的精魂劫掠等级",
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",

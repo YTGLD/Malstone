@@ -62,6 +62,10 @@ public class Config {
             .comment("堕井充能后的属性加成")
             .comment("Attribute bonus after falling well charge")
             .defineInRange("addPowerFallingWell",0.2f,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.IntValue lvlExtremelyDead = BUILDER
+            .comment("极殇的幽影精魂机率")
+            .comment("The probability of the ghost spirit of extreme death")
+            .defineInRange("lvlExtremelyDead",20,0,Integer.MAX_VALUE);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -69,6 +73,10 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
+
+    public static ModConfigSpec.IntValue getLvlExtremelyDead() {
+        return lvlExtremelyDead;
+    }
 
     public static ModConfigSpec.DoubleValue getAddPowerFallingWell() {
         return addPowerFallingWell;

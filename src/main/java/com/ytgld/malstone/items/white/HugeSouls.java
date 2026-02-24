@@ -75,8 +75,11 @@ public class HugeSouls extends WhiteArrow {
                 IDynamicStackHandler stackHandler = stacksHandler.getStacks();
                 for (int i = 0; i < stacksHandler.getSlots(); i++) {
                     ItemStack dotS = stackHandler.getStackInSlot(i);
-                    if (dotS.getItem() instanceof WhiteArrow) {
-                        integers.add(1);
+
+                    if (stack.is(ItemRegs.HugeSouls_.get())) {
+                        if (dotS.getItem() instanceof WhiteArrow) {
+                            integers.add(1);
+                        }
                     }
                 }
             }
