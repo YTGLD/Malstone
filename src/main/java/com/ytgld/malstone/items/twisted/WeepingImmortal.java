@@ -2,23 +2,17 @@ package com.ytgld.malstone.items.twisted;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.sammy.malum.registry.common.MalumAttributes;
 import com.sammy.malum.registry.common.MalumSoundEvents;
 import com.sammy.malum.registry.common.item.MalumItems;
+import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.attribute.AttReg;
-import com.ytgld.malstone.effects.Effects;
 import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
-import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.core.Holder;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -28,10 +22,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.helpers.RandomHelper;
 import team.lodestar.lodestone.helpers.SoundHelper;
 import team.lodestar.lodestone.registry.common.LodestoneAttributes;
@@ -69,7 +61,9 @@ public class WeepingImmortal extends Twisted {
                             if (stack.is(ItemRegs.WeepingImmortal_.get())) {
                                 if (stack.getItem() instanceof BaseItem item) {
                                     if (item.canUseWeepingPower()) {
-                                        item.addWeepingPower(stack, 0.1f);
+                                        if (other.is(MalumItems.UMBRAL_SPIRIT.get())) {
+                                            item.addWeepingPower(stack, 0.1f);
+                                        }
                                     }
                                 }
                             }
@@ -84,7 +78,7 @@ public class WeepingImmortal extends Twisted {
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
         if (other.is(MalumItems.UMBRAL_SPIRIT)) {
             addWeepingPower(stack);
-            stack.shrink(1);
+            other.shrink(1);
             SoundHelper.playSound(player, MalumSoundEvents.VOID_TRINKET_EQUIP.get(), 0.8F, RandomHelper.randomBetween(player.getRandom(), 1, 1));
             return true;
         }
@@ -121,7 +115,7 @@ public class WeepingImmortal extends Twisted {
         Multimap<Holder<Attribute>, AttributeModifier> modifiers = HashMultimap.create();
         float add = 0;
         if (this.hasWeepingWllPower(stack)) {
-            add = 0.33f;
+            add = attribute();
         }
         modifiers.put(Attributes.MOVEMENT_SPEED,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
                 add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
@@ -136,12 +130,15 @@ public class WeepingImmortal extends Twisted {
                 add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
         return modifiers;
     }
+
+    public static float attribute(){
+        return Config.getAttributeWeepingImmortal().get().floatValue();
+    }
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.3").setStyle(Style.EMPTY.withColor(color())));
-
-       }
+        return new MalstoneText(stack,tooltipComponents);
+    }
 }

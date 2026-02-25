@@ -9,6 +9,7 @@ import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.sammy.malum.visual_effects.networked.MalumNetworkedWeaponParticleEffectType;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
+import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Runes;
 import net.minecraft.core.Holder;

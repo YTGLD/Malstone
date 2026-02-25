@@ -7,6 +7,7 @@ import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.Runes;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;

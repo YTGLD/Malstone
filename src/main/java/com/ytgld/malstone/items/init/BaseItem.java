@@ -16,6 +16,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.particle.screen.ScreenParticleHolder;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
@@ -31,6 +32,14 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
     }
     public int color(){
         return Light.ARGB.color(255, 255, 255, 0);
+    }
+    @Nullable
+    public MalstoneText malstoneText(ItemStack stack,List<Component> tooltipComponents){
+        return null;
+    }
+    @Override
+    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag flag) {
+        MalstoneText malstoneText = this.malstoneText(stack, tooltipComponents);
     }
     public static final String weepingWellPower = "weepingWellPower";
     @Override
@@ -109,8 +118,13 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
         if (compoundTag == null) {
             stack.set(DataReg.tag, new CompoundTag());
         }
+        int time = (int) (this.maxWeepingPower(stack) * mul) + getWeepingPower(stack);
+        if (time > maxWeepingPower(stack)) {
+            time = maxWeepingPower(stack);
+        }
         if (compoundTag != null) {
-            compoundTag.putInt(weepingWellPower, (int) (this.maxWeepingPower(stack) * mul));
+            compoundTag.putInt(weepingWellPower, time);
         }
     }
+    public record MalstoneText(ItemStack stack,List<Component> tooltipComponents){ }
 }

@@ -30,6 +30,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -92,8 +93,7 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
         }
     }
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.3").setStyle(Style.EMPTY.withColor(color())));
@@ -102,9 +102,8 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.5").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.6").setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
-
-
     public static Entity getPlayerLookTarget(Level level, Player living) {
         Entity pointedEntity = null;
         double range = living.getAttributeValue(Attributes.ENTITY_INTERACTION_RANGE);

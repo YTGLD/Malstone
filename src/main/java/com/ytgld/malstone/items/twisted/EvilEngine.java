@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -67,11 +68,12 @@ public class EvilEngine extends Twisted {
         }
     }
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
+
         tooltipComponents.add(Component.translatable("item.malstone.evil_engine.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.evil_engine.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.evil_engine.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.evil_engine.text.4").setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
 }

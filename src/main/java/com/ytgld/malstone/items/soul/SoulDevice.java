@@ -19,6 +19,7 @@ import team.lodestar.lodestone.helpers.ItemHelper;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -45,8 +46,8 @@ public class SoulDevice extends SoulSteel {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
         tooltipComponents.add(Component.translatable("item.malstone.soul_device.text.1").setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
 }

@@ -27,6 +27,7 @@ import net.minecraft.world.phys.Vec3;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 /**
@@ -128,14 +129,15 @@ public class FallingWell extends Twisted  {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
+
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.4").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.5").setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
     public static float addPower(LivingEntity player){
         return Handler.doArcaneHarmonics(player, Config.getAddPowerFallingWell().get().floatValue());

@@ -22,19 +22,23 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
     }
     @Inject(method = "collect", at = @At(value = "HEAD"))
     private void collect(ServerLevel level, CallbackInfo ci) {
-        this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
-            EvilEngine.killThis(collector,(SpiritItemEntity)(Object)this);
-            WeepingImmortal.pickUp(collector,this.getItem());
-            ExtremelyDead.killThis(collector,(SpiritItemEntity)(Object)this);
-        });
+        if (getDestination() !=null) {
+            this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
+                EvilEngine.killThis(collector, (SpiritItemEntity) (Object) this);
+                WeepingImmortal.pickUp(collector, this.getItem());
+                ExtremelyDead.killThis(collector, (SpiritItemEntity) (Object) this);
+            });
+        }
     }
     @Inject(method = "tick", at = @At(value = "RETURN"))
     private void tick$Malstone(CallbackInfo ci) {
         if (this.level() instanceof ServerLevel level) {
-            this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
-                Condenser.tpPlayer(collector,(SpiritItemEntity)(Object)this);
-                ExtremelyDead.flyDamage(collector,(SpiritItemEntity)(Object)this);
-            });
+            if (getDestination() != null) {
+                this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
+                    Condenser.tpPlayer(collector, (SpiritItemEntity) (Object) this);
+                    ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
+                });
+            }
         }
     }
 }

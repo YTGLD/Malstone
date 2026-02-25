@@ -52,11 +52,12 @@ public class BreakingTheLife extends WhiteArrow {
         return false;
     }
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
+
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_life.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_life.text.2",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_life.text.3",max(null)*100f).setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
 
     public static void lLivingHealEvent(LivingHealEvent event){

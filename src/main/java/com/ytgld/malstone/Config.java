@@ -65,7 +65,15 @@ public class Config {
     private static final ModConfigSpec.IntValue lvlExtremelyDead = BUILDER
             .comment("极殇的幽影精魂机率")
             .comment("The probability of the ghost spirit of extreme death")
-            .defineInRange("lvlExtremelyDead",20,0,Integer.MAX_VALUE);
+            .defineInRange("lvlExtremelyDead_1",2,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.DoubleValue damageExtremelyDead = BUILDER
+            .comment("极殇的伤害")
+            .comment("Extremely deadly injuries")
+            .defineInRange("damageExtremelyDead",0.25f,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.DoubleValue attributeWeepingImmortal = BUILDER
+            .comment("泣仙的属性加成")
+            .comment("Weeping Immortal's attribute bonus")
+            .defineInRange("attributeWeepingImmortal",0.15f,0,Integer.MAX_VALUE);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -74,8 +82,16 @@ public class Config {
 
     static final ModConfigSpec SPEC  = BUILDER.build();
 
+    public static ModConfigSpec.DoubleValue getAttributeWeepingImmortal() {
+        return attributeWeepingImmortal;
+    }
+
     public static ModConfigSpec.IntValue getLvlExtremelyDead() {
         return lvlExtremelyDead;
+    }
+
+    public static ModConfigSpec.DoubleValue getDamageExtremelyDead() {
+        return damageExtremelyDead;
     }
 
     public static ModConfigSpec.DoubleValue getAddPowerFallingWell() {

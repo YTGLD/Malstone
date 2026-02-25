@@ -41,6 +41,7 @@ import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
 import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Map;
 
@@ -115,7 +116,7 @@ public class ExtremelyDead extends Twisted {
                 for (LivingEntity entity : entitiesOfClass){
                     if (!entity.is(player) && player instanceof Player doi) {
                         entity.invulnerableTime = 0;
-                        float damage = 2;
+                        float damage = damage(doi);
                         if (!entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,100,0,false,false))){
                             damage *= 2f;
                         }
@@ -173,12 +174,17 @@ public class ExtremelyDead extends Twisted {
     public static int lvl(Player player){
         return (int) Handler.doArcaneHarmonics(player,Config.getLvlExtremelyDead().get());
     }
+
+    public static float damage(Player player){
+        return Handler.doArcaneHarmonics(player,Config.getDamageExtremelyDead().get().floatValue());
+    }
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
+
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.4").setStyle(Style.EMPTY.withColor(color())));
+        return new MalstoneText(stack,tooltipComponents);
     }
 }
