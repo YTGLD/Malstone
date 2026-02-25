@@ -3,19 +3,13 @@ package com.ytgld.malstone.items.init;
 import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.visual_effects.ScreenParticleEffects;
 import com.ytgld.malstone.Light;
-import com.ytgld.malstone.effects.Effects;
 import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.particle.screen.ScreenParticleHolder;
 import top.theillusivec4.curios.api.SlotContext;
@@ -33,15 +27,15 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
     public int color(){
         return Light.ARGB.color(255, 255, 255, 0);
     }
+
     @Nullable
     public MalstoneText malstoneText(ItemStack stack,List<Component> tooltipComponents){
         return null;
     }
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag flag) {
-        MalstoneText malstoneText = this.malstoneText(stack, tooltipComponents);
+        this.malstoneText(stack, tooltipComponents);
     }
-    public static final String weepingWellPower = "weepingWellPower";
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         ICurioItem.super.curioTick(slotContext, stack);
@@ -73,13 +67,18 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
         }
     }
 
+    //--------------------------------客户端粒子--------------------------------------------
+
     public boolean canSpawn(){
         return false;
     }
+    //--------------------------------客户端粒子--------------------------------------------
+    //--------------------------------哭泣之井--------------------------------------------
+    public static final String weepingWellPower = "weepingWellPower";
+
     public boolean canUseWeepingPower(){
         return false;
     }
-
     public boolean hasWeepingWllPower(ItemStack stack){
         if (canUseWeepingPower()) {
             CompoundTag compoundTag = stack.get(DataReg.tag);
@@ -126,5 +125,6 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
             compoundTag.putInt(weepingWellPower, time);
         }
     }
+    //--------------------------------哭泣之井--------------------------------------------
     public record MalstoneText(ItemStack stack,List<Component> tooltipComponents){ }
 }

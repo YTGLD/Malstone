@@ -6,6 +6,9 @@
   "key.malstone.keys": "Malum Expansion: Malstone",
   "item.malstone.skill_use": "Press '%d' to use the skill",
   "item.malstone.skill_use.text": "There is also %d%% recharge time for this item",
+  "item.chest_item.skill.twisted": "Distorted lies：The shackles of imprisonment",
+  "item.malstone.shift": "Press Shift to view",
+
 
   "curios.identifier.well": "Crying slot",
   "curios.modifiers.well": "佩戴时：",
