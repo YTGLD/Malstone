@@ -1,0 +1,32 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 1,
+      "item": "malstone:hungrier"
+    },
+    {
+      "count": 1,
+      "item": "malum:ring_of_arcane_prowess"
+    },
+    {
+      "count": 1,
+      "item": "malum:ring_of_curative_talent"
+    }
+  ],
+  "input": {
+    "count": 4,
+    "item": "malum:twisted_rock"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:evil_engine"
+  },
+  "spirits": [
+    {
+      "type": "malum:eldritch",
+      "count": 4
+    }
+  ]
+}

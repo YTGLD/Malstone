@@ -1,0 +1,39 @@
+{
+  "type": "malum:spirit_infusion",
+  "extraInputs": [
+    {
+      "count": 4,
+      "item": "malum:malignant_pewter_plating"
+    },
+    {
+      "count": 8,
+      "item": "malum:null_slate"
+    },
+    {
+      "count": 4,
+      "item": "malum:imitation_flesh"
+    },
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:necklace_of_the_watcher"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:breaking_the_weapon"
+  },
+  "spirits": [
+    {
+      "type": "malum:arcane",
+      "count": 32
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 16
+    }
+  ]
+}
