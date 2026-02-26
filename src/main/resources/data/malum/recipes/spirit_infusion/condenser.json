@@ -8,8 +8,8 @@
     }
   ],
   "input": {
-    "count": 1,
-    "item": "minecraft:golden_sword"
+    "count": 8,
+    "item": "malum:twisted_rock"
   },
   "output": {
     "item": "malstone:condenser"
