@@ -1,7 +1,6 @@
 package com.ytgld.malstone.items.rune;
 
 import com.google.common.collect.Multimap;
-import com.sammy.malum.common.item.curiosities.weapons.scythe.MalumScytheItem;
 import com.sammy.malum.registry.common.MalumDamageTypes;
 import com.sammy.malum.registry.common.MalumParticleEffectTypes;
 import com.sammy.malum.registry.common.MalumSoundEvents;
@@ -9,7 +8,6 @@ import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.sammy.malum.visual_effects.networked.MalumNetworkedWeaponParticleEffectType;
 import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Runes;
 import net.minecraft.core.Holder;

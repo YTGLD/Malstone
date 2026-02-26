@@ -2,12 +2,6 @@ package com.ytgld.malstone.client.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
-import com.sammy.malum.client.RenderUtils;
-import com.sammy.malum.client.SpiritBasedWorldVFXBuilder;
-import com.sammy.malum.core.systems.spirit.type.SpiritArcanaType;
-import com.sammy.malum.registry.client.MalumRenderTypeTokens;
-import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.Light;
 import com.ytgld.malstone.client.MRender;
 import com.ytgld.malstone.entity.BloodSpirit;
@@ -22,10 +16,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4f;
-import team.lodestar.lodestone.registry.client.LodestoneRenderTypes;
-import team.lodestar.lodestone.systems.rendering.rendeertype.LodestoneRenderTypeBuilder;
-
-import java.awt.*;
 
 public class SpiritRenderer extends EntityRenderer<BloodSpirit> {
     public final ItemRenderer itemRenderer;

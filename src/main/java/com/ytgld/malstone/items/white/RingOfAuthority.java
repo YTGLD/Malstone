@@ -4,7 +4,6 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.sammy.malum.common.entity.bolt.DrainingBoltEntity;
 import com.sammy.malum.registry.common.item.MalumItems;
-import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
@@ -23,7 +22,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import top.theillusivec4.curios.api.SlotContext;
 

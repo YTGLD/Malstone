@@ -2,7 +2,6 @@ package com.ytgld.malstone.items.rune;
 
 import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.ytgld.malstone.Handler;
-import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Runes;
 import net.minecraft.network.chat.Component;

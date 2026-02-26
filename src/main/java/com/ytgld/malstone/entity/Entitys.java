@@ -1,8 +1,5 @@
 package com.ytgld.malstone.entity;
 
-import com.sammy.malum.MalumMod;
-import com.sammy.malum.common.entity.AscendingBlockEntity;
-import com.sammy.malum.common.entity.spirit.SpiritItemEntity;
 import com.ytgld.malstone.Malstone;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

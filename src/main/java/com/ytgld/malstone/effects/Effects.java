@@ -1,10 +1,8 @@
 package com.ytgld.malstone.effects;
 
 import com.ytgld.malstone.Malstone;
-import com.ytgld.malstone.entity.BloodSpirit;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

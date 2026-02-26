@@ -1,7 +1,6 @@
 package com.ytgld.malstone.items.init;
 
 import com.sammy.malum.common.item.spirit.SpiritShardItem;
-import com.sammy.malum.registry.common.magic.MalumSpiritTypes;
 import com.ytgld.malstone.Malstone;
 import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.rune.BladeOath;

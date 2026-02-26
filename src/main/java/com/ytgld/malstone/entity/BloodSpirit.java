@@ -1,25 +1,11 @@
 package com.ytgld.malstone.entity;
 
-import com.sammy.malum.common.entity.FloatingItemDestinationData;
-import com.sammy.malum.common.entity.FloatingItemEntity;
 import com.sammy.malum.registry.common.MalumSoundEvents;
 import com.ytgld.malstone.attribute.AttReg;
-import com.sammy.malum.common.item.spirit.SpiritShardItem;
-import com.sammy.malum.core.systems.spirit.type.SpiritArcanaType;
 import com.ytgld.malstone.items.KillTheGods;
-import com.ytgld.malstone.magic.MalstoneSpirits;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.OwnableEntity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.Snowball;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

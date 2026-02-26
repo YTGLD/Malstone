@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
