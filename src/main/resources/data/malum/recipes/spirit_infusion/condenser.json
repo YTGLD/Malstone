@@ -1,23 +1,22 @@
 {
   "type": "malum:spirit_infusion",
 
-  "extraInputs": [
+  "extra_items": [
     {
       "count": 1,
       "item": "malum:fused_consciousness"
     }
   ],
   "input": {
-    "count": 8,
-    "item": "malum:twisted_rock"
-  },
-  "result": {
     "count": 1,
-    "id": "malstone:condenser"
+    "item": "minecraft:golden_sword"
+  },
+  "output": {
+    "item": "malstone:condenser"
   },
   "spirits": [
     {
-      "type": "malum:earthen",
+      "type": "earthen",
       "count": 16
     }
   ]

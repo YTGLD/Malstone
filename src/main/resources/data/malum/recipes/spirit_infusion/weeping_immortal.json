@@ -1,10 +1,9 @@
 {
   "type": "malum:spirit_infusion",
-
-  "extraInputs": [
+  "extra_items": [
     {
-      "count": 4,
-      "item": "malum:imitation_heart"
+      "count": 1,
+      "item": "malum:malignant_lead"
     },
     {
       "count": 1,
@@ -19,17 +18,16 @@
     "count": 1,
     "item": "malum:ornate_ring"
   },
-  "result": {
-    "count": 1,
-    "id": "malstone:weeping_immortal"
+  "output": {
+    "item": "malstone:weeping_immortal"
   },
   "spirits": [
     {
-      "type": "malum:arcane",
+      "type": "arcane",
       "count": 16
     },
     {
-      "type": "malum:eldritch",
+      "type": "eldritch",
       "count": 8
     }
   ]

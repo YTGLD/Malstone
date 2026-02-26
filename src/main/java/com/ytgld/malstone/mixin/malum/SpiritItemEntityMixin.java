@@ -20,17 +20,9 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
     public SpiritItemEntityMixin(EntityType<? extends FloatingItemEntity> type, Level level) {
         super(type, level);
     }
-    @Inject(method = "collect", at = @At(value = "HEAD"))
-    private void collect(CallbackInfo ci) {
-        if (this.owner instanceof Player collector) {
-            EvilEngine.killThis(collector, (SpiritItemEntity) (Object) this);
-            WeepingImmortal.pickUp(collector, this.getItem());
-            ExtremelyDead.killThis(collector, (SpiritItemEntity) (Object) this);
-        }
-    }
     @Inject(method = "tick", at = @At(value = "RETURN"))
     private void tick$Malstone(CallbackInfo ci) {
-        if (this.level() instanceof ServerLevel level) {
+        if (this.level() instanceof ServerLevel) {
             if (this.owner instanceof Player collector) {
                 Condenser.tpPlayer(collector, (SpiritItemEntity) (Object) this);
                 ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);

@@ -29,7 +29,7 @@ public class EvilEngine extends Twisted {
         super(properties);
     }
 
-    public static void killThis(LivingEntity player , SpiritItemEntity spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity){
         if (Handler.hascurio(player, ItemRegs.EvilEngine_.get())) {
             if (player.getHealth() < player.getMaxHealth()) {
                 heal(player);
@@ -38,7 +38,7 @@ public class EvilEngine extends Twisted {
             }else {
                 xp(player);
             }
-            spiritItemEntity.getItem().shrink(1);
+            spiritItemEntity.shrink(1);
         }
     }
     private static boolean needFood(LivingEntity player){

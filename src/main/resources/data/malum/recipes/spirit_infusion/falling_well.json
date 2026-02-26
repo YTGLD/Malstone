@@ -1,14 +1,14 @@
 {
   "type": "malum:spirit_infusion",
 
-  "extraInputs": [
+  "extra_items": [
     {
       "count": 16,
       "item": "malum:twisted_rock"
     },
     {
       "count": 4,
-      "item": "malum:imitation_flesh"
+      "item": "malum:living_flesh"
     },
     {
       "count": 1,
@@ -17,19 +17,18 @@
   ],
   "input": {
     "count": 1,
-    "item": "malum:imitation_heart"
+    "item": "malum:living_flesh"
   },
-  "result": {
-    "count": 1,
-    "id": "malstone:falling_well"
+  "output": {
+    "item": "malstone:falling_well"
   },
   "spirits": [
     {
-      "type": "malum:earthen",
+      "type": "earthen",
       "count": 64
     },
     {
-      "type": "malum:eldritch",
+      "type": "eldritch",
       "count": 48
     }
   ]

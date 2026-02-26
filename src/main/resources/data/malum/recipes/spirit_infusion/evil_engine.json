@@ -1,7 +1,7 @@
 {
   "type": "malum:spirit_infusion",
 
-  "extraInputs": [
+  "extra_items": [
     {
       "count": 1,
       "item": "malstone:hungrier"
@@ -19,13 +19,12 @@
     "count": 4,
     "item": "malum:twisted_rock"
   },
-  "result": {
-    "count": 1,
-    "id": "malstone:evil_engine"
+  "output": {
+    "item": "malstone:evil_engine"
   },
   "spirits": [
     {
-      "type": "malum:eldritch",
+      "type": "eldritch",
       "count": 4
     }
   ]

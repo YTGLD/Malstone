@@ -77,23 +77,23 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
     }
     public static void attackADamage(LivingDamageEvent event) {
         if (event.getSource().getEntity() instanceof Player player) {
-            if (event.getEntity() instanceof Player e){
-
-                if (Handler.hascurio(player, ItemRegs.BreakingTheWeapon_.get())) {
+            if (Handler.hascurio(player, ItemRegs.BreakingTheWeapon_.get())) {
+                double shield = 0;
+                if (event.getEntity() instanceof Player e) {
                     SoulWardHandler handler = MalumPlayerDataCapability.getCapability(e).soulWardHandler;
-                    double shield = handler.soulWard;
-                    float armor = (float) (event.getEntity().getArmorValue() + shield);
-                    armor /= 4;
-                    if (armor > maxArmorDamage(player)) {
-                        armor = maxArmorDamage(player);
-                    }
-                    float c = 1;
-                    if (event.getEntity().getHealth() >= event.getEntity().getMaxHealth()) {
-                        c *= healthDamage(player);
-                    }
-                    event.setAmount(event.getAmount() * c + armor);
+                    shield = handler.soulWard;
                     handler.soulWard = 0;
                 }
+                float armor = (float) (event.getEntity().getArmorValue() + shield);
+                armor /= 4;
+                if (armor > maxArmorDamage(player)) {
+                    armor = maxArmorDamage(player);
+                }
+                float c = 1;
+                if (event.getEntity().getHealth() >= event.getEntity().getMaxHealth()) {
+                    c *= healthDamage(player);
+                }
+                event.setAmount(event.getAmount() * c + armor);
             }
         }
     }

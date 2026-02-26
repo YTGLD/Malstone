@@ -1,7 +1,6 @@
 {
   "type": "malum:spirit_infusion",
-
-  "extraInputs": [
+  "extra_items": [
     {
       "count": 1,
       "item": "malum:fused_consciousness"
@@ -15,13 +14,12 @@
     "count": 1,
     "item": "malstone:evil_engine"
   },
-  "result": {
-    "count": 1,
-    "id": "malstone:extremely_dead"
+  "output": {
+    "item": "malstone:extremely_dead"
   },
   "spirits": [
     {
-      "type": "malum:arcane",
+      "type": "infernal",
       "count": 32
     }
   ]

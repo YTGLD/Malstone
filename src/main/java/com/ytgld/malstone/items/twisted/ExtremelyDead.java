@@ -53,10 +53,10 @@ public class ExtremelyDead extends Twisted {
     public ExtremelyDead(Properties properties) {
         super(properties);
     }
-    public static void killThis(LivingEntity player , SpiritItemEntity spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity){
         if (Handler.hascurio(player, ItemRegs.ExtremelyDead_.get())) {
-            if (!spiritItemEntity.getItem().is(ItemRegistry.UMBRAL_SPIRIT.get())) {
-                spiritItemEntity.getItem().shrink(1);
+            if (!spiritItemEntity.is(ItemRegistry.UMBRAL_SPIRIT.get())) {
+                spiritItemEntity.shrink(1);
             }
         }
     }
