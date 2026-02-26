@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.sammy.malum.common.entity.bolt.DrainingBoltEntity;
 import com.sammy.malum.registry.common.item.ItemRegistry;
+import com.ytgld.malstone.Config;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.WhiteArrow;
@@ -148,6 +149,6 @@ public class RingOfAuthority extends WhiteArrow {
 
 
     public static float maxSped(Player player){
-        return 1.2f * Handler.whiteArcaneHarmonics(player);
+        return Handler.doWhiteArcaneHarmonics(player, 1.2f);
     }
 }

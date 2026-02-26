@@ -9,6 +9,8 @@
     "malum.MalumScytheItemMixin",
     "malum.SoulWardHandlerMixin",
     "malum.SpiritHarvestHandlerMixin",
+    "malum.SpiritItemEntityMixin",
+    "malum.VoidConduitBlockEntityMixin",
     "malum.VoidProgressionScreenMixin"
   ],
   "client": [

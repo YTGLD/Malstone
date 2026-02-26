@@ -3,7 +3,7 @@
   "extra_items": [
     {
       "count": 8,
-      "tag": "malum:rotting_essence"
+      "item": "malum:rotting_essence"
     }
   ],
   "input": {

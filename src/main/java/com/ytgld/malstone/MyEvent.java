@@ -4,15 +4,13 @@ import com.sammy.malum.common.capability.MalumPlayerDataCapability;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
-import com.ytgld.malstone.items.init.Runes;
-import com.ytgld.malstone.items.init.SoulSteel;
+import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
-import com.ytgld.malstone.items.white.BreakingTheLife;
-import com.ytgld.malstone.items.white.HugeSouls;
-import com.ytgld.malstone.items.white.RingOfAuthority;
-import com.ytgld.malstone.items.white.WhiteArrowBlade;
-import com.ytgld.malstone.items.init.WhiteArrow;
+import com.ytgld.malstone.items.twisted.ExtremelyDead;
+import com.ytgld.malstone.items.white.*;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,8 +21,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.player.ItemTooltipEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import team.lodestar.lodestone.helpers.RandomHelper;
+import team.lodestar.lodestone.helpers.SoundHelper;
 
 public class MyEvent {
     @SubscribeEvent
@@ -50,6 +53,19 @@ public class MyEvent {
     }
 
     @SubscribeEvent
+    public void LeftClickEmpty(LivingDeathEvent event) {
+        ExtremelyDead.killBlack(event);
+    }
+    @SubscribeEvent
+    public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
+        BreakingTheWeapon.pack(event);
+    }
+    @SubscribeEvent
+    public void LeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+        BreakingTheWeapon.pack(event);
+    }
+
+    @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent event){
         BladeOath.doMaxScy(event);
         HugeSouls.lLivingDamageEvent(event);
@@ -57,8 +73,29 @@ public class MyEvent {
         RingOfAuthority.attack(event);
         Martyrdom.attackPost(event);
         Martyrdom.attackPre(event);
+        BreakingTheWeapon.attackADamage(event);
     }
-
+    @SubscribeEvent
+    public void tooltip(ItemTooltipEvent event){
+        if (event.getItemStack().getItem() instanceof BaseItem baseItem){
+            if (baseItem.canUseWeepingPower()) {
+                if (!baseItem.hasWeepingWllPower(event.getItemStack())) {
+                    event.getToolTip().add(1, Component.literal(""));
+                    event.getToolTip().add(1, Component.translatable("item.malstone.weeping_power")
+                            .withStyle(Style.EMPTY.withColor(baseItem.color())));
+                }else {
+                    float sin = (float) Math.sin(Malstone.clientTime / 20f);
+                    if (sin < 0) {
+                        sin = -sin;
+                    }
+                    event.getToolTip().add(1, Component.literal(""));
+                    event.getToolTip().add(1, Component.translatable("item.malstone.skill_use.text",
+                                    baseItem.getWeepingPower(event.getItemStack())).
+                            setStyle(Style.EMPTY.withColor(Light.ARGB.color(255, (int) (125 + 100* sin), 100, (int) (130 + 60* sin)))));
+                }
+            }
+        }
+    }
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public void RenderTooltipEven4t(RenderTooltipEvent.Color tooltipEvent){
@@ -67,20 +104,28 @@ public class MyEvent {
             tooltipEvent.setBorderStart(whiteArrow.color());
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 255, 100, 255));
         }
-        if (stack.getItem() instanceof SoulSteel soulSteel) {
+        if (stack.getItem() instanceof SoulSteel) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255, 255, 243, 178));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
-        if (stack.getItem() instanceof Runes runes) {
+        if (stack.getItem() instanceof Runes) {
             tooltipEvent.setBorderStart(Light.ARGB.color(255,210, 0, 203));
             tooltipEvent.setBorderEnd(Light.ARGB.color(255, 147, 121, 224));
         }
-    }
+        if (stack.getItem() instanceof Twisted twisted) {
+            tooltipEvent.setBorderStart(Light.ARGB.color(255, 125, 100, 130));
+            tooltipEvent.setBorderEnd(Light.ARGB.color(255, 125, 100, 130));
+        }
+        if (stack.getItem() instanceof BaseItem item) {
+            if (item.hasWeepingWllPower(tooltipEvent.getItemStack())) {
+                float sin = (float) Math.sin(Malstone.clientTime / 20f);
+                if (sin < 0) {
+                    sin = -sin;
+                }
+                tooltipEvent.setBorderStart(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
+                tooltipEvent.setBorderEnd(Light.ARGB.color(255, (int) (125 + 60* sin), 100, (int) (130 + 60* sin)));
 
-//    @SubscribeEvent
-//    public void SetupMalumCodexEntriesEvent(SetupMalumCodexEntriesEvent event){
-//        ArcanaProgressionScreen arcanaProgressionScreen = ArcanaProgressionScreen.getScreenInstance();
-//        WhiteArrowEntries.setupEntries(arcanaProgressionScreen);
-//
-//    }
+            }
+        }
+    }
 }

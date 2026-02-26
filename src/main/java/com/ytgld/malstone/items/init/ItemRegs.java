@@ -7,10 +7,8 @@ import com.ytgld.malstone.items.rune.Hungrier;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.soul.SoulDevice;
 import com.ytgld.malstone.items.soul.SoulSteelComponents;
-import com.ytgld.malstone.items.white.BreakingTheLife;
-import com.ytgld.malstone.items.white.HugeSouls;
-import com.ytgld.malstone.items.white.RingOfAuthority;
-import com.ytgld.malstone.items.white.WhiteArrowBlade;
+import com.ytgld.malstone.items.twisted.*;
+import com.ytgld.malstone.items.white.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.registries.DeferredRegister;
@@ -39,5 +37,19 @@ public class ItemRegs {
             ()->new Hungrier(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> SoulDevice_ = REGISTER.register("soul_device",
             ()->new SoulDevice(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
+    public static final RegistryObject<Item> BreakingTheWeapon_ = REGISTER.register("breaking_the_weapon",
+            ()->new BreakingTheWeapon(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
+    public static final RegistryObject<Item> FallingWell_ = REGISTER.register("falling_well",
+            ()->new FallingWell(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> Condenser_ = REGISTER.register("condenser",
+            ()->new Condenser(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> EvilEngine_ = REGISTER.register("evil_engine",
+            ()->new EvilEngine(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> WeepingImmortal_ = REGISTER.register("weeping_immortal",
+            ()->new WeepingImmortal(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> ExtremelyDead_ = REGISTER.register("extremely_dead",
+            ()->new ExtremelyDead(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
 }

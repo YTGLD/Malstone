@@ -62,12 +62,8 @@ public class WhiteArrowBlade extends WhiteArrow {
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.2",damageAttack(null)*100f).setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.white_arrow_blade.text.3").setStyle(Style.EMPTY.withColor(color())));
     }
-
-    public static float damageMagic(@Nullable LivingEntity entity){
-        return (float)(double) Config.getWhiteArrowBladeMagic().get() * Handler.whiteArcaneHarmonics(entity);
-    }
     public static float damageAttack(@Nullable LivingEntity entity){
-        return  (float)(double) Config.getWhiteArrowBladeAttack().get() * Handler.whiteArcaneHarmonics(entity);
+        return Handler.doWhiteArcaneHarmonics(entity, Config.getWhiteArrowBladeAttack().get().floatValue());
 
     }
 }

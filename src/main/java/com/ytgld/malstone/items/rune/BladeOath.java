@@ -89,7 +89,7 @@ public class BladeOath extends Runes {
         }
     }
     public static float doubleDAMAGE(LivingEntity living){
-        return Config.getDoubleBladeOath().get().floatValue() * Handler.getArcaneHarmonics(living);
+        return Handler.doArcaneHarmonics(living,Config.getDoubleBladeOath().get().floatValue());
 
     }    @Override
     public void addAttributeModifiers(Multimap<Attribute, AttributeModifier> map, SlotContext slotContext, ItemStack stack) {

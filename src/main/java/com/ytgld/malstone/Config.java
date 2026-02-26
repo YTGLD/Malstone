@@ -45,7 +45,34 @@ public class Config {
             .comment("殉锋符文在触发连击奖励时给予的次数")
             .comment("The number of times the Rune of Martyrdom is given when triggering a combo bonus")
             .defineInRange("attackDoubleMartyrdom",1,1,Integer.MAX_VALUE);
-
+    private static final ForgeConfigSpec.DoubleValue addPowerFallingWell = BUILDER
+            .comment("堕井充能后的属性加成")
+            .comment("Attribute bonus after falling well charge")
+            .defineInRange("addPowerFallingWell",0.2f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.IntValue lvlExtremelyDead = BUILDER
+            .comment("极殇的幽影精魂机率")
+            .comment("The probability of the ghost spirit of extreme death")
+            .defineInRange("lvlExtremelyDead_1",2,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue damageExtremelyDead = BUILDER
+            .comment("极殇的伤害")
+            .comment("Extremely deadly injuries")
+            .defineInRange("damageExtremelyDead",0.25f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue attributeWeepingImmortal = BUILDER
+            .comment("泣仙的属性加成")
+            .comment("Weeping Immortal's attribute bonus")
+            .defineInRange("attributeWeepingImmortal",0.15f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.IntValue theBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大宽容度数")
+            .comment("The maximum tolerance of the Broken Blade")
+            .defineInRange("theBreakingTheWeapon",45,0,360);
+    private static final ForgeConfigSpec.IntValue maxArmorDamageBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大额外伤害（护甲，灵魂护盾）")
+            .comment("The maximum bonus damage of the Extreme Blade（Armor，Soul shield）")
+            .defineInRange("maxArmorDamageBreakingTheWeapon",30,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.DoubleValue healthDamageBreakingTheWeapon = BUILDER
+            .comment("破极兵刃的最大额外伤害倍率（满生命值）")
+            .comment("The maximum bonus damage multiplier of the Extreme Blade（Full health）")
+            .defineInRange("healthDamageBreakingTheWeapon",1.5f,0,Integer.MAX_VALUE);
     private static final ForgeConfigSpec.IntValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
             .comment("Arcane resonance affects the attributes of items")
@@ -53,6 +80,32 @@ public class Config {
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
 
+    public static ForgeConfigSpec.DoubleValue getHealthDamageBreakingTheWeapon() {
+        return healthDamageBreakingTheWeapon;
+    }
+
+    public static ForgeConfigSpec.IntValue getMaxArmorDamageBreakingTheWeapon() {
+        return maxArmorDamageBreakingTheWeapon;
+    }
+
+    public static ForgeConfigSpec.IntValue getTheBreakingTheWeapon() {
+        return theBreakingTheWeapon;
+    }
+    public static ForgeConfigSpec.DoubleValue getAttributeWeepingImmortal() {
+        return attributeWeepingImmortal;
+    }
+
+    public static ForgeConfigSpec.IntValue getLvlExtremelyDead() {
+        return lvlExtremelyDead;
+    }
+
+    public static ForgeConfigSpec.DoubleValue getDamageExtremelyDead() {
+        return damageExtremelyDead;
+    }
+
+    public static ForgeConfigSpec.DoubleValue getAddPowerFallingWell() {
+        return addPowerFallingWell;
+    }
     public static ForgeConfigSpec.IntValue getArcaneHarmonics() {
         return ArcaneHarmonics;
     }

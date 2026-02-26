@@ -16,7 +16,7 @@ import top.theillusivec4.curios.api.type.capability.ICurioItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WhiteArrow extends Item implements ICurioItem {
+public class WhiteArrow extends BaseItem implements ICurioItem {
     public WhiteArrow(Properties properties) {
         super(properties);
     }

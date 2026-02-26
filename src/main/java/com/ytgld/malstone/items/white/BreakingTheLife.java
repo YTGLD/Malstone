@@ -144,7 +144,7 @@ public class BreakingTheLife extends WhiteArrow {
     }
 
     public static float max(@Nullable Player player){
-        return (float) (double)Config.getLife_max_BreakingTheLife().get() * Handler.whiteArcaneHarmonics(player);
+        return Handler.doWhiteArcaneHarmonics(player, Config.getLife_max_BreakingTheLife().get().floatValue());
     }
 
 }
