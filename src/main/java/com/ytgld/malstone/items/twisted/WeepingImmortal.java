@@ -80,6 +80,7 @@ public class WeepingImmortal extends Twisted {
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
         if (other.is(ItemRegistry.UMBRAL_SPIRIT.get())) {
+            stack.getOrCreateTag();
             addWeepingPower(stack);
             other.shrink(1);
             SoundHelper.playSound(player, SoundRegistry.VOID_TRINKET_EQUIP.get(), 0.8F, RandomHelper.randomBetween(player.getRandom(), 1, 1));

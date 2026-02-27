@@ -2,6 +2,7 @@ package com.ytgld.malstone.items.twisted;
 
 import com.google.common.collect.Multimap;
 import com.sammy.malum.common.entity.spirit.SpiritItemEntity;
+import com.sammy.malum.core.handlers.SpiritHarvestHandler;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
@@ -32,9 +33,8 @@ public class Condenser extends Twisted {
 
     public static void tpPlayer(LivingEntity player , SpiritItemEntity spiritItemEntity){
         if (Handler.hascurio(player, ItemRegs.Condenser_.get())) {
-            if (spiritItemEntity.tickCount >= 40) {
-                spiritItemEntity.setPos(player.position());
-            }
+            SpiritHarvestHandler.pickupSpirit(player, spiritItemEntity.itemStack);
+            spiritItemEntity.discard();;
         }
     }
 

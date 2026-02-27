@@ -13,17 +13,17 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = SpiritItemEntity.class,remap = false)
+@Mixin(value = SpiritItemEntity.class)
 public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
     public SpiritItemEntityMixin(EntityType<? extends FloatingItemEntity> type, Level level) {
         super(type, level);
     }
-    @Inject(method = "Lcom/sammy/malum/common/entity/spirit/SpiritItemEntity;tick()V", at = @At(value = "RETURN"))
+    @Inject(method = "tick", at = @At(value = "RETURN"))
     private void tick$Malstone(CallbackInfo ci) {
         if (this.level() instanceof ServerLevel) {
             if (this.owner instanceof Player collector) {
                 Condenser.tpPlayer(collector, (SpiritItemEntity) (Object) this);
-                ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
+//                ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
             }
         }
     }

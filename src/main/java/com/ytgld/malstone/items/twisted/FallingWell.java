@@ -76,9 +76,9 @@ public class FallingWell extends Twisted  {
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID id, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> modifierMultimap = super.getAttributeModifiers(slotContext, id, stack);
 
-        CuriosApi.addSlotModifier(modifierMultimap,"belt",id,1, AttributeModifier.Operation.ADDITION);
+//        CuriosApi.addSlotModifier(modifierMultimap,"belt",id,1, AttributeModifier.Operation.ADDITION);
         CuriosApi.addSlotModifier(modifierMultimap,"necklace",id,1, AttributeModifier.Operation.ADDITION);
-        CuriosApi.addSlotModifier(modifierMultimap,"rune",id,1, AttributeModifier.Operation.ADDITION);
+//        CuriosApi.addSlotModifier(modifierMultimap,"rune",id,1, AttributeModifier.Operation.ADDITION);
 
         CuriosApi.addSlotModifier(modifierMultimap,"well",id,2, AttributeModifier.Operation.ADDITION);
 
