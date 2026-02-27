@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -29,7 +30,7 @@ public class EvilEngine extends Twisted {
         super(properties);
     }
 
-    public static void killThis(LivingEntity player , ItemStack spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity , CallbackInfo ci){
         if (Handler.hascurio(player, ItemRegs.EvilEngine_.get())) {
             if (player.getHealth() < player.getMaxHealth()) {
                 heal(player);
@@ -39,6 +40,7 @@ public class EvilEngine extends Twisted {
                 xp(player);
             }
             spiritItemEntity.shrink(1);
+            ci.cancel();
         }
     }
     private static boolean needFood(LivingEntity player){

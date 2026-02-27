@@ -32,7 +32,7 @@ public class Condenser extends Twisted {
 
     public static void tpPlayer(LivingEntity player , SpiritItemEntity spiritItemEntity){
         if (Handler.hascurio(player, ItemRegs.Condenser_.get())) {
-            if (spiritItemEntity.tickCount == 41) {
+            if (spiritItemEntity.tickCount >= 40) {
                 spiritItemEntity.setPos(player.position());
             }
         }

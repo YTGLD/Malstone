@@ -101,7 +101,7 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
     public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.2").setStyle(Style.EMPTY.withColor(color())));
-        tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.3").setStyle(Style.EMPTY.withColor(color())));
+//        tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.4").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.breaking_the_weapon.text.5").setStyle(Style.EMPTY.withColor(color())));

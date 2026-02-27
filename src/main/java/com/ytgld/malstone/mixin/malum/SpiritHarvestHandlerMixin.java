@@ -16,13 +16,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = SpiritHarvestHandler.class,remap = false)
 public class SpiritHarvestHandlerMixin {
-    @Inject(method = "pickupSpirit", at = @At(value = "RETURN"))
+    @Inject(method = "pickupSpirit", at = @At(value = "HEAD"), cancellable = true)
     private static void pickupSpirit$Malstone(LivingEntity collector, ItemStack stack, CallbackInfo ci) {
         SoulDevice.doubleSpirit(collector,stack);
         Hungrier.addHungrier(collector);
         WeepingImmortal.pickUp(collector, stack);
-        EvilEngine.killThis(collector, stack);
-        ExtremelyDead.killThis(collector, stack);
+
+        EvilEngine.killThis(collector, stack,ci);
+        ExtremelyDead.killThis(collector, stack,ci);
     }
 
 }

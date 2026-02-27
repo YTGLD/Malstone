@@ -1,13 +1,9 @@
 package com.ytgld.malstone.effects;
 
-import com.ytgld.malstone.Malstone;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-
-import java.util.UUID;
 
 public class FallCurse extends MobEffect {
     protected FallCurse() {

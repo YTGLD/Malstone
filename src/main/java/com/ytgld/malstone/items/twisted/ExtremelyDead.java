@@ -25,6 +25,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import team.lodestar.lodestone.registry.common.LodestoneAttributeRegistry;
 
 import top.theillusivec4.curios.api.CuriosApi;
@@ -53,10 +54,11 @@ public class ExtremelyDead extends Twisted {
     public ExtremelyDead(Properties properties) {
         super(properties);
     }
-    public static void killThis(LivingEntity player , ItemStack spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity, CallbackInfo ci){
         if (Handler.hascurio(player, ItemRegs.ExtremelyDead_.get())) {
             if (!spiritItemEntity.is(ItemRegistry.UMBRAL_SPIRIT.get())) {
                 spiritItemEntity.shrink(1);
+                ci.cancel();
             }
         }
     }

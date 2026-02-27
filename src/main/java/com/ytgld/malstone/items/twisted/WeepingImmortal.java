@@ -9,10 +9,9 @@ import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
-import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -48,6 +47,10 @@ public class WeepingImmortal extends Twisted {
     public WeepingImmortal(Properties properties) {
         super(properties);
     }
+
+    public static final String timeCache = "timeCacheWeepingImmortal" ;
+
+
     public static void pickUp(LivingEntity entity, ItemStack other){
         if (Handler.hascurio(entity, ItemRegs.WeepingImmortal_.get())) {
             if (other.is(ItemRegistry.UMBRAL_SPIRIT.get())) {
@@ -99,22 +102,45 @@ public class WeepingImmortal extends Twisted {
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         super.curioTick(slotContext, stack);
         if (slotContext.entity() instanceof Player player) {
+            CompoundTag compoundTag = player.getPersistentData();
+            if (this.hasWeepingWllPower(stack)) {
+                if (!compoundTag.getBoolean(timeCache)) {
+                    compoundTag.putBoolean(timeCache,true);
+                }
+            }
+            CompoundTag stackTag = stack.getTag();
+            if (stackTag != null) {
+                if (stackTag.getInt(weepingWellPower) <= 10
+                        && stackTag.getInt(weepingWellPower) > 4) {
+                    if (compoundTag.getBoolean(timeCache)) {
+                        compoundTag.putBoolean(timeCache,false);
+                    }
+                }
+            }
+
             if (!player.level().isClientSide()) {
-                player.getAttributes().addTransientAttributeModifiers(doAttribute(stack));
+                player.getAttributes().addTransientAttributeModifiers(doAttribute(player));
             }
         }
     }
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         LivingEntity entity = slotContext.entity();
-        if (!entity.level().isClientSide()) {
-            entity.getAttributes().removeAttributeModifiers(doAttribute(stack));
+        if (slotContext.entity() instanceof Player player) {
+            if (!entity.level().isClientSide()) {
+
+                CompoundTag compoundTag = player.getPersistentData();
+                compoundTag.putBoolean(timeCache, false);
+
+                entity.getAttributes().removeAttributeModifiers(doAttribute(player));
+            }
         }
     }
-    public Multimap<Attribute, AttributeModifier> doAttribute(ItemStack stack) {
+    public Multimap<Attribute, AttributeModifier> doAttribute(Player player) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
         float add = 0;
-        if (this.hasWeepingWllPower(stack)) {
+        CompoundTag compoundTag = player.getPersistentData();
+        if (compoundTag.getBoolean(timeCache)) {
             add = attribute();
         }
         modifiers.put(Attributes.MOVEMENT_SPEED,new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),

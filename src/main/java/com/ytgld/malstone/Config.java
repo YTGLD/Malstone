@@ -73,12 +73,28 @@ public class Config {
             .comment("破极兵刃的最大额外伤害倍率（满生命值）")
             .comment("The maximum bonus damage multiplier of the Extreme Blade（Full health）")
             .defineInRange("healthDamageBreakingTheWeapon",1.5f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.BooleanValue attributeFallCurse = BUILDER
+            .comment("启用堕落诅咒的属性")
+            .comment("Enables the Curse of the Corruption attribute")
+            .define("attributeFallCurse",true);
+
+
+
+
+
+
+
+
     private static final ForgeConfigSpec.IntValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
             .comment("Arcane resonance affects the attributes of items")
             .defineInRange("ArcaneHarmonics",1,0,Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.BooleanValue getAttributeFallCurse() {
+        return attributeFallCurse;
+    }
 
     public static ForgeConfigSpec.DoubleValue getHealthDamageBreakingTheWeapon() {
         return healthDamageBreakingTheWeapon;
