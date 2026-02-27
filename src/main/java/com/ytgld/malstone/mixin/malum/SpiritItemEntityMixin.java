@@ -20,7 +20,7 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
     public SpiritItemEntityMixin(EntityType<? extends FloatingItemEntity> type, Level level) {
         super(type, level);
     }
-    @Inject(method = "tick", at = @At(value = "RETURN"))
+    @Inject(method = "<init>(Lnet/minecraft/world/level/Level;Ljava/util/UUID;Lnet/minecraft/world/item/ItemStack;DDDDDD)V", at = @At(value = "RETURN"))
     private void tick$Malstone(CallbackInfo ci) {
         if (this.level() instanceof ServerLevel) {
             if (this.owner instanceof Player collector) {
