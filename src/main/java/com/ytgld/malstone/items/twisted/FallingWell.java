@@ -58,13 +58,15 @@ public class FallingWell extends Twisted  {
                     CompoundTag compoundTag = stack.get(DataReg.tag);
                     if (compoundTag !=null) {
                         if (this.hasWeepingWllPower(stack)) {
-                            Vec3 playerPos = player.position();
-                            int range = 12;
-                            List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
-                            for (LivingEntity entity : entitiesOfClass){
-                                if (!entity.is(player)) {
-                                    if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
-                                        entity.hurt(entity.damageSources().playerAttack(player), 20);
+                            if (Config.getAttributeFallCurse().get()) {
+                                Vec3 playerPos = player.position();
+                                int range = 12;
+                                List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
+                                for (LivingEntity entity : entitiesOfClass) {
+                                    if (!entity.is(player)) {
+                                        if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
+                                            entity.hurt(entity.damageSources().playerAttack(player), 20);
+                                        }
                                     }
                                 }
                             }
@@ -134,7 +136,9 @@ public class FallingWell extends Twisted  {
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.3").setStyle(Style.EMPTY.withColor(color())));
-        tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.4").setStyle(Style.EMPTY.withColor(color())));
+        if (Config.getAttributeFallCurse().get()) {
+            tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.4").setStyle(Style.EMPTY.withColor(color())));
+        }
         tooltipComponents.add(Component.translatable("item.malstone.falling_well.text.5").setStyle(Style.EMPTY.withColor(color())));
         return new MalstoneText(stack,tooltipComponents);
     }

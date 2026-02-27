@@ -3,8 +3,6 @@ package com.ytgld.malstone.mixin.malum;
 import com.sammy.malum.common.entity.FloatingItemEntity;
 import com.sammy.malum.common.entity.spirit.SpiritItemEntity;
 import com.ytgld.malstone.items.twisted.Condenser;
-import com.ytgld.malstone.items.twisted.EvilEngine;
-import com.ytgld.malstone.items.twisted.ExtremelyDead;
 import com.ytgld.malstone.items.twisted.WeepingImmortal;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
@@ -23,9 +21,7 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
     private void collect(ServerLevel level, CallbackInfo ci) {
         if (getDestination() !=null) {
             this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
-                EvilEngine.killThis(collector, (SpiritItemEntity) (Object) this);
                 WeepingImmortal.pickUp(collector, this.getItem());
-                ExtremelyDead.killThis(collector, (SpiritItemEntity) (Object) this);
             });
         }
     }
@@ -35,7 +31,7 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
             if (getDestination() != null) {
                 this.getDestination().getEntityCollector(level).ifPresent((collector) -> {
                     Condenser.tpPlayer(collector, (SpiritItemEntity) (Object) this);
-                    ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
+//                    ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
                 });
             }
         }

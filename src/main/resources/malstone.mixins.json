@@ -15,6 +15,7 @@
   ],
   "client": [
     "FoodDataMixin",
+    "cilent.GuiGraphicsMixin",
     "cilent.GuiMixin",
     "malum.ArcanaProgressionScreenMixin"
   ],

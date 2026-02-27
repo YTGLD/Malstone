@@ -74,6 +74,10 @@ public class Config {
             .comment("泣仙的属性加成")
             .comment("Weeping Immortal's attribute bonus")
             .defineInRange("attributeWeepingImmortal",0.15f,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.BooleanValue attributeFallCurse = BUILDER
+            .comment("启用堕落诅咒的属性")
+            .comment("Enables the Curse of the Corruption attribute")
+            .define("attributeFallCurse",true);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -81,7 +85,9 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
-
+    public static ModConfigSpec.BooleanValue getAttributeFallCurse() {
+        return attributeFallCurse;
+    }
     public static ModConfigSpec.DoubleValue getAttributeWeepingImmortal() {
         return attributeWeepingImmortal;
     }

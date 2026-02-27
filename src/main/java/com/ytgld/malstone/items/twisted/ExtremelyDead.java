@@ -28,6 +28,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import team.lodestar.lodestone.registry.common.LodestoneAttributes;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
@@ -54,10 +55,15 @@ public class ExtremelyDead extends Twisted {
     public ExtremelyDead(Properties properties) {
         super(properties);
     }
-    public static void killThis(LivingEntity player , SpiritItemEntity spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity, CallbackInfo ci){
         if (Handler.hascurio(player, ItemRegs.ExtremelyDead_.get())) {
-            if (!spiritItemEntity.getItem().is(MalumItems.UMBRAL_SPIRIT.get())) {
-                spiritItemEntity.getItem().shrink(1);
+            if (!spiritItemEntity.is(MalumItems.UMBRAL_SPIRIT.get())) {
+                CompoundTag compoundTag = player.getPersistentData();
+                if (compoundTag.getInt(magicDAMAGE) < 100) {
+                    compoundTag.putInt(magicDAMAGE,compoundTag.getInt(magicDAMAGE) +1);
+                }
+                spiritItemEntity.shrink(1);
+                ci.cancel();
             }
         }
     }
@@ -114,10 +120,6 @@ public class ExtremelyDead extends Twisted {
                             damage *= 2f;
                         }
                         entity.hurt(entity.damageSources().playerAttack(doi),damage);
-                        CompoundTag compoundTag = player.getPersistentData();
-                        if (compoundTag.getInt(magicDAMAGE) < 100) {
-                            compoundTag.putInt(magicDAMAGE,compoundTag.getInt(magicDAMAGE) +1);
-                        }
                     }
                 }
             }
@@ -173,8 +175,7 @@ public class ExtremelyDead extends Twisted {
     }
     @Override
     public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
-
-        tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.1").setStyle(Style.EMPTY.withColor(color())));
+//        tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.extremely_dead.text.4").setStyle(Style.EMPTY.withColor(color())));

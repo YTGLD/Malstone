@@ -9,7 +9,9 @@ import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
+import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
@@ -76,9 +78,13 @@ public class WeepingImmortal extends Twisted {
     @Override
     public boolean overrideOtherStackedOnMe(ItemStack stack, ItemStack other, Slot slot, ClickAction action, Player player, SlotAccess access) {
         if (other.is(MalumItems.UMBRAL_SPIRIT)) {
-            addWeepingPower(stack);
-            other.shrink(1);
-            SoundHelper.playSound(player, MalumSoundEvents.VOID_TRINKET_EQUIP.get(), 0.8F, RandomHelper.randomBetween(player.getRandom(), 1, 1));
+            if (stack.get(DataReg.tag) == null) {
+                stack.set(DataReg.tag,new CompoundTag());
+            }else {
+                addWeepingPower(stack);
+                other.shrink(1);
+                SoundHelper.playSound(player, MalumSoundEvents.VOID_TRINKET_EQUIP.get(), 0.8F, RandomHelper.randomBetween(player.getRandom(), 1, 1));
+            }
             return true;
         }
         return super.overrideOtherStackedOnMe(stack, other, slot, action, player, access);

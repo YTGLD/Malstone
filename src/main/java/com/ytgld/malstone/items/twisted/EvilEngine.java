@@ -1,6 +1,5 @@
 package com.ytgld.malstone.items.twisted;
 
-import com.sammy.malum.common.entity.spirit.SpiritItemEntity;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
@@ -9,6 +8,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -29,7 +29,7 @@ public class EvilEngine extends Twisted {
         super(properties);
     }
 
-    public static void killThis(LivingEntity player , SpiritItemEntity spiritItemEntity){
+    public static void killThis(LivingEntity player , ItemStack spiritItemEntity , CallbackInfo ci){
         if (Handler.hascurio(player, ItemRegs.EvilEngine_.get())) {
             if (player.getHealth() < player.getMaxHealth()) {
                 heal(player);
@@ -38,7 +38,8 @@ public class EvilEngine extends Twisted {
             }else {
                 xp(player);
             }
-            spiritItemEntity.getItem().shrink(1);
+            spiritItemEntity.shrink(1);
+            ci.cancel();
         }
     }
     private static boolean needFood(LivingEntity player){
