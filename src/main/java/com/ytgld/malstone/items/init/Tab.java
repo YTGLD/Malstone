@@ -20,6 +20,7 @@ public class Tab {
                 b.accept(ItemRegs.RingOfAuthority_.get());
                 b.accept(ItemRegs.SoulSteelComponents_.get());
                 b.accept(ItemRegs.EternalFallenSoul_.get());
+                b.accept(ItemRegs.BreakingTheWeapon_.get());
                 b.accept(ItemRegs.BladeOath_.get());
                 b.accept(ItemRegs.Martyrdom_.get());
                 b.accept(ItemRegs.Hungrier_.get());
@@ -29,7 +30,8 @@ public class Tab {
                 b.accept(ItemRegs.EvilEngine_.get());
                 b.accept(ItemRegs.WeepingImmortal_.get());
                 b.accept(ItemRegs.ExtremelyDead_.get());
-                b.accept(ItemRegs.BreakingTheWeapon_.get());
+                b.accept(ItemRegs.CorpseCauldron_.get());
+
             })
             .build()
     );

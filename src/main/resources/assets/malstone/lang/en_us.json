@@ -18,7 +18,11 @@
   "attribute.name.malstone.max_decay_shield": "Decay Shield Limit",
   "attribute.name.malstone.decay_shield_stronger": "Decay Shield Strength",
   "attribute.name.malstone.decay_shield_speed": "Decay Shield Replenishment time",
-
+  "attribute.name.malstone.tough_blood": "Blood of tenacity",
+  "attribute.name.malstone.tough_blood.desc": "Gain the same amount of health that is not affected by the bonus",
+  "attribute.name.malstone.magic_res": "Magic resistance",
+  "attribute.name.malstone.eat_speed": "Feeding speed",
+  "attribute.name.malstone.damage_res": "Physical resistance",
   "attribute.name.malstone.max_blood_shield": "Blood Shield Capacity",
   "attribute.name.malstone.blood_shield_stronger": "Blood shield strength",
   "attribute.name.malstone.chaos_erosion": "Chaos Erosion",
@@ -151,6 +155,17 @@
   "item.malstone.breaking_the_weapon.text.4": "Deals additional piercing damage to targets with armor or soul shields",
   "item.malstone.breaking_the_weapon.text.5": "Destroy the target's soul shield",
   "item.malstone.breaking_the_weapon.text.6": "Increased damage dealt to creatures with full health",
+
+  "item.malstone.corpse_cauldron": "Corpse cauldron",
+  "item.malstone.corpse_cauldron.text.1": "The food eaten will be digested twice, during which hunger, saturation, and health will slowly recover",
+  "item.malstone.corpse_cauldron.text.2": "The tenacity blood attribute that is rewarded by eating different foods",
+  "item.malstone.corpse_cauldron.text.3": "If charged by the well of weeping:",
+  "item.malstone.corpse_cauldron.text.4": "Increases physical and magical resistance by 15% and an additional 20% of the Blood of Fortitude attribute",
+  "item.malstone.corpse_cauldron.text.5": "Greatly increase the speed of eating and digestion",
+
+
+
+
   "item.malstone.kill_the_gods": "Order to kill gods",
   "item.malstone.kill_the_gods.text.1": "Hit a creature will produce essence blood",
   "item.malstone.kill_the_gods.text.2": "Pick up blood to get a blood shield",

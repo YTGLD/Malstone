@@ -129,7 +129,7 @@ public class WeepingImmortal extends Twisted {
     public Multimap<Attribute, AttributeModifier> doAttribute(Player player) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
         if (!player.level().isClientSide) {
-            float add = attribute();
+            float add = attribute(player);
             modifiers.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
                     add, AttributeModifier.Operation.MULTIPLY_BASE));
             modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
@@ -145,8 +145,8 @@ public class WeepingImmortal extends Twisted {
         return modifiers;
     }
 
-    public static float attribute(){
-        return Config.getAttributeWeepingImmortal().get().floatValue();
+    public static float attribute(Player player){
+        return Handler.doArcaneHarmonics(player,Config.getAttributeWeepingImmortal().get().floatValue());
     }
     @Override
     public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {

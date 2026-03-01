@@ -77,6 +77,10 @@ public class Config {
             .comment("启用堕落诅咒的属性")
             .comment("Enables the Curse of the Corruption attribute")
             .define("attributeFallCurse",true);
+    private static final ForgeConfigSpec.DoubleValue attributeCorpseCauldron = BUILDER
+            .comment("尸釜的激活属性")
+            .comment("The activation attribute of the cauldron")
+            .defineInRange("attributeCorpseCauldron",0.15f,0,Integer.MAX_VALUE);
 
 
 
@@ -91,6 +95,10 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1,0,Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.DoubleValue getAttributeCorpseCauldron() {
+        return attributeCorpseCauldron;
+    }
 
     public static ForgeConfigSpec.BooleanValue getAttributeFallCurse() {
         return attributeFallCurse;

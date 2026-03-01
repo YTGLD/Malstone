@@ -23,10 +23,29 @@ public class AttReg {
         return new RangedAttribute("attribute.name.malstone.super_malicious",
                 0.0, 0.0, 1024.0).setSyncable(true);
     });
-
+    public static final RegistryObject<Attribute> ToughBlood  =REGISTRY.register("tough_blood", ()->{
+        return new RangedAttribute("attribute.name.malstone.tough_blood",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final RegistryObject<Attribute> MagicRes  =REGISTRY.register("magic_res", ()->{
+        return new RangedAttribute("attribute.name.malstone.magic_res",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final RegistryObject<Attribute> DamageRes  =REGISTRY.register("damage_res", ()->{
+        return new RangedAttribute("attribute.name.malstone.damage_res",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final RegistryObject<Attribute> EatTime =REGISTRY.register("eat_speed", ()->{
+        return new RangedAttribute("attribute.name.malstone.eat_speed",
+                1, 0.0, 1024.0).setSyncable(true);
+    });
     @SubscribeEvent
     public static void EntityAttributeCreationEvent(EntityAttributeModificationEvent event){
         event.add(EntityType.PLAYER , AttReg.ChaosErosion.get(),0);
         event.add(EntityType.PLAYER , AttReg.SuperMalicious.get(),0);
+        event.add(EntityType.PLAYER , AttReg.ToughBlood.get(),0);
+        event.add(EntityType.PLAYER , AttReg.MagicRes.get(),0);
+        event.add(EntityType.PLAYER , AttReg.DamageRes.get(),0);
+        event.add(EntityType.PLAYER , AttReg.EatTime.get(),1);
     }
 }

@@ -37,10 +37,8 @@ public class ItemRegs {
             ()->new Hungrier(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> SoulDevice_ = REGISTER.register("soul_device",
             ()->new SoulDevice(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
-
     public static final RegistryObject<Item> BreakingTheWeapon_ = REGISTER.register("breaking_the_weapon",
             ()->new BreakingTheWeapon(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
-
     public static final RegistryObject<Item> FallingWell_ = REGISTER.register("falling_well",
             ()->new FallingWell(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> Condenser_ = REGISTER.register("condenser",
@@ -51,5 +49,9 @@ public class ItemRegs {
             ()->new WeepingImmortal(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final RegistryObject<Item> ExtremelyDead_ = REGISTER.register("extremely_dead",
             ()->new ExtremelyDead(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> CorpseCauldron_ = REGISTER.register("corpse_cauldron",
+            ()->new CorpseCauldron(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
+
 
 }
