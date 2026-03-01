@@ -101,38 +101,48 @@ public class WeepingImmortal extends Twisted {
     }
 
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        super.curioTick(slotContext, stack);
+    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
         if (slotContext.entity() instanceof Player player) {
-            if (!player.level().isClientSide()) {
-                player.getAttributes().addTransientAttributeModifiers(doAttribute(stack));
+            if (!player.level().isClientSide) {
+                if (this.hasWeepingWllPower(stack)) {
+                    player.getAttributes().addTransientAttributeModifiers(doAttribute(player));
+                }else {
+                    player.getAttributes().removeAttributeModifiers(doAttribute(player));
+                }
             }
         }
+    }
+
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        super.curioTick(slotContext, stack);
+
     }
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         LivingEntity entity = slotContext.entity();
-        if (!entity.level().isClientSide()) {
-            entity.getAttributes().removeAttributeModifiers(doAttribute(stack));
+        if (slotContext.entity() instanceof Player player) {
+            if (!entity.level().isClientSide()) {
+                entity.getAttributes().removeAttributeModifiers(doAttribute(player));
+            }
         }
     }
-    public Multimap<Holder<Attribute>, AttributeModifier> doAttribute(ItemStack stack) {
+    public Multimap<Holder<Attribute>, AttributeModifier> doAttribute(Player player) {
         Multimap<Holder<Attribute>, AttributeModifier> modifiers = HashMultimap.create();
-        float add = 0;
-        if (this.hasWeepingWllPower(stack)) {
-            add = attribute();
-        }
-        modifiers.put(Attributes.MOVEMENT_SPEED,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        modifiers.put(Attributes.ATTACK_SPEED,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                 add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        modifiers.put(Attributes.ATTACK_DAMAGE,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                 add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        if (!player.level().isClientSide) {
+            float add = attribute();
+            modifiers.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
+                    add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
+                    add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
+                    add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
-        modifiers.put(LodestoneAttributes.MAGIC_DAMAGE,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        modifiers.put(LodestoneAttributes.MAGIC_RESISTANCE,new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
-                add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            modifiers.put(LodestoneAttributes.MAGIC_DAMAGE, new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
+                    add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+            modifiers.put(LodestoneAttributes.MAGIC_RESISTANCE, new AttributeModifier(ResourceLocation.parse(this.getDescriptionId()),
+                    add, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        }
         return modifiers;
     }
 

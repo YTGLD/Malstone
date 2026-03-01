@@ -16,9 +16,19 @@ import java.util.List;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
-
+    @Inject(method = "getMaxHealth", at = @At(value = "RETURN"), cancellable = true)
+    private void getAttributeValue$Malstone$getMaxHealth(CallbackInfoReturnable<Float> cir) {
+        LivingEntity living =  (LivingEntity)(Object)this;
+        if (living instanceof Player player) {
+            AttributeInstance attribute = player.getAttribute(AttReg.ToughBlood);
+            if (attribute != null) {
+                float value = (float) attribute.getValue();
+                cir.setReturnValue(cir.getReturnValue() + value);
+            }
+        }
+    }
     @Inject(method = "getArmorValue", at = @At(value = "RETURN"), cancellable = true)
-    private void getAttributeValue(CallbackInfoReturnable<Integer> cir) {
+    private void getAttributeValue$Malstone$getArmorValue(CallbackInfoReturnable<Integer> cir) {
         LivingEntity living =  (LivingEntity)(Object)this;
         List<Float> floats  = new ArrayList<>();
         if (living instanceof Player player) {

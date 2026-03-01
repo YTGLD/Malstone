@@ -11,7 +11,8 @@
     "malum.SpiritHarvestHandlerMixin",
     "malum.SpiritItemEntityMixin",
     "malum.VoidConduitBlockEntityMixin",
-    "malum.VoidProgressionScreenMixin"
+    "malum.VoidProgressionScreenMixin",
+    "malum.WeepingWellRejectionHandlerMixin"
   ],
   "client": [
     "FoodDataMixin",

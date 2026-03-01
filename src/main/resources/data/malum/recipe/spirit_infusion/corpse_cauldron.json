@@ -1,0 +1,28 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extraInputs": [
+    {
+      "count": 8,
+      "item": "malum:living_flesh"
+    },
+    {
+      "count": 32,
+      "item": "malum:twisted_rock"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:fused_consciousness"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:corpse_cauldron"
+  },
+  "spirits": [
+    {
+      "type": "malum:earthen",
+      "count": 64
+    }
+  ]
+}

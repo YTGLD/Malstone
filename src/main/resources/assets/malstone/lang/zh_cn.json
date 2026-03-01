@@ -5,7 +5,7 @@
   "key.malstone.keys": "灵灾拓展：异域",
   "item.malstone.skill_use": "按下‘%d’使用技能",
   "effect.malstone.fall_curse": "堕落诅咒",
-  "item.malstone.weeping_power": "可以扔入哭泣之井进行充能",
+  "item.malstone.weeping_power": "可以扔入或佩戴并跳入哭泣之井进行充能",
   "item.malstone.skill_use.text": "还有%d秒的充能时间",
   "curios.identifier.well": "哭泣槽位",
   "curios.modifiers.well": "佩戴时：",
@@ -21,6 +21,11 @@
   "attribute.name.malstone.max_decay_shield": "腐朽护盾限度",
   "attribute.name.malstone.decay_shield_stronger":"腐朽护盾强度",
   "attribute.name.malstone.decay_shield_speed": "腐朽护盾充能时间",
+  "attribute.name.malstone.tough_blood": "坚韧之血",
+  "attribute.name.malstone.tough_blood.desc": "获得同等数值且不受加成影响的生命值",
+  "attribute.name.malstone.magic_res": "魔法抗性",
+  "attribute.name.malstone.damage_res": "物理抗性",
+  "attribute.name.malstone.eat_speed": "进食时间",
 
 
   "malum.gui.book.entry.huge_soul": "白镴方体",
@@ -172,6 +177,13 @@
   "item.malstone.extremely_dead.text.2": "收获的精魂会被销毁，并在接触后短暂提高自身的魔法伤害",
   "item.malstone.extremely_dead.text.3": "若被哭泣之井强化，则可能在杀死目标时产生幽影精魂",
   "item.malstone.extremely_dead.text.4": "强化状态下获得大量的精魂劫掠等级",
+
+  "item.malstone.corpse_cauldron": "尸釜",
+  "item.malstone.corpse_cauldron.text.1": "吃下的食物会被二次消化，期间缓慢恢复饥饿值,饱和度,生命值",
+  "item.malstone.corpse_cauldron.text.2":"吃下不同的食物会奖励坚韧之血属性",
+  "item.malstone.corpse_cauldron.text.3": "若被哭泣之井充能：",
+  "item.malstone.corpse_cauldron.text.4":"增加一定物理和魔法抗性以及额外的坚韧之血属性",
+  "item.malstone.corpse_cauldron.text.5": "大幅增加进食速度和消化速度",
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",

@@ -66,6 +66,24 @@ public class AttReg {
                 1.0, 0.0, 1024.0).setSyncable(true);
     });
 
+
+    public static final DeferredHolder<Attribute,Attribute> ToughBlood  =REGISTRY.register("tough_blood", ()->{
+        return new RangedAttribute("attribute.name.malstone.tough_blood",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final DeferredHolder<Attribute,Attribute> MagicRes  =REGISTRY.register("magic_res", ()->{
+        return new RangedAttribute("attribute.name.malstone.magic_res",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final DeferredHolder<Attribute,Attribute> DamageRes  =REGISTRY.register("damage_res", ()->{
+        return new RangedAttribute("attribute.name.malstone.damage_res",
+                0.0, 0.0, 1024.0).setSyncable(true);
+    });
+    public static final DeferredHolder<Attribute,Attribute> EatTime =REGISTRY.register("eat_speed", ()->{
+        return new RangedAttribute("attribute.name.malstone.eat_speed",
+                1, 0.0, 1024.0).setSyncable(true);
+    });
+
     @SubscribeEvent
     public static void EntityAttributeCreationEvent(EntityAttributeModificationEvent event){
         event.add(EntityType.PLAYER , AttReg.ChaosErosion,0);
@@ -77,5 +95,9 @@ public class AttReg {
         event.add(EntityType.PLAYER , AttReg.StrongerDecayShield,1);
         event.add(EntityType.PLAYER , AttReg.SpeedDecayShield,1);
 
+        event.add(EntityType.PLAYER , AttReg.ToughBlood,0);
+        event.add(EntityType.PLAYER , AttReg.MagicRes,0);
+        event.add(EntityType.PLAYER , AttReg.DamageRes,0);
+        event.add(EntityType.PLAYER , AttReg.EatTime,1);
     }
 }

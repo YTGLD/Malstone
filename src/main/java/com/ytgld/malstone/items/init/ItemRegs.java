@@ -54,6 +54,9 @@ public class ItemRegs {
             ()->new WeepingImmortal(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
     public static final DeferredHolder<Item, Item> ExtremelyDead_ = REGISTER.register("extremely_dead",
             ()->new ExtremelyDead(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final DeferredHolder<Item,Item> CorpseCauldron_ = REGISTER.register("corpse_cauldron",
+            ()->new CorpseCauldron(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+
 
 
 

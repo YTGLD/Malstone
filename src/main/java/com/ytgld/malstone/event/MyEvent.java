@@ -11,12 +11,14 @@ import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
+import com.ytgld.malstone.items.twisted.CorpseCauldron;
 import com.ytgld.malstone.items.twisted.ExtremelyDead;
 import com.ytgld.malstone.items.white.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
@@ -27,6 +29,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
@@ -35,6 +38,45 @@ import team.lodestar.lodestone.helpers.RandomHelper;
 import team.lodestar.lodestone.helpers.SoundHelper;
 
 public class MyEvent {
+
+    @SubscribeEvent
+    public void eatFood(LivingEntityUseItemEvent.Start event){
+        LivingEntity living = event.getEntity();
+        if (living instanceof Player player) {
+            AttributeInstance attribute = player.getAttribute(AttReg.EatTime);
+            if (attribute != null) {
+                float value = (float) attribute.getValue();
+                value = Math.max(value,0.1f);
+                event.setDuration((int) (event.getDuration() * value));
+            }
+        }
+    }
+
+    private void damageAndMagic(LivingDamageEvent.Pre event){
+        LivingEntity living = event.getEntity();
+        if (living instanceof Player player) {
+            if (!event.getSource().is(DamageTypes.MAGIC)){
+                AttributeInstance attribute = player.getAttribute(AttReg.DamageRes);
+                if (attribute != null) {
+                    float value = (float) attribute.getValue();
+                    float doIt = Math.max(1 - value,0.1f);
+                    event.setNewDamage(event.getNewDamage() * doIt);
+                }
+            }else {
+                AttributeInstance attribute = player.getAttribute(AttReg.MagicRes);
+                if (attribute != null) {
+                    float value = (float) attribute.getValue();
+                    float doIt = Math.max(1 - value,0.1f);
+                    event.setNewDamage(event.getNewDamage() * doIt);
+                }
+            }
+        }
+    }
+    @SubscribeEvent
+    public void Finish(LivingEntityUseItemEvent.Finish event){
+        CorpseCauldron.eatFood(event);
+    }
+
     @SubscribeEvent
     public void LivingHealEvent(LivingHealEvent event){
         HugeSouls.lLivingHealEvent(event);
@@ -76,6 +118,7 @@ public class MyEvent {
     }
     @SubscribeEvent
     public void LivingDamageEvent(LivingDamageEvent.Pre event){
+        damageAndMagic(event);
         theDecayShield(event);
         BladeOath.doMaxScy(event);
         HugeSouls.lLivingDamageEvent(event);

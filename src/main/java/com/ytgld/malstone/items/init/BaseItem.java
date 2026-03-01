@@ -6,16 +6,22 @@ import com.ytgld.malstone.Light;
 import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.particle.screen.ScreenParticleHolder;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
+import top.theillusivec4.curios.api.type.inventory.ICurioStacksHandler;
+import top.theillusivec4.curios.api.type.inventory.IDynamicStackHandler;
 
 import java.util.List;
+import java.util.Map;
 
 public class BaseItem extends Item implements ICurioItem , IVoidItem {
     public BaseItem(Properties properties) {
@@ -39,20 +45,22 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
     @Override
     public void curioTick(SlotContext slotContext, ItemStack stack) {
         ICurioItem.super.curioTick(slotContext, stack);
-        CompoundTag compoundTag = stack.get(DataReg.tag);
-        if (compoundTag == null) {
-            stack.set(DataReg.tag, new CompoundTag());
-        }
-        if (canUseWeepingPower()) {
-            if (this.hasWeepingWllPower(stack)) {
-                if (compoundTag != null) {
-                    if (this.hasWeepingWllPower(stack)) {
-                        if (slotContext.entity().tickCount % 20 == 1) {
-                            compoundTag.putInt(weepingWellPower, compoundTag.getInt(weepingWellPower) - 1);
+        if (!slotContext.entity().level().isClientSide) {
+            CompoundTag compoundTag = stack.get(DataReg.tag);
+            if (compoundTag == null) {
+                stack.set(DataReg.tag, new CompoundTag());
+            }
+            if (canUseWeepingPower()) {
+                if (this.hasWeepingWllPower(stack)) {
+                    if (compoundTag != null) {
+                        if (this.hasWeepingWllPower(stack)) {
+                            if (slotContext.entity().tickCount % 20 == 1) {
+                                compoundTag.putInt(weepingWellPower, compoundTag.getInt(weepingWellPower) - 1);
+                            }
                         }
+                    } else {
+                        stack.set(DataReg.tag, new CompoundTag());
                     }
-                } else {
-                    stack.set(DataReg.tag, new CompoundTag());
                 }
             }
         }
@@ -75,6 +83,25 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
     //--------------------------------客户端粒子--------------------------------------------
     //--------------------------------哭泣之井--------------------------------------------
     public static final String weepingWellPower = "weepingWellPower";
+    public static void eatOfPlayer(LivingEntity livingEntity){
+        if (livingEntity instanceof Player player) {
+            CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
+                Map<String, ICurioStacksHandler> curios = handler.getCurios();
+                for (Map.Entry<String, ICurioStacksHandler> entry : curios.entrySet()) {
+                    ICurioStacksHandler stacksHandler = entry.getValue();
+                    IDynamicStackHandler stackHandler = stacksHandler.getStacks();
+                    for (int i = 0; i < stacksHandler.getSlots(); i++) {
+                        ItemStack stack = stackHandler.getStackInSlot(i);
+                        if (stack.getItem() instanceof BaseItem item) {
+                            if (item.canUseWeepingPower()) {
+                                item.eatAtWeepingWell(stack);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
 
     public boolean canUseWeepingPower(){
         return false;

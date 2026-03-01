@@ -78,6 +78,10 @@ public class Config {
             .comment("启用堕落诅咒的属性")
             .comment("Enables the Curse of the Corruption attribute")
             .define("attributeFallCurse",true);
+    private static final ModConfigSpec.DoubleValue attributeCorpseCauldron = BUILDER
+            .comment("尸釜的激活属性")
+            .comment("The activation attribute of the cauldron")
+            .defineInRange("attributeCorpseCauldron",0.15f,0,Integer.MAX_VALUE);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -87,6 +91,9 @@ public class Config {
     static final ModConfigSpec SPEC  = BUILDER.build();
     public static ModConfigSpec.BooleanValue getAttributeFallCurse() {
         return attributeFallCurse;
+    }
+    public static ModConfigSpec.DoubleValue getAttributeCorpseCauldron() {
+        return attributeCorpseCauldron;
     }
     public static ModConfigSpec.DoubleValue getAttributeWeepingImmortal() {
         return attributeWeepingImmortal;
