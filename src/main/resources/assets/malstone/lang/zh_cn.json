@@ -5,7 +5,7 @@
   "key.malstone.keys": "灵灾拓展：异域",
   "item.malstone.skill_use": "按下‘%d’使用技能",
   "effect.malstone.fall_curse": "堕落诅咒",
-  "item.malstone.weeping_power": "可以扔入哭泣之井进行充能",
+  "item.malstone.weeping_power": "可以扔入或佩戴并跳入哭泣之井进行充能",
   "item.malstone.skill_use.text": "还有%d秒的充能时间",
   "curios.identifier.well": "哭泣槽位",
   "curios.modifiers.well": "佩戴时：",

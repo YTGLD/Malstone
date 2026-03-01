@@ -100,61 +100,48 @@ public class WeepingImmortal extends Twisted {
     }
 
     @Override
-    public void curioTick(SlotContext slotContext, ItemStack stack) {
-        super.curioTick(slotContext, stack);
+    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
         if (slotContext.entity() instanceof Player player) {
-            CompoundTag compoundTag = player.getPersistentData();
-            if (this.hasWeepingWllPower(stack)) {
-                if (!compoundTag.getBoolean(timeCache)) {
-                    compoundTag.putBoolean(timeCache,true);
+            if (!player.level().isClientSide) {
+                if (this.hasWeepingWllPower(stack)) {
+                    player.getAttributes().addTransientAttributeModifiers(doAttribute(player));
+                }else {
+                    player.getAttributes().removeAttributeModifiers(doAttribute(player));
                 }
-            }
-            CompoundTag stackTag = stack.getTag();
-            if (stackTag != null) {
-                if (stackTag.getInt(weepingWellPower) <= 10
-                        && stackTag.getInt(weepingWellPower) > 4) {
-                    if (compoundTag.getBoolean(timeCache)) {
-                        compoundTag.putBoolean(timeCache,false);
-                    }
-                }
-            }
-
-            if (!player.level().isClientSide()) {
-                player.getAttributes().addTransientAttributeModifiers(doAttribute(player));
             }
         }
+    }
+
+    @Override
+    public void curioTick(SlotContext slotContext, ItemStack stack) {
+        super.curioTick(slotContext, stack);
+
     }
     @Override
     public void onUnequip(SlotContext slotContext, ItemStack newStack, ItemStack stack) {
         LivingEntity entity = slotContext.entity();
         if (slotContext.entity() instanceof Player player) {
             if (!entity.level().isClientSide()) {
-
-                CompoundTag compoundTag = player.getPersistentData();
-                compoundTag.putBoolean(timeCache, false);
-
                 entity.getAttributes().removeAttributeModifiers(doAttribute(player));
             }
         }
     }
     public Multimap<Attribute, AttributeModifier> doAttribute(Player player) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
-        float add = 0;
-        CompoundTag compoundTag = player.getPersistentData();
-        if (compoundTag.getBoolean(timeCache)) {
-            add = attribute();
-        }
-        modifiers.put(Attributes.MOVEMENT_SPEED,new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),
-                add, AttributeModifier.Operation.MULTIPLY_BASE));
-        modifiers.put(Attributes.ATTACK_SPEED,new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),
-                 add, AttributeModifier.Operation.MULTIPLY_BASE));
-        modifiers.put(Attributes.ATTACK_DAMAGE,new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),
-                 add, AttributeModifier.Operation.MULTIPLY_BASE));
+        if (!player.level().isClientSide) {
+            float add = attribute();
+            modifiers.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
+                    add, AttributeModifier.Operation.MULTIPLY_BASE));
+            modifiers.put(Attributes.ATTACK_SPEED, new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
+                    add, AttributeModifier.Operation.MULTIPLY_BASE));
+            modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
+                    add, AttributeModifier.Operation.MULTIPLY_BASE));
 
-        modifiers.put(LodestoneAttributeRegistry.MAGIC_DAMAGE.get(),new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),
-                add, AttributeModifier.Operation.MULTIPLY_BASE));
-        modifiers.put(LodestoneAttributeRegistry.MAGIC_RESISTANCE.get(),new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"),this.getDescriptionId(),
-                add, AttributeModifier.Operation.MULTIPLY_BASE));
+            modifiers.put(LodestoneAttributeRegistry.MAGIC_DAMAGE.get(), new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
+                    add, AttributeModifier.Operation.MULTIPLY_BASE));
+            modifiers.put(LodestoneAttributeRegistry.MAGIC_RESISTANCE.get(), new AttributeModifier(UUID.fromString("d6d392a6-44f8-3510-88ef-1f2f06277d32"), this.getDescriptionId(),
+                    add, AttributeModifier.Operation.MULTIPLY_BASE));
+        }
         return modifiers;
     }
 

@@ -10,6 +10,7 @@
     "malum.SoulWardHandlerMixin",
     "malum.SpiritHarvestHandlerMixin",
     "malum.SpiritItemEntityMixin",
+    "malum.TouchOfDarknessHandlerMixin",
     "malum.VoidConduitBlockEntityMixin",
     "malum.VoidProgressionScreenMixin"
   ],
