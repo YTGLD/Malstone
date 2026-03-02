@@ -3,6 +3,8 @@ package com.ytgld.malstone;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
+import java.util.List;
+
 public class Config {
 
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
@@ -82,6 +84,12 @@ public class Config {
             .comment("尸釜的激活属性")
             .comment("The activation attribute of the cauldron")
             .defineInRange("attributeCorpseCauldron",0.15f,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.ConfigValue<List<? extends String>>  effectFallWell =  BUILDER
+            .comment("堕井的堕落诅咒添加生物黑名单")
+            .comment("Fallen Curse of the Fall Well adds mob blacklist")
+            .defineList("effectFallWell",
+                    List.of("minecraft:player"),
+                    s->s instanceof String);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -89,6 +97,11 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
+
+    public static ModConfigSpec.ConfigValue<List<? extends String>> getEffectFallWell() {
+        return effectFallWell;
+    }
+
     public static ModConfigSpec.BooleanValue getAttributeFallCurse() {
         return attributeFallCurse;
     }

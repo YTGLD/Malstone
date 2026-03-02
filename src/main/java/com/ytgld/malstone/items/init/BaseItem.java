@@ -2,6 +2,7 @@ package com.ytgld.malstone.items.init;
 
 import com.sammy.malum.common.item.IVoidItem;
 import com.sammy.malum.visual_effects.ScreenParticleEffects;
+import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.Light;
 import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.nbt.CompoundTag;
@@ -54,7 +55,11 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
                 if (this.hasWeepingWllPower(stack)) {
                     if (compoundTag != null) {
                         if (this.hasWeepingWllPower(stack)) {
-                            if (slotContext.entity().tickCount % 20 == 1) {
+                            float time = 20;
+                            if (Handler.hascurio(slotContext.entity(),ItemRegs.DieAbyss_.get())) {
+                                time *= 5;
+                            }
+                            if (slotContext.entity().tickCount % (int)time == 1) {
                                 compoundTag.putInt(weepingWellPower, compoundTag.getInt(weepingWellPower) - 1);
                             }
                         }

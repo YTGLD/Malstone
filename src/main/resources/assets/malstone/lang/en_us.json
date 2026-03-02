@@ -163,8 +163,9 @@
   "item.malstone.corpse_cauldron.text.4": "Increases physical and magical resistance by 15% and an additional 20% of the Blood of Fortitude attribute",
   "item.malstone.corpse_cauldron.text.5": "Greatly increase the speed of eating and digestion",
 
-
-
+"item.malstone.die_abyss": "Zhe Yuan",
+  "item.malstone.die_abyss.text.1": "Reduces the energy cost of warped items by 80%",
+  "item.malstone.die_abyss.text.2": "Killing a creature can recharge all warped items",
 
   "item.malstone.kill_the_gods": "Order to kill gods",
   "item.malstone.kill_the_gods.text.1": "Hit a creature will produce essence blood",

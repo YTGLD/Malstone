@@ -10,6 +10,7 @@ import com.ytgld.malstone.effects.Effects;
 import com.ytgld.malstone.items.init.Twisted;
 import com.ytgld.malstone.magic.DataReg;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
@@ -27,7 +28,9 @@ import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 堕井
@@ -57,22 +60,36 @@ public class FallingWell extends Twisted  {
                 if (player.tickCount % 20 == 1) {
                     CompoundTag compoundTag = stack.get(DataReg.tag);
                     if (compoundTag !=null) {
-                        if (this.hasWeepingWllPower(stack)) {
-                            if (Config.getAttributeFallCurse().get()) {
-                                Vec3 playerPos = player.position();
-                                int range = 12;
-                                List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
-                                for (LivingEntity entity : entitiesOfClass) {
-                                    if (!entity.is(player)) {
-                                        if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
-                                            entity.hurt(entity.damageSources().playerAttack(player), 20);
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                        addEffect(player,stack);
                     }else {
                         stack.set(DataReg.tag,new CompoundTag());
+                    }
+                }
+            }
+        }
+    }
+    public void addEffect(Player player,ItemStack stack){
+        Set<String> blacklist = new HashSet<>();
+        for (String s : Config.getEffectFallWell().get()) {
+            String[] parts = s.split(":");
+            if (parts.length > 0) {
+                blacklist.add(parts[0]+":"+parts[1]);
+            }
+        }
+        if (this.hasWeepingWllPower(stack)) {
+            if (Config.getAttributeFallCurse().get()) {
+                Vec3 playerPos = player.position();
+                int range = 12;
+                List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
+                for (LivingEntity entity : entitiesOfClass) {
+                    ResourceLocation resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
+                    if (blacklist.contains(resourceLocation.getNamespace()+":"+resourceLocation.getPath())){
+                        return;
+                    }
+                    if (!entity.is(player)) {
+                        if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
+                            entity.hurt(entity.damageSources().playerAttack(player), 20);
+                        }
                     }
                 }
             }

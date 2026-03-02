@@ -12,6 +12,7 @@ import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.twisted.CorpseCauldron;
+import com.ytgld.malstone.items.twisted.DieAbyss;
 import com.ytgld.malstone.items.twisted.ExtremelyDead;
 import com.ytgld.malstone.items.white.*;
 import net.minecraft.network.chat.Component;
@@ -107,6 +108,7 @@ public class MyEvent {
     @SubscribeEvent
     public void LeftClickEmpty(LivingDeathEvent event) {
         ExtremelyDead.killBlack(event);
+        DieAbyss.eatOfPlayer(event);
     }
     @SubscribeEvent
     public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
@@ -219,7 +221,7 @@ public class MyEvent {
         AttributeInstance speed = living.getAttribute(AttReg.SpeedDecayShield);
 
         if (maxShield != null && speed != null) {
-            float time = (float) (10 * speed.getValue());
+            float time = (float) (30 * speed.getValue());
             if (time < 1) {
                 time = 1;
             }
