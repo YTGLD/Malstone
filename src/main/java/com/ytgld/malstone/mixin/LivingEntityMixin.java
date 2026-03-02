@@ -19,7 +19,7 @@ public class LivingEntityMixin {
     @Inject(method = "getMaxHealth", at = @At(value = "RETURN"), cancellable = true)
     private void getAttributeValue$Malstone$getMaxHealth(CallbackInfoReturnable<Float> cir) {
         LivingEntity living =  (LivingEntity)(Object)this;
-        if (living instanceof Player player) {
+        if (living instanceof Player player && player.isAlive()&&player.tickCount > 1) {
             AttributeInstance attribute = player.getAttribute(AttReg.ToughBlood.get());
             if (attribute != null) {
                 float value = (float) attribute.getValue();

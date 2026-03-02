@@ -1,0 +1,27 @@
+{
+  "type": "malum:spirit_infusion",
+
+  "extra_items": [
+    {
+      "count": 32,
+      "item": "malum:twisted_rock"
+    },
+    {
+      "count": 32,
+      "item": "malum:tainted_rock"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:fused_consciousness"
+  },
+  "output": {
+    "item": "malstone:die_abyss"
+  },
+  "spirits": [
+    {
+      "type": "eldritch",
+      "count": 8
+    }
+  ]
+}

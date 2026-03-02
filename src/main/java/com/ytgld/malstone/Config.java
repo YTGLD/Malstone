@@ -2,6 +2,8 @@ package com.ytgld.malstone;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
+import java.util.List;
+
 public class Config {
 
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -81,6 +83,12 @@ public class Config {
             .comment("尸釜的激活属性")
             .comment("The activation attribute of the cauldron")
             .defineInRange("attributeCorpseCauldron",0.15f,0,Integer.MAX_VALUE);
+    private static final ForgeConfigSpec.ConfigValue<List<? extends String>>  effectFallWell =  BUILDER
+            .comment("堕井的堕落诅咒添加生物黑名单")
+            .comment("Fallen Curse of the Fall Well adds mob blacklist")
+            .defineList("effectFallWell",
+                    List.of("minecraft:player"),
+                    s->s instanceof String);
 
 
 
@@ -95,6 +103,10 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1,0,Integer.MAX_VALUE);
 
     static final ForgeConfigSpec SPEC  = BUILDER.build();
+
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> getEffectFallWell() {
+        return effectFallWell;
+    }
 
     public static ForgeConfigSpec.DoubleValue getAttributeCorpseCauldron() {
         return attributeCorpseCauldron;

@@ -178,6 +178,10 @@
   "item.malstone.extremely_dead.text.3": "若被哭泣之井强化，则可能在杀死目标时产生幽影精魂",
   "item.malstone.extremely_dead.text.4": "强化状态下获得大量的精魂劫掠等级",
 
+  "item.malstone.die_abyss": "折渊",
+  "item.malstone.die_abyss.text.1": "使扭曲物品的能量消耗速度降低80%",
+  "item.malstone.die_abyss.text.2": "杀死生物可以为所有扭曲物品进行充能",
+
   "item.malstone.corpse_cauldron": "尸釜",
   "item.malstone.corpse_cauldron.text.1": "吃下的食物会被二次消化，期间缓慢恢复饥饿值,饱和度,生命值",
   "item.malstone.corpse_cauldron.text.2":"吃下不同的食物会奖励坚韧之血属性",

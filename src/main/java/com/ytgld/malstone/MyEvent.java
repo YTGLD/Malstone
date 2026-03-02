@@ -8,6 +8,7 @@ import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
 import com.ytgld.malstone.items.twisted.CorpseCauldron;
+import com.ytgld.malstone.items.twisted.DieAbyss;
 import com.ytgld.malstone.items.twisted.ExtremelyDead;
 import com.ytgld.malstone.items.white.*;
 import net.minecraft.network.chat.Component;
@@ -95,6 +96,7 @@ public class MyEvent {
     @SubscribeEvent
     public void LeftClickEmpty(LivingDeathEvent event) {
         ExtremelyDead.killBlack(event);
+        DieAbyss.eatOfPlayer(event);
     }
     @SubscribeEvent
     public void LeftClickEmpty(PlayerInteractEvent.LeftClickEmpty event) {
