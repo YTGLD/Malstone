@@ -57,7 +57,7 @@ public class BreakingTheWeapon extends WhiteArrow implements IVoidItem {
         PacketDistributor.sendToServer(new UseCurio(ItemStack.EMPTY));
     }
     public static void pack(PlayerInteractEvent.LeftClickBlock event){
-        PacketDistributor.sendToServer(new UseCurio(ItemStack.EMPTY));
+        attack(event.getEntity());
     }
     public static void attack(Player player){
         if (!player.level().isClientSide()) {

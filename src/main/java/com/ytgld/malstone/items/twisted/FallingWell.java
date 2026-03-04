@@ -83,12 +83,11 @@ public class FallingWell extends Twisted  {
                 List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
                 for (LivingEntity entity : entitiesOfClass) {
                     ResourceLocation resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
-                    if (blacklist.contains(resourceLocation.getNamespace()+":"+resourceLocation.getPath())){
-                        return;
-                    }
-                    if (!entity.is(player)) {
-                        if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
-                            entity.hurt(entity.damageSources().playerAttack(player), 20);
+                    if (!blacklist.contains(resourceLocation.getNamespace()+":"+resourceLocation.getPath())){
+                        if (!entity.is(player)) {
+                            if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse, 200, 1, false, false))) {
+                                entity.hurt(entity.damageSources().playerAttack(player), 20);
+                            }
                         }
                     }
                 }
@@ -142,6 +141,7 @@ public class FallingWell extends Twisted  {
                 0.1F, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
 
         CuriosApi.addSlotModifier(modifierMultimap,"well",id,2, AttributeModifier.Operation.ADD_VALUE);
+        CuriosApi.addSlotModifier(modifierMultimap,"necklace",id,1, AttributeModifier.Operation.ADD_VALUE);
 
         return modifierMultimap;
     }
