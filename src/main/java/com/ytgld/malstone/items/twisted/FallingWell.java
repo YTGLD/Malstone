@@ -78,14 +78,14 @@ public class FallingWell extends Twisted  {
                 List<LivingEntity> entitiesOfClass = player.level().getEntitiesOfClass(LivingEntity.class, new AABB(playerPos.x - range, playerPos.y - range, playerPos.z - range, playerPos.x + range, playerPos.y + range, playerPos.z + range));
                 for (LivingEntity entity : entitiesOfClass) {
                     ResourceLocation resourceLocation = BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType());
-                    if (blacklist.contains(resourceLocation.getNamespace()+":"+resourceLocation.getPath())){
-                        return;
-                    }
-                    if (!entity.is(player)) {
-                        if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse.get(), 200, 1, false, false))) {
-                            entity.hurt(entity.damageSources().playerAttack(player), 20);
+                    if (!blacklist.contains(resourceLocation.getNamespace()+":"+resourceLocation.getPath())){
+                        if (!entity.is(player)) {
+                            if (!entity.addEffect(new MobEffectInstance(Effects.fFallCurse.get(), 200, 1, false, false))) {
+                                entity.hurt(entity.damageSources().playerAttack(player), 20);
+                            }
                         }
                     }
+
                 }
             }
         }
