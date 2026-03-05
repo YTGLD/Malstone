@@ -47,6 +47,7 @@ public class ChessFell extends Twisted {
         super(properties);
     }
     public static final String lost = "lostChessFell";
+    public static final int max = -4;
     public static void add(Player player){
         if (Handler.hascurio(player, ItemRegs.ChessFell_.get())) {
             CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
@@ -59,7 +60,7 @@ public class ChessFell extends Twisted {
                         if (stack.is(ItemRegs.ChessFell_.get())) {
                             CompoundTag compoundTag = stack.get(DataReg.tag);
                             if (compoundTag != null) {
-                                if (compoundTag.getInt(lost) > 0) {
+                                if (compoundTag.getInt(lost) > max) {
                                     compoundTag.putInt(lost, compoundTag.getInt(lost) - 1);
                                 }
                             }
@@ -104,31 +105,15 @@ public class ChessFell extends Twisted {
             if (stackTag.getInt(lost)  > getLostMaxHealth()) {
                 stackTag.putInt(lost, getLostMaxHealth());
             }
-            if (stackTag.getInt(lost) < 0) {
-                stackTag.putInt(lost, 0);
+            if (stackTag.getInt(lost) < max) {
+                stackTag.putInt(lost, max);
             }
         }
     }
-
-    @Override
-    public boolean canUnequip(SlotContext slotContext, ItemStack stack) {
-        return false;
-    }
-
-    @Override
-    public @NotNull ICurio.DropRule getDropRule(SlotContext slotContext, DamageSource source, boolean recentlyHit, ItemStack stack) {
-        return super.getDropRule(slotContext, source, recentlyHit, stack);
-    }
-
-    @Override
-    public @NotNull ICurio.DropRule getDropRule(SlotContext slotContext, DamageSource source, int lootingLevel, boolean recentlyHit, ItemStack stack) {
-        return ICurio.DropRule.ALWAYS_KEEP;
-    }
-
     @Override
     public Multimap<Holder<Attribute>, AttributeModifier> getAttributeModifiers(SlotContext slotContext, ResourceLocation id, ItemStack stack) {
         Multimap<Holder<Attribute>, AttributeModifier> get = super.getAttributeModifiers(slotContext, id, stack);
-        CuriosApi.addSlotModifier(get,"belt",id,1, AttributeModifier.Operation.ADD_VALUE);
+//        CuriosApi.addSlotModifier(get,"belt",id,1, AttributeModifier.Operation.ADD_VALUE);
         get.put(MalumAttributes.GEAS_LIMIT,new AttributeModifier(id,
                 2, AttributeModifier.Operation.ADD_VALUE));
         float lostLast = 0;
@@ -153,15 +138,6 @@ public class ChessFell extends Twisted {
 
     @Override
     public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
-        CompoundTag stackTag = stack.get(DataReg.tag);
-        if (stackTag == null) {
-            tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.3").setStyle(Style.EMPTY.withColor(color())));
-        }else if (stackTag.getInt(lost) <= 0){
-            tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.3").setStyle(Style.EMPTY.withColor(color())));
-        }else {
-            tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.4").setStyle(Style.EMPTY.withColor(color())));
-        }
-        tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));

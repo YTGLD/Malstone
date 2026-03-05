@@ -169,7 +169,7 @@
   "item.malstone.chess_fell.text.3": "You can still take it off with regret, and if the death effect is triggered, it will merge with you",
   "item.malstone.chess_fell.text.4": "This thing has become one with you",
   "item.malstone.chess_fell.text.5": "While charged, the Soul Damage caused by this item is halved",
-  "item.malstone.chess_fell.text.6": "Increases health by 5% when trying to add an oath, up to the original value",
+  "item.malstone.chess_fell.text.6": "Try to add an oath to increase health by 5%, up to 120 of the original value%",
 "item.malstone.die_abyss": "Zhe Yuan",
   "item.malstone.die_abyss.text.1": "Reduces the energy cost of warped items by 50%",
   "item.malstone.die_abyss.text.2": "Killing a creature can recharge all warped items",
