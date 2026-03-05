@@ -57,7 +57,7 @@ public class BaseItem extends Item implements ICurioItem , IVoidItem {
                         if (this.hasWeepingWllPower(stack)) {
                             float time = 20;
                             if (Handler.hascurio(slotContext.entity(),ItemRegs.DieAbyss_.get())) {
-                                time *= 5;
+                                time *= 2;
                             }
                             if (slotContext.entity().tickCount % (int)time == 1) {
                                 compoundTag.putInt(weepingWellPower, compoundTag.getInt(weepingWellPower) - 1);

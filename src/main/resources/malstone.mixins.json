@@ -18,7 +18,8 @@
     "FoodDataMixin",
     "cilent.GuiGraphicsMixin",
     "cilent.GuiMixin",
-    "malum.ArcanaProgressionScreenMixin"
+    "malum.ArcanaProgressionScreenMixin",
+    "malum.GeasEffectHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

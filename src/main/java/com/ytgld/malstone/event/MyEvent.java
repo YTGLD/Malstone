@@ -98,7 +98,7 @@ public class MyEvent {
         }
     }
     @SubscribeEvent
-    public void LivingDropsEvent(LivingDropsEvent event) {
+    public void LivingDropsEvent(LivingDeathEvent event) {
         ChessFell.drop(event);
     }
     @SubscribeEvent

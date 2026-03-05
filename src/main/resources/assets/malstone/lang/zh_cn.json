@@ -179,7 +179,7 @@
   "item.malstone.extremely_dead.text.4": "强化状态下获得大量的精魂劫掠等级",
 
   "item.malstone.die_abyss": "折渊",
-  "item.malstone.die_abyss.text.1": "使扭曲物品的能量消耗速度降低80%",
+  "item.malstone.die_abyss.text.1": "使扭曲物品的能量消耗速度降低50%",
   "item.malstone.die_abyss.text.2": "杀死生物可以为所有扭曲物品进行充能",
 
   "item.malstone.corpse_cauldron": "尸釜",
@@ -195,6 +195,7 @@
   "item.malstone.chess_fell.text.3": "你现在仍然可以反悔取下它，若触发了死亡效果，则会令其与你融为一体",
   "item.malstone.chess_fell.text.4": "此物已与你融为一体",
   "item.malstone.chess_fell.text.5": "充能状态下，此物品造成的灵魂伤痛减半",
+  "item.malstone.chess_fell.text.6": "尝试添加誓令时增加5%生命值，不超过原始值",
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
