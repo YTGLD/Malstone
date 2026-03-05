@@ -189,6 +189,13 @@
   "item.malstone.corpse_cauldron.text.4":"增加一定物理和魔法抗性以及额外的坚韧之血属性",
   "item.malstone.corpse_cauldron.text.5": "大幅增加进食速度和消化速度",
 
+  "item.malstone.chess_fell": "棋陨",
+  "item.malstone.chess_fell.text.1": "死亡时遗失所有存在的誓令",
+  "item.malstone.chess_fell.text.2": "死亡时永久降低5%的最大生命值，直到最后50%",
+  "item.malstone.chess_fell.text.3": "你现在仍然可以反悔取下它，若触发了死亡效果，则会令其与你融为一体",
+  "item.malstone.chess_fell.text.4": "此物已与你融为一体",
+  "item.malstone.chess_fell.text.5": "充能状态下，此物品造成的灵魂伤痛减半",
+
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
   "malum.gui.book.entry.page.headline.breaking_the_life": "破命刀",

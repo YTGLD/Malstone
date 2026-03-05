@@ -32,6 +32,7 @@ public class Tab {
                 b.accept(ItemRegs.ExtremelyDead_.get());
                 b.accept(ItemRegs.CorpseCauldron_.get());
                 b.accept(ItemRegs.DieAbyss_.get());
+                b.accept(ItemRegs.ChessFell_.get());
 //                b.accept(ItemRegs.KillTheGods_.get());
             })
             .build()

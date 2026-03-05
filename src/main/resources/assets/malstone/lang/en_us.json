@@ -163,6 +163,13 @@
   "item.malstone.corpse_cauldron.text.4": "Increases physical and magical resistance by 15% and an additional 20% of the Blood of Fortitude attribute",
   "item.malstone.corpse_cauldron.text.5": "Greatly increase the speed of eating and digestion",
 
+"item.malstone.chess_fell": "Chess Fall",
+  "item.malstone.chess_fell.text.1": "The oath of loss of all existence upon death",
+  "item.malstone.chess_fell.text.2": "Permanently reduces maximum health by 5% on death until the last 50%",
+  "item.malstone.chess_fell.text.3": "You can still take it off with regret, and if the death effect is triggered, it will merge with you",
+  "item.malstone.chess_fell.text.4": "This thing has become one with you",
+  "item.malstone.chess_fell.text.5": "While charged, the Soul Damage caused by this item is halved",
+
 "item.malstone.die_abyss": "Zhe Yuan",
   "item.malstone.die_abyss.text.1": "Reduces the energy cost of warped items by 80%",
   "item.malstone.die_abyss.text.2": "Killing a creature can recharge all warped items",

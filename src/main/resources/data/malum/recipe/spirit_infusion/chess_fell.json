@@ -1,0 +1,35 @@
+{
+  "type": "malum:spirit_infusion",
+  "extraInputs": [
+    {
+      "count": 48,
+      "item": "malum:twisted_rock"
+    },
+    {
+      "count": 64,
+      "item": "malum:blighted_gunk"
+    },
+    {
+      "count": 1,
+      "item": "malum:fused_consciousness"
+    }
+  ],
+  "input": {
+    "count": 1,
+    "item": "malum:gilded_belt"
+  },
+  "result": {
+    "count": 1,
+    "id": "malstone:chess_fell"
+  },
+  "spirits": [
+    {
+      "type": "malum:arcane",
+      "count": 32
+    },
+    {
+      "type": "malum:eldritch",
+      "count": 25
+    }
+  ]
+}

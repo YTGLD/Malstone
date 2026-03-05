@@ -11,6 +11,7 @@ import com.ytgld.malstone.items.KillTheGods;
 import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
+import com.ytgld.malstone.items.twisted.ChessFell;
 import com.ytgld.malstone.items.twisted.CorpseCauldron;
 import com.ytgld.malstone.items.twisted.DieAbyss;
 import com.ytgld.malstone.items.twisted.ExtremelyDead;
@@ -28,10 +29,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RenderTooltipEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
-import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
+import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
@@ -98,6 +96,10 @@ public class MyEvent {
                 }
             }
         }
+    }
+    @SubscribeEvent
+    public void LivingDropsEvent(LivingDropsEvent event) {
+        ChessFell.drop(event);
     }
     @SubscribeEvent
     public void TickEvt(EntityTickEvent.Pre event) {

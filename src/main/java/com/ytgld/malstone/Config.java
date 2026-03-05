@@ -90,6 +90,10 @@ public class Config {
             .defineList("effectFallWell",
                     List.of("minecraft:player"),
                     s->s instanceof String);
+    private static final ModConfigSpec.IntValue lostChessFell = BUILDER
+            .comment("棋陨最多可降低的最大生命值次数")
+            .comment("The maximum number of times the Fall can be reduced")
+            .defineInRange("lostChessFell",10,0,20);
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -98,9 +102,13 @@ public class Config {
 
     static final ModConfigSpec SPEC  = BUILDER.build();
 
+    public static ModConfigSpec.IntValue getLostChessFell() {
+        return lostChessFell;
+    }
     public static ModConfigSpec.ConfigValue<List<? extends String>> getEffectFallWell() {
         return effectFallWell;
     }
+
 
     public static ModConfigSpec.BooleanValue getAttributeFallCurse() {
         return attributeFallCurse;
