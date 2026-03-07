@@ -93,7 +93,12 @@ public class Config {
     private static final ModConfigSpec.IntValue lostChessFell = BUILDER
             .comment("棋陨最多可降低的最大生命值次数")
             .comment("The maximum number of times the Fall can be reduced")
-            .defineInRange("lostChessFell",10,0,20);
+            .defineInRange("lostChessFell",10,0,Integer.MAX_VALUE);
+    private static final ModConfigSpec.IntValue attributeChessFell = BUILDER
+            .comment("棋陨最多有效的属性，也就是最小可以获得正面属性的次数，不过是正数")
+            .comment("Chess falls the most effective attributes，That is, the minimum number of times you can get positive attributes, but it is a positive number")
+            .defineInRange("attributeChessFell",-4,0,Integer.MAX_VALUE);
+
 
     private static final ModConfigSpec.DoubleValue ArcaneHarmonics = BUILDER
             .comment("奥术谐振对物品的属性影响")
@@ -101,6 +106,10 @@ public class Config {
             .defineInRange("ArcaneHarmonics",1f,0,Integer.MAX_VALUE);
 
     static final ModConfigSpec SPEC  = BUILDER.build();
+
+    public static ModConfigSpec.IntValue getAttributeChessFell() {
+        return attributeChessFell;
+    }
 
     public static ModConfigSpec.IntValue getLostChessFell() {
         return lostChessFell;

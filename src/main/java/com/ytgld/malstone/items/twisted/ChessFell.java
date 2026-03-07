@@ -36,18 +36,24 @@ import java.util.Map;
 /**
  * 棋陨
  * <p>
- *     +2 最大誓令存在
+ *  "死亡时遗失所有存在的誓令",
  * <p>
- * 死亡时遗失所有存在的誓令
+ * "死亡时此物品永久降低5%的最大生命值，直到最后50%",
+  * <p>
+ * "充能状态下，此物品造成的灵魂伤痛减半",
  * <p>
- * 死亡时永久降低5%的最大生命值，直到最后50%
+ * "充能状态下，此物品造成的伤痛加成增加50%",
+ * <p>
+ * <p>
+ * "尝试添加誓令时增加5%生命值，不超过原始值的120%",
+ * <p>
+ * "死亡时此物品永久提高5%的伤害，直到原先的120%",
  */
 public class ChessFell extends Twisted {
     public ChessFell(Properties properties) {
         super(properties);
     }
     public static final String lost = "lostChessFell";
-    public static final int max = -4;
     public static void add(Player player){
         if (Handler.hascurio(player, ItemRegs.ChessFell_.get())) {
             CuriosApi.getCuriosInventory(player).ifPresent(handler -> {
@@ -60,7 +66,7 @@ public class ChessFell extends Twisted {
                         if (stack.is(ItemRegs.ChessFell_.get())) {
                             CompoundTag compoundTag = stack.get(DataReg.tag);
                             if (compoundTag != null) {
-                                if (compoundTag.getInt(lost) > max) {
+                                if (compoundTag.getInt(lost) > getMinAttributeAdd()) {
                                     compoundTag.putInt(lost, compoundTag.getInt(lost) - 1);
                                 }
                             }
@@ -105,8 +111,8 @@ public class ChessFell extends Twisted {
             if (stackTag.getInt(lost)  > getLostMaxHealth()) {
                 stackTag.putInt(lost, getLostMaxHealth());
             }
-            if (stackTag.getInt(lost) < max) {
-                stackTag.putInt(lost, max);
+            if (stackTag.getInt(lost) < getMinAttributeAdd()) {
+                stackTag.putInt(lost, getMinAttributeAdd());
             }
         }
     }
@@ -117,34 +123,55 @@ public class ChessFell extends Twisted {
         get.put(MalumAttributes.GEAS_LIMIT,new AttributeModifier(id,
                 2, AttributeModifier.Operation.ADD_VALUE));
         float lostLast = 0;
+        float addDamage = 0;
         CompoundTag compoundTag  =stack.get(DataReg.tag);
-        if (compoundTag!=null   ) {
+        if (compoundTag!=null) {
             int number = compoundTag.getInt(lost);
             float pain = 0.05f;
+            float happy = 0.02f;
             if (this.hasWeepingWllPower(stack)) {
                 pain /= 2f;
+                happy *= 1.5f;
             }
+            addDamage = number * happy;
             lostLast = pain * number;
         }
         get.put(Attributes.MAX_HEALTH,new AttributeModifier(id,
                 -lostLast, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+        get.put(Attributes.ATTACK_DAMAGE,new AttributeModifier(id,
+                addDamage, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
         return get;
     }
 
+    @Override
+    public @NotNull ICurio.DropRule getDropRule(SlotContext slotContext, DamageSource source, boolean recentlyHit, ItemStack stack) {
+        return ICurio.DropRule.ALWAYS_KEEP;
+    }
+
+    @Override
+    public @NotNull ICurio.DropRule getDropRule(SlotContext slotContext, DamageSource source, int lootingLevel, boolean recentlyHit, ItemStack stack) {
+        return ICurio.DropRule.ALWAYS_KEEP;
+    }
+
     public static int getLostMaxHealth(){
-        return Config.getLostChessFell().hashCode();
+        return Config.getLostChessFell().get();
+    }
+    public static int getMinAttributeAdd(){
+        return Config.getAttributeChessFell().get();
     }
 
     @Override
     public @Nullable MalstoneText malstoneText(ItemStack stack, List<Component> tooltipComponents) {
         tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.2").setStyle(Style.EMPTY.withColor(color())));
+        tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.7").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.literal(""));
         tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.6").setStyle(Style.EMPTY.withColor(color())));
         if (this.hasWeepingWllPower(stack)) {
             tooltipComponents.add(Component.literal(""));
             tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.5").setStyle(Style.EMPTY.withColor(color())));
+            tooltipComponents.add(Component.translatable("item.malstone.chess_fell.text.9").setStyle(Style.EMPTY.withColor(color())));
         }
         return new MalstoneText(stack,tooltipComponents);
     }

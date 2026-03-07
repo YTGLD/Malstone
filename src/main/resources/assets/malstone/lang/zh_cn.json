@@ -191,11 +191,11 @@
 
   "item.malstone.chess_fell": "棋陨",
   "item.malstone.chess_fell.text.1": "死亡时遗失所有存在的誓令",
-  "item.malstone.chess_fell.text.2": "死亡时永久降低5%的最大生命值，直到最后50%",
-  "item.malstone.chess_fell.text.3": "你现在仍然可以反悔取下它，若触发了死亡效果，则会令其与你融为一体",
-  "item.malstone.chess_fell.text.4": "此物已与你融为一体",
+  "item.malstone.chess_fell.text.2": "死亡时此物品永久降低5%的最大生命值，直到最后50%",
   "item.malstone.chess_fell.text.5": "充能状态下，此物品造成的灵魂伤痛减半",
-  "item.malstone.chess_fell.text.6": "尝试添加誓令时增加5%生命值，不超过原始值的120%",
+  "item.malstone.chess_fell.text.9": "充能状态下，此物品获得的伤害加成增加50%",
+  "item.malstone.chess_fell.text.6": "尝试添加誓令时增加5%生命值和减少2%伤害",
+  "item.malstone.chess_fell.text.7": "死亡时此物品永久提高2%的伤害，直到原先的120%",
 
   "malum.gui.book.entry.breaking_the_life": "破命刀",
   "malum.gui.book.entry.breaking_the_life.description": "不可思议的痛楚",
