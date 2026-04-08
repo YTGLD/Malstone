@@ -20,6 +20,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.UseAnim;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderTooltipEvent;
@@ -36,11 +37,13 @@ public class MyEvent {
     public void eatFood(LivingEntityUseItemEvent.Start event){
         LivingEntity living = event.getEntity();
         if (living instanceof Player player) {
-            AttributeInstance attribute = player.getAttribute(AttReg.EatTime.get());
-            if (attribute != null) {
-                float value = (float) attribute.getValue();
-                value = Math.max(value,0.1f);
-                event.setDuration((int) (event.getDuration() * value));
+            if (event.getItem().getUseAnimation() == UseAnim.EAT) {
+                AttributeInstance attribute = player.getAttribute(AttReg.EatTime.get());
+                if (attribute != null) {
+                    float value = (float) attribute.getValue();
+                    value = Math.max(value, 0.1f);
+                    event.setDuration((int) (event.getDuration() * value));
+                }
             }
         }
     }
@@ -76,7 +79,7 @@ public class MyEvent {
         HugeSouls.lLivingHealEvent(event);
         BreakingTheLife.lLivingHealEvent(event);
         LivingEntity living = event.getEntity();
-        if (living instanceof Player player) {
+        if (living instanceof Player player && !player.level().isClientSide) {
             AttributeInstance attribute = player.getAttribute(AttReg.ChaosErosion.get());
             AttributeInstance capacity = player.getAttribute(AttributeRegistry.SOUL_WARD_CAP.get());
             if (attribute != null && capacity!=null) {

@@ -9,7 +9,6 @@ import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.BaseItem;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.LivingEntity;
@@ -47,8 +46,6 @@ public class WeepingImmortal extends Twisted {
     public WeepingImmortal(Properties properties) {
         super(properties);
     }
-
-    public static final String timeCache = "timeCacheWeepingImmortal" ;
 
 
     public static void pickUp(LivingEntity entity, ItemStack other){
@@ -153,6 +150,7 @@ public class WeepingImmortal extends Twisted {
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.1").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.2").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.3").setStyle(Style.EMPTY.withColor(color())));
+        tooltipComponents.add(Component.translatable("item.malstone.weeping_immortal.text.4").setStyle(Style.EMPTY.withColor(color())));
         return new MalstoneText(stack,tooltipComponents);
     }
 }
