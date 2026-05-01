@@ -6,6 +6,7 @@ import com.sammy.malum.common.container.SpiritPouchContainer;
 import com.sammy.malum.common.entity.spirit.SpiritItemEntity;
 import com.sammy.malum.common.item.curiosities.SpiritPouchItem;
 import com.sammy.malum.core.handlers.SpiritHarvestHandler;
+import com.sammy.malum.registry.common.item.ItemRegistry;
 import com.ytgld.malstone.Handler;
 import com.ytgld.malstone.items.init.ItemRegs;
 import com.ytgld.malstone.items.init.Twisted;
@@ -19,6 +20,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.Nullable;
 import team.lodestar.lodestone.systems.container.ItemInventory;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -39,11 +41,15 @@ public class Condenser extends Twisted {
 
     public static void tpPlayer(Player player , SpiritItemEntity spiritItemEntity){
         if (Handler.hascurio(player, ItemRegs.Condenser_.get())) {
+            ItemStack stack = spiritItemEntity.itemStack;
+            if (stack.isEmpty()) {
+                stack = new ItemStack(ItemRegistry.ARCANE_SPIRIT.get());
+            }
             for (NonNullList<ItemStack> playerInventory : ImmutableList.of(player.getInventory().items, player.getInventory().armor, player.getInventory().offhand)) {
                 for (ItemStack item : playerInventory) {
                     if (item.getItem() instanceof SpiritPouchItem) {
                         ItemInventory inventory = SpiritPouchItem.getInventory(item);
-                        ItemStack result = inventory.addItem(spiritItemEntity.itemStack);
+                        ItemStack result = inventory.addItem(stack);
                         if (result.isEmpty()) {
                             if (player.containerMenu instanceof SpiritPouchContainer pouchMenu) {
                                 pouchMenu.update(inventory);
@@ -54,7 +60,7 @@ public class Condenser extends Twisted {
                     }
                 }
             }
-            SpiritHarvestHandler.pickupSpirit(player, spiritItemEntity.itemStack);
+            SpiritHarvestHandler.pickupSpirit(player, stack);
             spiritItemEntity.discard();;
         }
     }

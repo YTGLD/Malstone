@@ -1,0 +1,6 @@
+{
+  "parent": "malstone:item/handheld_large",
+  "textures": {
+    "layer0": "malstone:item/wallow_axe_huge"
+  }
+}

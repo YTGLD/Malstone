@@ -23,7 +23,6 @@ public abstract class SpiritItemEntityMixin extends FloatingItemEntity {
         if (this.level() instanceof ServerLevel) {
             if (this.owner instanceof Player collector) {
                 Condenser.tpPlayer(collector, (SpiritItemEntity) (Object) this);
-//                ExtremelyDead.flyDamage(collector, (SpiritItemEntity) (Object) this);
             }
         }
     }

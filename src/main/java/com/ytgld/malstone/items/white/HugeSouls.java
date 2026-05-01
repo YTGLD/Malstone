@@ -61,6 +61,8 @@ public class HugeSouls extends WhiteArrow {
         components.add(Component.literal(""));
         components.add(Component.translatable("item.malstone.huge_soul.text.3").setStyle(Style.EMPTY.withColor(color())));
 //        components.add(Component.translatable("item.malstone.huge_soul.text.4").setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.literal(""));
+        components.add(Component.translatable("item.malstone.white_arrow").setStyle(Style.EMPTY.withColor(color())));
 
     }
 

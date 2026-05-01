@@ -4,6 +4,7 @@ import com.sammy.malum.common.capability.MalumPlayerDataCapability;
 import com.sammy.malum.core.handlers.SoulWardHandler;
 import com.sammy.malum.registry.common.AttributeRegistry;
 import com.ytgld.malstone.attribute.AttReg;
+import com.ytgld.malstone.items.WallowAxe;
 import com.ytgld.malstone.items.init.*;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.Martyrdom;
@@ -28,11 +29,16 @@ import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.player.CriticalHitEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class MyEvent {
+    @SubscribeEvent
+    public void cit(CriticalHitEvent event){
+        WallowAxe.cit(event);
+    }
     @SubscribeEvent
     public void eatFood(LivingEntityUseItemEvent.Start event){
         LivingEntity living = event.getEntity();

@@ -129,6 +129,8 @@ public class RingOfAuthority extends WhiteArrow {
         components.add(Component.translatable("item.malstone.ring_of_authority.text.3").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.ring_of_authority.text.4").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.ring_of_authority.text.5").setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.literal(""));
+        components.add(Component.translatable("item.malstone.white_arrow").setStyle(Style.EMPTY.withColor(color())));
     }
 
     public Multimap<Attribute, AttributeModifier> doAttribute(LivingEntity player) {

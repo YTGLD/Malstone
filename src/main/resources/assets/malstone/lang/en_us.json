@@ -8,6 +8,7 @@
   "item.malstone.skill_use.text": "There is also %d%% recharge time for this item",
   "item.chest_item.skill.twisted": "Distorted lies：The shackles of imprisonment",
   "item.malstone.shift": "Press Shift to view",
+  "item.malstone.white_arrow": "This item is affected by the Arcane Resonance attribute, and the lower the stat, the better the effect of this item",
 
 
   "curios.identifier.well": "Crying slot",
@@ -163,8 +164,12 @@
   "item.malstone.corpse_cauldron.text.3": "If charged by the well of weeping:",
   "item.malstone.corpse_cauldron.text.4": "Increases physical and magical resistance by 15% and an additional 20% of the Blood of Fortitude attribute",
   "item.malstone.corpse_cauldron.text.5": "Greatly increase the speed of eating and digestion",
+  "item.malstone.wallow_axe": "Sinking Tomahawk",
+"item.malstone.wallow_axe.text.1": "3x critical damage",
+  "item.malstone.wallow_axe.text.2": "Critical hits will definitely trigger the Soul Harvesting effect",
 
-"item.malstone.die_abyss": "Zhe Yuan",
+
+  "item.malstone.die_abyss": "Zhe Yuan",
   "item.malstone.die_abyss.text.1": "Reduces the energy cost of warped items by 80%",
   "item.malstone.die_abyss.text.2": "Killing a creature can recharge all warped items",
 

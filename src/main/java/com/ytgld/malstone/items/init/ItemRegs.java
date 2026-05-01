@@ -1,6 +1,7 @@
 package com.ytgld.malstone.items.init;
 
 import com.ytgld.malstone.Malstone;
+import com.ytgld.malstone.items.WallowAxe;
 import com.ytgld.malstone.items.rune.BladeOath;
 import com.ytgld.malstone.items.rune.EternalFallenSoul;
 import com.ytgld.malstone.items.rune.Hungrier;
@@ -54,6 +55,8 @@ public class ItemRegs {
     public static final RegistryObject<Item> DieAbyss_ = REGISTER.register("die_abyss",
             ()->new DieAbyss(new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
 
+    public static final RegistryObject<Item> WallowAxe_ = REGISTER.register("wallow_axe",
+            ()->new WallowAxe(new Item.Properties().rarity(Rarity.EPIC).stacksTo(1)));
 
 
 

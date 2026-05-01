@@ -1,0 +1,15 @@
+{
+  "parent": "item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "malstone:item/wallow_axe_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "malstone:item/wallow_axe_gui"
+    },
+    "fixed": {
+      "parent": "malstone:item/wallow_axe_gui"
+    }
+  }
+}
