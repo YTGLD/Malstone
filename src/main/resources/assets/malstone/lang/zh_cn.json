@@ -12,6 +12,7 @@
   "item.chest_item.skill.twisted": "扭曲的谎言   禁锢的枷锁",
   "item.malstone.shift": "按下 Shift 查看一些无意义的内容",
   "item.malstone.white_arrow": "此物品受奥术谐振属性影响，属性越低，此物品效果越好",
+  "item.malstone.do_magic": "此物品受奥术谐振属性影响，属性越高，此物品效果越好",
 
   "attribute.name.malstone.chaos_erosion": "灵魂异动",
   "attribute.name.malstone.chaos_erosion.desc": "在治疗时有可能恢复灵魂护盾，但是一旦恢复则取消此次治疗",

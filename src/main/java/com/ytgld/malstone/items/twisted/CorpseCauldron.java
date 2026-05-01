@@ -131,6 +131,8 @@ public class CorpseCauldron extends Twisted {
         tooltipComponents.add(Component.translatable("item.malstone.corpse_cauldron.text.3").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.corpse_cauldron.text.4").setStyle(Style.EMPTY.withColor(color())));
         tooltipComponents.add(Component.translatable("item.malstone.corpse_cauldron.text.5").setStyle(Style.EMPTY.withColor(color())));
+        tooltipComponents.add(Component.literal(""));
+        tooltipComponents.add(Component.translatable("item.malstone.do_magic").setStyle(Style.EMPTY.withColor(color())));
         return new MalstoneText(stack,tooltipComponents);
     }
     public Multimap<Attribute, AttributeModifier> doAttribute(Player player,ItemStack stack) {

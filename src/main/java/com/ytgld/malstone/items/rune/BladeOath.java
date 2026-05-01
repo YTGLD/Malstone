@@ -110,7 +110,7 @@ public class BladeOath extends Runes {
         components.add(Component.literal(""));
         components.add(Component.translatable("item.malstone.blade_dath.text.2").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.literal(""));
-        components.add(Component.translatable("item.malstone.white_arrow").setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.translatable("item.malstone.do_magic").setStyle(Style.EMPTY.withColor(color())));
     }
 
 }

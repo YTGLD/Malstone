@@ -9,6 +9,7 @@
   "item.chest_item.skill.twisted": "Distorted lies：The shackles of imprisonment",
   "item.malstone.shift": "Press Shift to view",
   "item.malstone.white_arrow": "This item is affected by the Arcane Resonance attribute, and the lower the stat, the better the effect of this item",
+  "item.malstone.do_magic": "This item is affected by the Arcane Resonance attribute, the higher the attribute, the better the effect of this item",
 
 
   "curios.identifier.well": "Crying slot",

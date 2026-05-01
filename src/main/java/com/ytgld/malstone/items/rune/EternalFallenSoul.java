@@ -116,6 +116,8 @@ public class EternalFallenSoul extends Runes {
         super.appendHoverText(stack, level, components, flag);
         components.add(Component.translatable("item.malstone.eternal_fallen_soul.text").setStyle(Style.EMPTY.withColor(color())));
         components.add(Component.translatable("item.malstone.eternal_fallen_soul.text.1",maxDamageAndArmor(null)*100f).setStyle(Style.EMPTY.withColor(color())));
+        components.add(Component.literal(""));
+        components.add(Component.translatable("item.malstone.do_magic").setStyle(Style.EMPTY.withColor(color())));
     }
 
     public  static float maxDamageAndArmor(LivingEntity living){
